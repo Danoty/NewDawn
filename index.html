@@ -109,10 +109,9 @@
     }
 
     section {
-      scroll-margin-top: 130px;
+      scroll-margin-top: 140px;
     }
 
-    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       * {
         scroll-behavior: auto !important;
@@ -139,7 +138,6 @@
       top: 10px;
     }
 
-    /* Focus outlines */
     a:focus,
     button:focus,
     input:focus,
@@ -148,7 +146,6 @@
       outline-offset: 2px;
     }
 
-    /* ANIMATION BASE */
     [data-animate] {
       opacity: 0;
       transform: translateY(14px);
@@ -240,7 +237,6 @@
       text-decoration: none;
     }
 
-    /* Accessibility controls + translate */
     .accessibility-controls {
       display: flex;
       align-items: center;
@@ -268,7 +264,6 @@
       padding: 2px 6px;
     }
 
-    /* NAV */
     .nav-wrapper {
       width: 100%;
       max-width: var(--max-width);
@@ -318,7 +313,6 @@
       z-index: 1;
     }
 
-    /* Hamburger button */
     .nav-toggle {
       display: none;
       background: rgba(0, 0, 0, 0.2);
@@ -359,14 +353,33 @@
       top: 5px;
     }
 
+    /* ANNOUNCEMENT BAR */
+    .announcement-bar {
+      margin-top: 118px;
+      background: #fffbdd;
+      color: #4a3b00;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 998;
+    }
+    .announcement-bar a {
+      color: #0c4b33;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
     /* HERO SLIDER */
     .slider-container {
-      margin-top: 130px;
       position: relative;
       overflow: hidden;
       width: 100%;
       height: 440px;
       background-color: #000;
+      margin-top: 0;
     }
 
     .slider {
@@ -505,7 +518,7 @@
       font-size: 0.95rem;
     }
 
-    /* SECTIONS GENERAL */
+    /* SECTIONS */
     .section {
       padding: 50px 16px;
       background-color: #ffffff;
@@ -536,7 +549,7 @@
       font-size: 0.95rem;
     }
 
-    /* STATS */
+    /* STATISTICS */
     .statistics {
       padding: 40px 16px 32px;
       background: radial-gradient(circle at top left, #e8fff6 0, #ffffff 40%);
@@ -579,7 +592,7 @@
       color: var(--text-muted);
     }
 
-    /* ABOUT / CBC LAYOUT */
+    /* LAYOUTS */
     .two-column {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -639,7 +652,6 @@
       color: var(--primary);
     }
 
-    /* WHY NEWDAWN */
     .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -667,7 +679,6 @@
       color: var(--primary-dark);
     }
 
-    /* RESOURCES SECTION */
     .resource-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -690,7 +701,6 @@
       color: var(--primary-dark);
     }
 
-    /* ADMISSIONS STEPS */
     .steps {
       border-left: 3px solid rgba(12, 75, 51, 0.18);
       margin-top: 10px;
@@ -726,7 +736,6 @@
       color: var(--text-muted);
     }
 
-    /* TESTIMONIALS */
     .testimonial-wrapper {
       max-width: 720px;
       margin: 0 auto;
@@ -759,7 +768,6 @@
       color: var(--accent-dark);
     }
 
-    /* STAFF SECTION */
     .staff-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -791,7 +799,6 @@
       color: var(--text-muted);
     }
 
-    /* INCLUSION & SAFEGUARDING */
     .three-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -824,7 +831,6 @@
       margin-bottom: 4px;
     }
 
-    /* KENYAN CALENDAR / FEES SUMMARY */
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -856,7 +862,6 @@
       margin-bottom: 4px;
     }
 
-    /* FAQ */
     .faq-grid {
       max-width: 800px;
       margin: 0 auto;
@@ -890,7 +895,6 @@
       margin-top: 6px;
     }
 
-    /* CONTACT SECTION */
     .contact-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
@@ -1122,6 +1126,47 @@
       display: inline-flex;
     }
 
+    /* COOKIE BANNER */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.88);
+      color: #ffffff;
+      font-size: 0.78rem;
+      padding: 8px 10px;
+      z-index: 1500;
+    }
+    .cookie-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cookie-inner p {
+      flex: 1;
+      min-width: 200px;
+      margin: 0;
+    }
+    .cookie-inner button {
+      border-radius: 999px;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+      background: var(--accent);
+      color: #000;
+      font-size: 0.8rem;
+    }
+    .cookie-inner a {
+      color: #fffbdd;
+      text-decoration: underline;
+      font-size: 0.78rem;
+    }
+
     /* FOOTER */
     footer {
       background: var(--primary-dark);
@@ -1181,7 +1226,6 @@
       font-size: 0.9rem;
     }
 
-    /* Newsletter */
     .newsletter input {
       width: 100%;
       max-width: 240px;
@@ -1258,7 +1302,6 @@
       }
 
       .slider-container {
-        margin-top: 130px;
         height: 360px;
       }
 
@@ -1272,6 +1315,13 @@
 
       .stats-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cookie-inner {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
 
@@ -1355,6 +1405,7 @@
         <a href="#why"><span>Why NewDawn</span></a>
         <a href="#resources"><span>Resources</span></a>
         <a href="#admissions"><span>Admissions</span></a>
+        <a href="#portals"><span>Portals</span></a>
         <a href="#staff"><span>Staff</span></a>
         <a href="#inclusion"><span>Inclusion & Safety</span></a>
         <a href="#calendar"><span>Calendar & Fees</span></a>
@@ -1364,6 +1415,13 @@
       </nav>
     </div>
   </header>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" role="status" aria-live="polite">
+    🎓 2025 Term 1 admissions now open.
+    <a href="#admissions">View admissions details</a> or
+    <a href="#contact">contact the office</a>.
+  </div>
 
   <main id="mainContent" tabindex="-1">
     <!-- HERO / SLIDER -->
@@ -1610,6 +1668,48 @@
       </div>
     </section>
 
+    <!-- PORTALS -->
+    <section class="section" id="portals">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Online Portals</h2>
+          <p>Secure access points for parents, learners and staff (coming soon).</p>
+        </div>
+
+        <div class="why-grid" data-animate>
+          <div class="why-card">
+            <h3>Parent Portal</h3>
+            <p>
+              View term dates, fee statements, announcements and your child’s academic reports in one secure space.
+            </p>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
+              <em>Integration in progress.</em>
+            </p>
+          </div>
+
+          <div class="why-card">
+            <h3>Learner Portal</h3>
+            <p>
+              Access assignments, digital resources and club information, aligning with CBC projects and revision work.
+            </p>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
+              <em>Login link will appear here once activated.</em>
+            </p>
+          </div>
+
+          <div class="why-card">
+            <h3>Staff Portal</h3>
+            <p>
+              Central place for teaching resources, internal notices and professional development opportunities.
+            </p>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
+              <em>Restricted access for NewDawn staff.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- STAFF -->
     <section class="section alt-bg" id="staff">
       <div class="section-inner">
@@ -1779,6 +1879,45 @@
       </div>
     </section>
 
+    <!-- POLICIES & DOWNLOADS -->
+    <section class="section alt-bg" id="policies">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Policies & Downloads</h2>
+          <p>Key documents that guide how we operate as a safe, transparent and accountable school.</p>
+        </div>
+
+        <div class="three-grid" data-animate>
+          <div class="policy-card">
+            <h3>Admissions & Fees</h3>
+            <ul class="policy-list">
+              <li><a href="#" download>Admissions Information Pack (PDF)</a></li>
+              <li><a href="#" download>Fee Structure Summary – 2025 (PDF)</a></li>
+              <li><a href="#" download>Uniform & Supplies List (PDF)</a></li>
+            </ul>
+          </div>
+
+          <div class="policy-card">
+            <h3>Child Protection & Safeguarding</h3>
+            <ul class="policy-list">
+              <li><a href="#" download>Child Protection Policy (PDF)</a></li>
+              <li><a href="#" download>Anti-Bullying & Behaviour Policy (PDF)</a></li>
+              <li><a href="#" download>ICT & Online Safety Guidelines (PDF)</a></li>
+            </ul>
+          </div>
+
+          <div class="policy-card">
+            <h3>Data & Complaints</h3>
+            <ul class="policy-list">
+              <li><a href="#" download>Data Protection & Privacy Notice (PDF)</a></li>
+              <li><a href="#" download>Complaints & Feedback Procedure (PDF)</a></li>
+              <li><a href="#contact">Contact the school office</a> for any clarification.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="section-inner">
@@ -1852,7 +1991,7 @@
         </div>
 
         <div class="photo-grid" data-animate aria-label="Photo gallery">
-          <!-- Known numbered photos -->
+          <!-- 1..9, 0 -->
           <img class="gallery-img" src="1.jpg"  alt="NewDawn School moment 1" loading="lazy">
           <img class="gallery-img" src="2.jpg"  alt="NewDawn School moment 2" loading="lazy">
           <img class="gallery-img" src="3.jpg"  alt="NewDawn School moment 3" loading="lazy">
@@ -1864,6 +2003,7 @@
           <img class="gallery-img" src="9.jpg"  alt="NewDawn School moment 9" loading="lazy">
           <img class="gallery-img" src="0.jpg"  alt="NewDawn School moment 0" loading="lazy">
 
+          <!-- 01..08 -->
           <img class="gallery-img" src="01.jpg" alt="NewDawn School extended gallery 01" loading="lazy">
           <img class="gallery-img" src="02.jpg" alt="NewDawn School extended gallery 02" loading="lazy">
           <img class="gallery-img" src="03.jpg" alt="NewDawn School extended gallery 03" loading="lazy">
@@ -1872,35 +2012,6 @@
           <img class="gallery-img" src="06.jpg" alt="NewDawn School extended gallery 06" loading="lazy">
           <img class="gallery-img" src="07.jpg" alt="NewDawn School extended gallery 07" loading="lazy">
           <img class="gallery-img" src="08.jpg" alt="NewDawn School extended gallery 08" loading="lazy">
-
-          <!-- Extra photos – adjust names to match your repo if needed -->
-          <img class="gallery-img" src="A.jpg"  alt="NewDawn School extra photo A" loading="lazy">
-          <img class="gallery-img" src="AA.jpg" alt="NewDawn School extra photo AA" loading="lazy">
-          <img class="gallery-img" src="B.jpg"  alt="NewDawn School extra photo B" loading="lazy">
-          <img class="gallery-img" src="BB.jpg" alt="NewDawn School extra photo BB" loading="lazy">
-          <img class="gallery-img" src="C.jpg"  alt="NewDawn School extra photo C" loading="lazy">
-          <img class="gallery-img" src="CC.jpg" alt="NewDawn School extra photo CC" loading="lazy">
-          <img class="gallery-img" src="D.jpg"  alt="NewDawn School extra photo D" loading="lazy">
-          <img class="gallery-img" src="DD.jpg" alt="NewDawn School extra photo DD" loading="lazy">
-          <img class="gallery-img" src="E.jpg"  alt="NewDawn School extra photo E" loading="lazy">
-          <img class="gallery-img" src="EE.jpg" alt="NewDawn School extra photo EE" loading="lazy">
-          <img class="gallery-img" src="F.jpg"  alt="NewDawn School extra photo F" loading="lazy">
-          <img class="gallery-img" src="FF.jpg" alt="NewDawn School extra photo FF" loading="lazy">
-          <img class="gallery-img" src="G.jpg"  alt="NewDawn School extra photo G" loading="lazy">
-          <img class="gallery-img" src="GG.jpg" alt="NewDawn School extra photo GG" loading="lazy">
-          <img class="gallery-img" src="H.jpg"  alt="NewDawn School extra photo H" loading="lazy">
-          <img class="gallery-img" src="HH.jpg" alt="NewDawn School extra photo HH" loading="lazy">
-          <img class="gallery-img" src="I.jpg"  alt="NewDawn School extra photo I" loading="lazy">
-          <img class="gallery-img" src="II.jpg" alt="NewDawn School extra photo II" loading="lazy">
-          <img class="gallery-img" src="J.jpg"  alt="NewDawn School extra photo J" loading="lazy">
-          <img class="gallery-img" src="JJ.jpg" alt="NewDawn School extra photo JJ" loading="lazy">
-          <img class="gallery-img" src="K.jpg"  alt="NewDawn School extra photo K" loading="lazy">
-          <img class="gallery-img" src="KK.jpg" alt="NewDawn School extra photo KK" loading="lazy">
-          <img class="gallery-img" src="L.jpg"  alt="NewDawn School extra photo L" loading="lazy">
-          <img class="gallery-img" src="M.jpg"  alt="NewDawn School extra photo M" loading="lazy">
-          <img class="gallery-img" src="N.jpg"  alt="NewDawn School extra photo N" loading="lazy">
-          <img class="gallery-img" src="O.jpg"  alt="NewDawn School extra photo O" loading="lazy">
-          <img class="gallery-img" src="P.jpg"  alt="NewDawn School extra photo P" loading="lazy">
         </div>
       </div>
     </section>
@@ -1917,7 +2028,6 @@
           <div class="media-card">
             <h3>School Highlights Video 1</h3>
             <video controls preload="metadata">
-              <!-- Rename first video to video1.mp4 OR change src -->
               <source src="video1.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -1927,7 +2037,6 @@
           <div class="media-card">
             <h3>School Highlights Video 2</h3>
             <video controls preload="metadata">
-              <!-- Rename second video to video2.mp4 OR change src -->
               <source src="video2.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -1999,6 +2108,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- COOKIE / ANALYTICS CONSENT BANNER -->
+  <div id="cookieBanner" class="cookie-banner" aria-label="Cookie and analytics notice">
+    <div class="cookie-inner">
+      <p>
+        We use basic analytics to understand how visitors use this website and improve our services.
+        No learner names or sensitive information are collected.
+      </p>
+      <button id="cookieAccept" type="button">I understand</button>
+      <a href="#policies">Learn more</a>
+    </div>
+  </div>
 
   <!-- GOOGLE TRANSLATE -->
   <script type="text/javascript">
@@ -2150,6 +2271,23 @@
     fontToggle.addEventListener('click', () => {
       bodyEl.classList.toggle('large-font');
     });
+
+    // COOKIE / ANALYTICS CONSENT
+    (function () {
+      const banner = document.getElementById('cookieBanner');
+      const accept = document.getElementById('cookieAccept');
+      if (!banner || !accept) return;
+
+      const KEY = 'ndCookieAccepted';
+      if (localStorage.getItem(KEY) === 'yes') {
+        banner.style.display = 'none';
+      }
+
+      accept.addEventListener('click', () => {
+        localStorage.setItem(KEY, 'yes');
+        banner.style.display = 'none';
+      });
+    })();
   </script>
 </body>
 </html>
