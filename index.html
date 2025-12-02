@@ -32,10 +32,11 @@
       --accent: #ff7f32;
       --accent-dark: #e66a29;
       --bg-light: #f4f6fb;
+      --bg-hero: radial-gradient(circle at top left, #1d7e57 0, #0c4b33 35%, #072118 100%);
       --text-main: #222222;
       --text-muted: #666666;
       --radius-lg: 18px;
-      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.12);
       --max-width: 1200px;
     }
 
@@ -66,9 +67,21 @@
       scroll-margin-top: 130px;
     }
 
+    /* ANIMATION BASE */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-animate].in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* HEADER / NAVBAR */
     header {
-      background: linear-gradient(90deg, var(--primary) 0%, #156b4a 100%);
+      background: var(--bg-hero);
       color: white;
       padding: 10px 20px;
       position: fixed;
@@ -79,6 +92,7 @@
       flex-direction: column;
       align-items: center;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
     }
 
     .top-bar {
@@ -250,7 +264,7 @@
       height: 440px;
       object-fit: cover;
       flex-shrink: 0;
-      filter: brightness(0.7);
+      filter: brightness(0.72);
     }
 
     .hero-overlay {
@@ -258,9 +272,9 @@
       inset: 0;
       background: linear-gradient(
         120deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.35) 40%,
-        rgba(12, 75, 51, 0.8) 100%
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.4) 35%,
+        rgba(12, 75, 51, 0.85) 100%
       );
     }
 
@@ -275,6 +289,18 @@
       margin: 0 auto;
       padding: 0 18px;
       color: #ffffff;
+      animation: heroFade 1.3s ease forwards;
+    }
+
+    @keyframes heroFade {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-kicker {
@@ -286,7 +312,7 @@
     }
 
     .hero-title {
-      font-size: 2.2rem;
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
       max-width: 600px;
       font-weight: 600;
       line-height: 1.2;
@@ -497,6 +523,34 @@
       color: var(--primary);
     }
 
+    /* WHY NEWDAWN */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .why-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .why-icon {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .why-card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 4px;
+      color: var(--primary-dark);
+    }
+
     /* RESOURCES SECTION */
     .resource-list {
       display: grid;
@@ -518,6 +572,75 @@
       font-size: 1.02rem;
       margin-bottom: 4px;
       color: var(--primary-dark);
+    }
+
+    /* ADMISSIONS STEPS */
+    .steps {
+      border-left: 3px solid rgba(12, 75, 51, 0.18);
+      margin-top: 10px;
+      padding-left: 14px;
+    }
+
+    .step {
+      margin-bottom: 14px;
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      left: -17px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(255, 127, 50, 0.3);
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 0.94rem;
+      color: var(--primary-dark);
+    }
+
+    .step-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* TESTIMONIALS */
+    .testimonial-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 18px 16px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      text-align: left;
+      min-height: 150px;
+    }
+
+    .testimonial-text {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .testimonial-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: var(--accent-dark);
     }
 
     /* STAFF SECTION */
@@ -550,6 +673,40 @@
     .staff-card p {
       font-size: 0.88rem;
       color: var(--text-muted);
+    }
+
+    /* FAQ */
+    .faq-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    details {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    details summary {
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      list-style: none;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 6px;
     }
 
     /* CONTACT SECTION */
@@ -810,7 +967,6 @@
     }
 
     /* RESPONSIVE */
-
     @media (max-width: 900px) {
       .two-column,
       .contact-layout {
@@ -859,7 +1015,7 @@
       }
 
       nav.open {
-        max-height: 320px;
+        max-height: 340px;
       }
 
       nav a {
@@ -931,7 +1087,7 @@
     <div class="top-bar">
       <div class="logo-container">
         <a href="#home" aria-label="Back to homepage">
-          <img src="logo.png" alt="NewDawn School Logo" />
+          <img src="logo.png" alt="NewDawn School Logo" loading="lazy" />
           <div class="logo-text">
             <h1>NewDawn School</h1>
             <span>Inspiring Future Leaders</span>
@@ -952,7 +1108,9 @@
         <a href="#home"><span>Home</span></a>
         <a href="#about"><span>About Us</span></a>
         <a href="#cbc"><span>CBC & Academics</span></a>
+        <a href="#why"><span>Why NewDawn</span></a>
         <a href="#resources"><span>Resources</span></a>
+        <a href="#admissions"><span>Admissions</span></a>
         <a href="#staff"><span>Staff</span></a>
         <a href="#contact"><span>Contact</span></a>
         <a href="#gallery"><span>Gallery</span></a>
@@ -964,11 +1122,11 @@
   <!-- HERO / SLIDER -->
   <section class="slider-container" id="home">
     <div class="slider">
-      <img src="01.jpg" alt="Learners interacting in a classroom">
-      <img src="02.jpg" alt="Colourful classroom setup ready for pupils">
-      <img src="03.jpg" alt="Teacher working closely with a young learner">
-      <img src="04.jpg" alt="Outdoor play and learning area at NewDawn School">
-      <img src="05.jpg" alt="NewDawn School bus and learners outside">
+      <img src="01.jpg" alt="Learners interacting in a classroom" loading="eager">
+      <img src="02.jpg" alt="Colourful classroom setup ready for pupils" loading="lazy">
+      <img src="03.jpg" alt="Teacher working closely with a young learner" loading="lazy">
+      <img src="04.jpg" alt="Outdoor play and learning area at NewDawn School" loading="lazy">
+      <img src="05.jpg" alt="NewDawn School bus and learners outside" loading="lazy">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -991,7 +1149,7 @@
 
   <!-- STATISTICS -->
   <section class="statistics" aria-label="Enrollment statistics">
-    <div class="stats-grid">
+    <div class="stats-grid" data-animate>
       <div class="stat-card">
         <div class="stat-label">Total Enrolled Pupils</div>
         <div class="stat-number">1000</div>
@@ -1013,13 +1171,13 @@
   <!-- ABOUT / CBC -->
   <section class="section alt-bg" id="about">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header" data-animate>
         <h2>About NewDawn School</h2>
         <p>Excellence, character, and innovation at the shores of Lake Victoria.</p>
       </div>
 
       <div class="two-column">
-        <div class="card">
+        <div class="card" data-animate>
           <span class="pill">Who We Are</span>
           <h3>A Beacon of Academic & Character Excellence</h3>
           <p>
@@ -1033,7 +1191,7 @@
           </p>
         </div>
 
-        <div class="card" id="cbc">
+        <div class="card" id="cbc" data-animate>
           <span class="pill">Curriculum Pathways</span>
           <h3>CBC, IGCSE & A-Level Integration</h3>
           <div class="cbc-grid">
@@ -1063,15 +1221,60 @@
     </div>
   </section>
 
-  <!-- RESOURCES -->
-  <section class="section" id="resources">
+  <!-- WHY NEWDAWN -->
+  <section class="section" id="why">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header" data-animate>
+        <h2>Why Families Choose NewDawn</h2>
+        <p>A safe, joyful and globally-minded environment for every child.</p>
+      </div>
+
+      <div class="why-grid" data-animate>
+        <div class="why-card">
+          <div class="why-icon">🌍</div>
+          <h3>Global Outlook, Local Roots</h3>
+          <p>
+            We blend Kenyan CBC with international programmes, preparing learners to compete globally
+            while staying grounded in African values.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💻</div>
+          <h3>Technology-Driven Learning</h3>
+          <p>
+            Modern ICT and STEM integration from early years to high school helps our learners become creators,
+            not just consumers, of technology.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <h3>Strong Pastoral Care</h3>
+          <p>
+            We walk with each learner through mentorship, guidance and spiritual nurturing, ensuring
+            no child walks alone in their journey.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏅</div>
+          <h3>Balanced Academics & Co-Curriculars</h3>
+          <p>
+            From sports and music to clubs and environmental activities, every learner discovers
+            their gifts beyond the classroom.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="section alt-bg" id="resources">
+    <div class="section-inner">
+      <div class="section-header" data-animate>
         <h2>Learning Resources</h2>
         <p>Tools and spaces that empower every learner to thrive.</p>
       </div>
 
-      <div class="resource-list">
+      <div class="resource-list" data-animate>
         <div class="resource-item">
           <h3>Digital Learning Hub</h3>
           Blended learning platforms, interactive content, and supervised computer labs to support research
@@ -1093,15 +1296,64 @@
     </div>
   </section>
 
+  <!-- ADMISSIONS & TESTIMONIALS -->
+  <section class="section" id="admissions">
+    <div class="section-inner">
+      <div class="section-header" data-animate>
+        <h2>Admissions & Parent Experience</h2>
+        <p>We keep the process simple, warm and transparent.</p>
+      </div>
+
+      <div class="two-column">
+        <div class="card" data-animate>
+          <span class="pill">Admission Steps</span>
+          <h3>How to Join NewDawn School</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-title">1. Initial Inquiry</div>
+              <div class="step-text">Call, WhatsApp or submit the form below to share your child’s details and preferred level.</div>
+            </div>
+            <div class="step">
+              <div class="step-title">2. School Tour & Discussion</div>
+              <div class="step-text">Visit the campus, meet our team and experience our learning environment.</div>
+            </div>
+            <div class="step">
+              <div class="step-title">3. Assessment & Placement</div>
+              <div class="step-text">Learners undergo a friendly placement assessment to determine the best starting point.</div>
+            </div>
+            <div class="step">
+              <div class="step-title">4. Registration & Onboarding</div>
+              <div class="step-text">Complete registration, receive welcome packs and join the NewDawn family.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-animate>
+          <span class="pill">Parent Voices</span>
+          <h3>What Our Parents Say</h3>
+          <div class="testimonial-wrapper">
+            <div class="testimonial-card" id="testimonialCard">
+              <p class="testimonial-text" id="testimonialText">
+                “NewDawn has changed how my child sees learning. She comes home excited to share what she discovered each day.”
+              </p>
+              <div class="testimonial-name" id="testimonialName">Parent, Grade 3</div>
+              <div class="testimonial-role" id="testimonialRole">Bondo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- STAFF -->
   <section class="section alt-bg" id="staff">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header" data-animate>
         <h2>Our Leadership & Staff</h2>
         <p>A passionate, qualified, and caring team walking the journey with every learner.</p>
       </div>
 
-      <div class="staff-grid">
+      <div class="staff-grid" data-animate>
         <div class="staff-card">
           <div class="staff-role">School Director</div>
           <div class="staff-name">[Name Here]</div>
@@ -1134,16 +1386,52 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-inner">
+      <div class="section-header" data-animate>
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common questions from parents and guardians.</p>
+      </div>
+      <div class="faq-grid" data-animate>
+        <details>
+          <summary>What curriculum do you follow?</summary>
+          <p>
+            We implement the Kenyan CBC pathway in the early and middle years, with IGCSE and A-Level options in high school.
+          </p>
+        </details>
+        <details>
+          <summary>Do you provide school transport?</summary>
+          <p>
+            Yes, transport is available on designated routes. Please contact the office for current coverage and fees.
+          </p>
+        </details>
+        <details>
+          <summary>How can I start the admission process?</summary>
+          <p>
+            Call or WhatsApp us, or submit the inquiry form below. Our office will guide you step-by-step.
+          </p>
+        </details>
+        <details>
+          <summary>Do you offer scholarships or financial support?</summary>
+          <p>
+            Limited support is available based on need and performance. Speak with our administration for current opportunities.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header" data-animate>
         <h2>Contact & Visit Us</h2>
         <p>We are happy to walk you through admissions, visits, and any questions you may have.</p>
       </div>
 
       <div class="contact-layout">
-        <div class="contact-details">
+        <div class="contact-details" data-animate>
           <p><strong>📍 Address:</strong> V7XM+56R, Kisumu, Kisian - Bondo - Usenge Rd, Bondo</p>
           <p><strong>📞 Call or WhatsApp:</strong> <a href="tel:+254769924670">+254 769 924670</a></p>
           <p><strong>🌐 Website:</strong> <a href="https://www.newdawnschool.ac.ke" target="_blank">www.newdawnschool.ac.ke</a></p>
@@ -1160,7 +1448,7 @@
           </div>
         </div>
 
-        <div class="contact-form" id="apply">
+        <div class="contact-form" id="apply" data-animate>
           <h3>Apply / Request Information</h3>
           <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:8px;">
             Share your details and we will get back to you with admission guidance and next steps.
@@ -1200,62 +1488,61 @@
   <!-- GALLERY -->
   <section class="section alt-bg" id="gallery">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header" data-animate>
         <h2>Campus Life & Gallery</h2>
         <p>A glimpse into daily life, learning, and celebrations at NewDawn School.</p>
       </div>
 
-      <div class="photo-grid">
-        <!-- Existing numbered photos -->
-        <img class="gallery-img" src="1.jpg"  alt="NewDawn School moment 1">
-        <img class="gallery-img" src="2.jpg"  alt="NewDawn School moment 2">
-        <img class="gallery-img" src="3.jpg"  alt="NewDawn School moment 3">
-        <img class="gallery-img" src="4.jpg"  alt="NewDawn School moment 4">
-        <img class="gallery-img" src="5.jpg"  alt="NewDawn School moment 5">
-        <img class="gallery-img" src="6.jpg"  alt="NewDawn School moment 6">
-        <img class="gallery-img" src="7.jpg"  alt="NewDawn School moment 7">
-        <img class="gallery-img" src="8.jpg"  alt="NewDawn School moment 8">
-        <img class="gallery-img" src="9.jpg"  alt="NewDawn School moment 9">
-        <img class="gallery-img" src="0.jpg"  alt="NewDawn School moment 0">
+      <div class="photo-grid" data-animate>
+        <!-- Known numbered photos -->
+        <img class="gallery-img" src="1.jpg"  alt="NewDawn School moment 1" loading="lazy">
+        <img class="gallery-img" src="2.jpg"  alt="NewDawn School moment 2" loading="lazy">
+        <img class="gallery-img" src="3.jpg"  alt="NewDawn School moment 3" loading="lazy">
+        <img class="gallery-img" src="4.jpg"  alt="NewDawn School moment 4" loading="lazy">
+        <img class="gallery-img" src="5.jpg"  alt="NewDawn School moment 5" loading="lazy">
+        <img class="gallery-img" src="6.jpg"  alt="NewDawn School moment 6" loading="lazy">
+        <img class="gallery-img" src="7.jpg"  alt="NewDawn School moment 7" loading="lazy">
+        <img class="gallery-img" src="8.jpg"  alt="NewDawn School moment 8" loading="lazy">
+        <img class="gallery-img" src="9.jpg"  alt="NewDawn School moment 9" loading="lazy">
+        <img class="gallery-img" src="0.jpg"  alt="NewDawn School moment 0" loading="lazy">
 
-        <img class="gallery-img" src="01.jpg" alt="NewDawn School extended gallery 01">
-        <img class="gallery-img" src="02.jpg" alt="NewDawn School extended gallery 02">
-        <img class="gallery-img" src="03.jpg" alt="NewDawn School extended gallery 03">
-        <img class="gallery-img" src="04.jpg" alt="NewDawn School extended gallery 04">
-        <img class="gallery-img" src="05.jpg" alt="NewDawn School extended gallery 05">
-        <img class="gallery-img" src="06.jpg" alt="NewDawn School extended gallery 06">
-        <img class="gallery-img" src="07.jpg" alt="NewDawn School extended gallery 07">
-        <img class="gallery-img" src="08.jpg" alt="NewDawn School extended gallery 08">
+        <img class="gallery-img" src="01.jpg" alt="NewDawn School extended gallery 01" loading="lazy">
+        <img class="gallery-img" src="02.jpg" alt="NewDawn School extended gallery 02" loading="lazy">
+        <img class="gallery-img" src="03.jpg" alt="NewDawn School extended gallery 03" loading="lazy">
+        <img class="gallery-img" src="04.jpg" alt="NewDawn School extended gallery 04" loading="lazy">
+        <img class="gallery-img" src="05.jpg" alt="NewDawn School extended gallery 05" loading="lazy">
+        <img class="gallery-img" src="06.jpg" alt="NewDawn School extended gallery 06" loading="lazy">
+        <img class="gallery-img" src="07.jpg" alt="NewDawn School extended gallery 07" loading="lazy">
+        <img class="gallery-img" src="08.jpg" alt="NewDawn School extended gallery 08" loading="lazy">
 
-        <!-- EXTRA PHOTOS YOU JUST UPLOADED
-             If names are different, change A.jpg, AA.jpg... to match -->
-        <img class="gallery-img" src="A.jpg"  alt="NewDawn School extra photo A">
-        <img class="gallery-img" src="AA.jpg" alt="NewDawn School extra photo AA">
-        <img class="gallery-img" src="B.jpg"  alt="NewDawn School extra photo B">
-        <img class="gallery-img" src="BB.jpg" alt="NewDawn School extra photo BB">
-        <img class="gallery-img" src="C.jpg"  alt="NewDawn School extra photo C">
-        <img class="gallery-img" src="CC.jpg" alt="NewDawn School extra photo CC">
-        <img class="gallery-img" src="D.jpg"  alt="NewDawn School extra photo D">
-        <img class="gallery-img" src="DD.jpg" alt="NewDawn School extra photo DD">
-        <img class="gallery-img" src="E.jpg"  alt="NewDawn School extra photo E">
-        <img class="gallery-img" src="EE.jpg" alt="NewDawn School extra photo EE">
-        <img class="gallery-img" src="F.jpg"  alt="NewDawn School extra photo F">
-        <img class="gallery-img" src="FF.jpg" alt="NewDawn School extra photo FF">
-        <img class="gallery-img" src="G.jpg"  alt="NewDawn School extra photo G">
-        <img class="gallery-img" src="GG.jpg" alt="NewDawn School extra photo GG">
-        <img class="gallery-img" src="H.jpg"  alt="NewDawn School extra photo H">
-        <img class="gallery-img" src="HH.jpg" alt="NewDawn School extra photo HH">
-        <img class="gallery-img" src="I.jpg"  alt="NewDawn School extra photo I">
-        <img class="gallery-img" src="II.jpg" alt="NewDawn School extra photo II">
-        <img class="gallery-img" src="J.jpg"  alt="NewDawn School extra photo J">
-        <img class="gallery-img" src="JJ.jpg" alt="NewDawn School extra photo JJ">
-        <img class="gallery-img" src="K.jpg"  alt="NewDawn School extra photo K">
-        <img class="gallery-img" src="KK.jpg" alt="NewDawn School extra photo KK">
-        <img class="gallery-img" src="L.jpg"  alt="NewDawn School extra photo L">
-        <img class="gallery-img" src="M.jpg"  alt="NewDawn School extra photo M">
-        <img class="gallery-img" src="N.jpg"  alt="NewDawn School extra photo N">
-        <img class="gallery-img" src="O.jpg"  alt="NewDawn School extra photo O">
-        <img class="gallery-img" src="P.jpg"  alt="NewDawn School extra photo P">
+        <!-- Extra photos – keep or adjust names to match repo -->
+        <img class="gallery-img" src="A.jpg"  alt="NewDawn School extra photo A" loading="lazy">
+        <img class="gallery-img" src="AA.jpg" alt="NewDawn School extra photo AA" loading="lazy">
+        <img class="gallery-img" src="B.jpg"  alt="NewDawn School extra photo B" loading="lazy">
+        <img class="gallery-img" src="BB.jpg" alt="NewDawn School extra photo BB" loading="lazy">
+        <img class="gallery-img" src="C.jpg"  alt="NewDawn School extra photo C" loading="lazy">
+        <img class="gallery-img" src="CC.jpg" alt="NewDawn School extra photo CC" loading="lazy">
+        <img class="gallery-img" src="D.jpg"  alt="NewDawn School extra photo D" loading="lazy">
+        <img class="gallery-img" src="DD.jpg" alt="NewDawn School extra photo DD" loading="lazy">
+        <img class="gallery-img" src="E.jpg"  alt="NewDawn School extra photo E" loading="lazy">
+        <img class="gallery-img" src="EE.jpg" alt="NewDawn School extra photo EE" loading="lazy">
+        <img class="gallery-img" src="F.jpg"  alt="NewDawn School extra photo F" loading="lazy">
+        <img class="gallery-img" src="FF.jpg" alt="NewDawn School extra photo FF" loading="lazy">
+        <img class="gallery-img" src="G.jpg"  alt="NewDawn School extra photo G" loading="lazy">
+        <img class="gallery-img" src="GG.jpg" alt="NewDawn School extra photo GG" loading="lazy">
+        <img class="gallery-img" src="H.jpg"  alt="NewDawn School extra photo H" loading="lazy">
+        <img class="gallery-img" src="HH.jpg" alt="NewDawn School extra photo HH" loading="lazy">
+        <img class="gallery-img" src="I.jpg"  alt="NewDawn School extra photo I" loading="lazy">
+        <img class="gallery-img" src="II.jpg" alt="NewDawn School extra photo II" loading="lazy">
+        <img class="gallery-img" src="J.jpg"  alt="NewDawn School extra photo J" loading="lazy">
+        <img class="gallery-img" src="JJ.jpg" alt="NewDawn School extra photo JJ" loading="lazy">
+        <img class="gallery-img" src="K.jpg"  alt="NewDawn School extra photo K" loading="lazy">
+        <img class="gallery-img" src="KK.jpg" alt="NewDawn School extra photo KK" loading="lazy">
+        <img class="gallery-img" src="L.jpg"  alt="NewDawn School extra photo L" loading="lazy">
+        <img class="gallery-img" src="M.jpg"  alt="NewDawn School extra photo M" loading="lazy">
+        <img class="gallery-img" src="N.jpg"  alt="NewDawn School extra photo N" loading="lazy">
+        <img class="gallery-img" src="O.jpg"  alt="NewDawn School extra photo O" loading="lazy">
+        <img class="gallery-img" src="P.jpg"  alt="NewDawn School extra photo P" loading="lazy">
       </div>
     </div>
   </section>
@@ -1263,16 +1550,16 @@
   <!-- MEDIA / VIDEOS -->
   <section class="section" id="media">
     <div class="section-inner">
-      <div class="section-header">
+      <div class="section-header" data-animate>
         <h2>Events & Media</h2>
         <p>Short clips from our school assemblies, trips and classroom moments.</p>
       </div>
 
-      <div class="media-grid">
+      <div class="media-grid" data-animate>
         <div class="media-card">
           <h3>School Highlights Video 1</h3>
           <video controls preload="metadata">
-            <!-- Rename your first video to video1.mp4 OR change this src -->
+            <!-- Rename first video to video1.mp4 OR change src -->
             <source src="video1.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -1282,7 +1569,7 @@
         <div class="media-card">
           <h3>School Highlights Video 2</h3>
           <video controls preload="metadata">
-            <!-- Rename your second video to video2.mp4 OR change this src -->
+            <!-- Rename second video to video2.mp4 OR change src -->
             <source src="video2.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -1342,7 +1629,6 @@
       mainNav.classList.toggle('open');
     });
 
-    // close nav when link clicked on small screens
     mainNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
@@ -1393,6 +1679,52 @@
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // SCROLL ANIMATIONS
+    const animatedEls = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    animatedEls.forEach(el => observer.observe(el));
+
+    // TESTIMONIAL ROTATOR
+    const testimonials = [
+      {
+        text: "“NewDawn has changed how my child sees learning. She comes home excited to share what she discovered each day.”",
+        name: "Parent, Grade 3",
+        role: "Bondo"
+      },
+      {
+        text: "“The balance between academics, discipline and co-curricular activities is exactly what we wanted for our son.”",
+        name: "Parent, Year 8",
+        role: "Siaya County"
+      },
+      {
+        text: "“Teachers know every learner by name and story. You feel the care from the gate to the classroom.”",
+        name: "Guardian, Kindergarten",
+        role: "Kisumu"
+      }
+    ];
+
+    let testimonialIndex = 0;
+    const tText = document.getElementById('testimonialText');
+    const tName = document.getElementById('testimonialName');
+    const tRole = document.getElementById('testimonialRole');
+
+    function rotateTestimonial() {
+      testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+      const t = testimonials[testimonialIndex];
+      tText.textContent = t.text;
+      tName.textContent = t.name;
+      tRole.textContent = t.role;
+    }
+    setInterval(rotateTestimonial, 7000);
   </script>
 </body>
 </html>
