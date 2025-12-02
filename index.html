@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-KE">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NewDawn School – Inspiring Future Leaders</title>
+  <title>NewDawn School – Inspiring Future Leaders in Bondo, Kenya</title>
 
   <!-- SEO -->
-  <meta name="description" content="NewDawn School in Bondo, Siaya County – a leading CBC, IGCSE & A-Level school offering holistic, tech-driven education from Kindergarten to Year 12.">
-  <meta name="keywords" content="NewDawn School, Bondo, Siaya, CBC, IGCSE, A Level, Primary, High School, Kenya, STEM, holistic education">
+  <meta name="description" content="NewDawn School in Bondo, Siaya County, Kenya – CBC, IGCSE & A-Level school offering holistic, tech-driven education from Kindergarten to Year 12.">
+  <meta name="keywords" content="NewDawn School, Bondo, Siaya, Kenya, CBC, junior secondary, primary school, high school, IGCSE, A Level, STEM, holistic education">
   <meta name="author" content="NewDawn School">
+  <meta name="country" content="Kenya" />
+  <meta name="geo.region" content="KE" />
+  <meta name="geo.placename" content="Bondo, Siaya County" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="NewDawn School – Inspiring Future Leaders">
-  <meta property="og:description" content="Holistic, tech-driven learning environment in Bondo, Kenya.">
+  <meta property="og:title" content="NewDawn School – Inspiring Future Leaders in Kenya">
+  <meta property="og:description" content="Holistic, tech-driven learning environment in Bondo, Siaya County – CBC, IGCSE & A-Level.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://danoty.github.io/NewDawn/">
   <meta property="og:image" content="01.jpg">
@@ -24,6 +27,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org (rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "School",
+    "name": "NewDawn School",
+    "description": "CBC, IGCSE & A-Level school offering holistic, values-based education in Bondo, Siaya County, Kenya.",
+    "url": "https://danoty.github.io/NewDawn/",
+    "logo": "https://danoty.github.io/NewDawn/logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kisian - Bondo - Usenge Rd",
+      "addressLocality": "Bondo",
+      "addressRegion": "Siaya County",
+      "addressCountry": "KE"
+    },
+    "telephone": "+254769924670",
+    "email": "info@newdawnschool.ac.ke"
+  }
+  </script>
 
   <style>
     :root {
@@ -54,6 +78,27 @@
       scroll-behavior: smooth;
     }
 
+    body.large-font {
+      font-size: 18px;
+    }
+
+    body.high-contrast {
+      --primary: #000000;
+      --primary-dark: #000000;
+      --accent: #ffff00;
+      --accent-dark: #ffea00;
+      --bg-light: #000000;
+      --bg-hero: #000000;
+      --text-main: #ffffff;
+      --text-muted: #e0e0e0;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    body.high-contrast a {
+      color: #ffff00;
+    }
+
     ::-webkit-scrollbar {
       width: 0;
       height: 0;
@@ -67,8 +112,17 @@
       scroll-margin-top: 130px;
     }
 
-    /* GLOBAL ACCESSIBILITY */
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
 
+    /* Skip link */
     .skip-link {
       position: absolute;
       top: -40px;
@@ -76,26 +130,25 @@
       background: #000;
       color: #fff;
       padding: 8px 12px;
-      z-index: 2000;
+      z-index: 10000;
       border-radius: 6px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       text-decoration: none;
     }
-
     .skip-link:focus {
       top: 10px;
-      outline: 3px solid #fff;
     }
 
+    /* Focus outlines */
     a:focus,
     button:focus,
     input:focus,
     textarea:focus {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
+      outline: 2px solid #ffbf47;
+      outline-offset: 2px;
     }
 
-    /* Scroll animations base */
+    /* ANIMATION BASE */
     [data-animate] {
       opacity: 0;
       transform: translateY(14px);
@@ -111,7 +164,7 @@
     header {
       background: var(--bg-hero);
       color: white;
-      padding: 10px 20px;
+      padding: 10px 20px 4px;
       position: fixed;
       top: 0;
       width: 100%;
@@ -170,11 +223,11 @@
       color: #e0f5ec;
     }
 
-    .top-meta {
+    .top-right {
       display: flex;
-      flex-direction: column;
       align-items: flex-end;
-      gap: 4px;
+      flex-direction: column;
+      gap: 6px;
     }
 
     .top-contact {
@@ -187,15 +240,39 @@
       text-decoration: none;
     }
 
-    .translate-widget {
-      font-size: 0.75rem;
+    /* Accessibility controls + translate */
+    .accessibility-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+    }
+
+    .a11y-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: rgba(0,0,0,0.2);
+      color: #fff;
+      padding: 3px 7px;
+      cursor: pointer;
+      font-size: 0.7rem;
+    }
+
+    .a11y-btn:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    #google_translate_element {
+      background: rgba(0,0,0,0.15);
+      border-radius: 999px;
+      padding: 2px 6px;
     }
 
     /* NAV */
     .nav-wrapper {
       width: 100%;
       max-width: var(--max-width);
-      margin-top: 8px;
+      margin-top: 6px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -280,77 +357,6 @@
 
     .nav-toggle span::after {
       top: 5px;
-    }
-
-    /* ACCESSIBILITY PANEL */
-    .a11y-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .a11y-toggle {
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      padding: 4px 10px;
-      cursor: pointer;
-      color: #fff;
-      font-size: 0.75rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .a11y-toggle span {
-      font-size: 1rem;
-    }
-
-    .a11y-panel {
-      position: absolute;
-      top: 100%;
-      right: 16px;
-      margin-top: 4px;
-      background: #ffffff;
-      color: #000;
-      border-radius: 10px;
-      padding: 8px;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-      font-size: 0.8rem;
-      display: none;
-      z-index: 1200;
-      min-width: 180px;
-    }
-
-    .a11y-panel.open {
-      display: block;
-    }
-
-    .a11y-panel h4 {
-      margin-bottom: 6px;
-      font-size: 0.82rem;
-    }
-
-    .a11y-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .a11y-btn {
-      border-radius: 999px;
-      border: 1px solid #ccc;
-      padding: 4px 10px;
-      background: #f4f4f4;
-      cursor: pointer;
-      font-size: 0.78rem;
-      text-align: left;
-    }
-
-    .a11y-btn[aria-pressed="true"] {
-      background: #0c4b33;
-      color: #fff;
-      border-color: #0c4b33;
     }
 
     /* HERO SLIDER */
@@ -461,7 +467,7 @@
 
     .btn-primary {
       background: var(--accent);
-      color: #ffffff;
+      color: #000;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
     }
 
@@ -785,6 +791,71 @@
       color: var(--text-muted);
     }
 
+    /* INCLUSION & SAFEGUARDING */
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .policy-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 16px 14px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.04);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .policy-card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 6px;
+      color: var(--primary-dark);
+    }
+
+    .policy-list {
+      margin-top: 6px;
+      padding-left: 16px;
+      font-size: 0.86rem;
+    }
+
+    .policy-list li {
+      margin-bottom: 4px;
+    }
+
+    /* KENYAN CALENDAR / FEES SUMMARY */
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .calendar-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 16px 14px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.04);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .calendar-card h3 {
+      font-size: 1.02rem;
+      margin-bottom: 6px;
+      color: var(--primary-dark);
+    }
+
+    .calendar-card ul {
+      padding-left: 16px;
+      font-size: 0.86rem;
+    }
+
+    .calendar-card li {
+      margin-bottom: 4px;
+    }
+
     /* FAQ */
     .faq-grid {
       max-width: 800px;
@@ -1004,6 +1075,8 @@
       font-size: 1.8rem;
       cursor: pointer;
       font-weight: 600;
+      background: transparent;
+      border: none;
     }
 
     /* WHATSAPP FLOATING BUTTON */
@@ -1053,10 +1126,18 @@
     footer {
       background: var(--primary-dark);
       color: white;
-      text-align: center;
-      padding: 18px 10px 12px;
+      text-align: left;
+      padding: 18px 16px 12px;
       font-size: 0.82rem;
       margin-top: 26px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
     }
 
     footer a {
@@ -1068,35 +1149,57 @@
       text-decoration: underline;
     }
 
-    .footer-top {
-      max-width: var(--max-width);
-      margin: 0 auto 6px;
+    .footer-heading {
+      font-weight: 600;
+      margin-bottom: 6px;
     }
 
     .footer-bottom {
-      opacity: 0.8;
+      max-width: var(--max-width);
+      margin: 10px auto 0;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+      align-items: center;
     }
 
-    /* HIGH CONTRAST & LARGE TEXT MODES */
-
-    body.high-contrast {
-      --primary: #000000;
-      --primary-dark: #000000;
-      --bg-light: #000000;
-      --text-main: #ffffff;
-      --text-muted: #f5f5f5;
-      --accent: #ffff00;
-      --accent-dark: #ffcc00;
-      background-color: #000;
-      color: #fff;
+    .footer-links {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.8rem;
     }
 
-    body.high-contrast a {
-      color: #ffff00;
+    .footer-links li {
+      margin-bottom: 3px;
     }
 
-    body.large-text {
-      font-size: 110%;
+    .social-links a {
+      margin-right: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* Newsletter */
+    .newsletter input {
+      width: 100%;
+      max-width: 240px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: none;
+      margin-bottom: 6px;
+      font-size: 0.84rem;
+    }
+
+    .newsletter button {
+      border-radius: 999px;
+      border: none;
+      padding: 6px 10px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      background: var(--accent);
+      color: #000;
     }
 
     /* RESPONSIVE */
@@ -1122,6 +1225,10 @@
 
       .top-bar {
         align-items: flex-start;
+      }
+
+      .top-right {
+        align-items: flex-end;
       }
 
       .nav-toggle {
@@ -1151,7 +1258,7 @@
       }
 
       .slider-container {
-        margin-top: 120px;
+        margin-top: 130px;
         height: 360px;
       }
 
@@ -1165,10 +1272,6 @@
 
       .stats-grid {
         grid-template-columns: minmax(0, 1fr);
-      }
-
-      .top-meta {
-        align-items: flex-end;
       }
     }
 
@@ -1210,15 +1313,10 @@
       .photo-grid img {
         height: 170px;
       }
-
-      .a11y-panel {
-        right: 10px;
-      }
     }
   </style>
 </head>
 <body>
-  <!-- ACCESSIBILITY: SKIP LINK -->
   <a href="#mainContent" class="skip-link">Skip to main content</a>
 
   <!-- HEADER -->
@@ -1233,31 +1331,21 @@
           </div>
         </a>
       </div>
-
-      <div class="top-meta">
+      <div class="top-right">
         <div class="top-contact">
           <div>📞 <a href="tel:+254769924670">+254 769 924670</a></div>
           <div>✉️ <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></div>
         </div>
-        <div class="a11y-wrapper">
-          <div id="google_translate_element" class="translate-widget" aria-label="Language selector"></div>
-          <button class="a11y-toggle" id="a11yToggle" aria-expanded="false" aria-controls="a11yPanel">
-            <span>♿</span> Accessibility
-          </button>
-        </div>
-      </div>
-
-      <div class="a11y-panel" id="a11yPanel" aria-label="Accessibility options">
-        <h4>Accessibility Settings</h4>
-        <div class="a11y-buttons">
-          <button class="a11y-btn" id="btnContrast" aria-pressed="false">Toggle high contrast</button>
-          <button class="a11y-btn" id="btnText" aria-pressed="false">Toggle larger text</button>
+        <div class="accessibility-controls" aria-label="Accessibility and language options">
+          <button class="a11y-btn" id="contrastToggle" type="button">High contrast</button>
+          <button class="a11y-btn" id="fontToggle" type="button">A+</button>
+          <div id="google_translate_element" aria-label="Translate this page"></div>
         </div>
       </div>
     </div>
 
     <div class="nav-wrapper">
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="mainNav" aria-expanded="false">
         <span></span> Menu
       </button>
       <nav id="mainNav" aria-label="Main navigation">
@@ -1268,6 +1356,8 @@
         <a href="#resources"><span>Resources</span></a>
         <a href="#admissions"><span>Admissions</span></a>
         <a href="#staff"><span>Staff</span></a>
+        <a href="#inclusion"><span>Inclusion & Safety</span></a>
+        <a href="#calendar"><span>Calendar & Fees</span></a>
         <a href="#contact"><span>Contact</span></a>
         <a href="#gallery"><span>Gallery</span></a>
         <a href="#media"><span>Media</span></a>
@@ -1275,7 +1365,7 @@
     </div>
   </header>
 
-  <main id="mainContent" role="main">
+  <main id="mainContent" tabindex="-1">
     <!-- HERO / SLIDER -->
     <section class="slider-container" id="home" aria-label="NewDawn School highlights">
       <div class="slider">
@@ -1288,19 +1378,20 @@
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-kicker">Bondo • Siaya County • Kenya</div>
-        <h1 class="hero-title">Holistic, Future-Ready Education for Global Citizens.</h1>
+        <h2 class="hero-title">Holistic, Future-Ready Education for Global Citizens.</h2>
         <p class="hero-subtitle">
-          From Kindergarten to Year 12, we blend CBC, IGCSE & A-Level pathways, strong values,
-          and technology-driven learning to nurture confident, creative and ethical leaders.
+          From Kindergarten to Year 12, we blend CBC, Junior Secondary and high school pathways with
+          IGCSE & A-Level options, strong values and technology-driven learning to nurture confident,
+          creative and ethical leaders.
         </p>
         <div class="hero-ctas">
           <a href="#apply" class="btn-primary">Apply for Admission</a>
           <a href="#cbc" class="btn-outline">Explore Our Curriculum</a>
         </div>
       </div>
-      <div class="hero-badge">
+      <div class="hero-badge" aria-label="School statistics">
         <strong>1000+ Learners</strong>
-        CBC • IGCSE • A-Level
+        CBC • JSS • IGCSE • A-Level
       </div>
     </section>
 
@@ -1310,7 +1401,7 @@
         <div class="stat-card">
           <div class="stat-label">Total Enrolled Pupils</div>
           <div class="stat-number">1000</div>
-          <div class="stat-note">Across all learning levels</div>
+          <div class="stat-note">Across Kindergarten to Year 12</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Pupils in Current Session</div>
@@ -1320,7 +1411,7 @@
         <div class="stat-card">
           <div class="stat-label">Total Graduated</div>
           <div class="stat-number">400</div>
-          <div class="stat-note">Alumni thriving globally</div>
+          <div class="stat-note">Alumni thriving in Kenya and abroad</div>
         </div>
       </div>
     </section>
@@ -1336,41 +1427,42 @@
         <div class="two-column">
           <div class="card" data-animate>
             <span class="pill">Who We Are</span>
-            <h3>A Beacon of Academic & Character Excellence</h3>
+            <h3>A Kenyan School with a Global Outlook</h3>
             <p>
               NewDawn School is a dynamic learning community offering holistic education from
-              Kindergarten to Year 12. Located in the heart of Bondo, Siaya County, we strive to
-              nurture each learner academically, socially, emotionally, and spiritually.
+              Kindergarten to Year 12. Located in the heart of Bondo, Siaya County, we nurture each
+              learner academically, socially, emotionally, and spiritually.
             </p>
             <p>
-              We combine inquiry-based learning, modern facilities, and a caring environment to help
-              our pupils discover their strengths, explore their passions, and unlock their God-given potential.
+              We embrace Kenya’s Competency Based Curriculum (CBC) framework while exposing learners
+              to international standards, digital literacy and strong moral values. Instruction is primarily
+              in English, with Kiswahili used actively in learning and daily school life.
             </p>
           </div>
 
           <div class="card" id="cbc" data-animate>
             <span class="pill">Curriculum Pathways</span>
-            <h3>CBC, IGCSE & A-Level Integration</h3>
+            <h3>CBC, Junior Secondary, IGCSE & A-Level</h3>
             <div class="cbc-grid">
               <div class="cbc-item">
-                <strong>Kindergarten (Ages 3–5)</strong>
-                Play-based early years foundation that builds confidence, communication, and curiosity.
+                <strong>Early Years (PP1–PP2)</strong>
+                Play-based early years foundation that builds confidence, communication and curiosity.
               </div>
               <div class="cbc-item">
-                <strong>Primary (Years 1–6)</strong>
-                CBC-aligned learning, with strong literacy, numeracy, environmental activities, and life skills.
+                <strong>Primary (Grades 1–6)</strong>
+                CBC-aligned learning with strong literacy, numeracy, environmental activities and life skills.
               </div>
               <div class="cbc-item">
-                <strong>Middle School (Years 7–9)</strong>
-                Critical thinking, problem-solving, community projects, STEM exposure, and career awareness.
+                <strong>Junior Secondary (Grades 7–9)</strong>
+                Learners explore pathways with STEM exposure, project work and community engagement.
               </div>
               <div class="cbc-item">
-                <strong>High School (Years 10–12)</strong>
-                IGCSE & A-Level options, rigorous academics, leadership training, and university preparation.
+                <strong>Senior School (Year 10–12)</strong>
+                IGCSE & A-Level options, rigorous academics, leadership training and university preparation.
               </div>
               <div class="cbc-item">
                 <strong>Co-Curricular & Enrichment</strong>
-                ICT, Robotics, STEM clubs, music, fine arts, sports, mentorship, and community service programs.
+                ICT, Robotics, STEM clubs, music, performing arts, sports, environmental clubs and mentorship.
               </div>
             </div>
           </div>
@@ -1383,39 +1475,40 @@
       <div class="section-inner">
         <div class="section-header" data-animate>
           <h2>Why Families Choose NewDawn</h2>
-          <p>A safe, joyful and globally-minded environment for every child.</p>
+          <p>A safe, joyful and globally-minded environment for every child in Kenya.</p>
         </div>
 
         <div class="why-grid" data-animate>
           <div class="why-card">
-            <div class="why-icon">🌍</div>
-            <h3>Global Outlook, Local Roots</h3>
+            <div class="why-icon" aria-hidden="true">🌍</div>
+            <h3>Global Outlook, Local Values</h3>
             <p>
-              We blend Kenyan CBC with international programmes, preparing learners to compete globally
-              while staying grounded in African values.
+              We blend Kenyan CBC expectations with international programmes, preparing learners to compete globally
+              while staying grounded in African values and community responsibility.
             </p>
           </div>
           <div class="why-card">
-            <div class="why-icon">💻</div>
+            <div class="why-icon" aria-hidden="true">💻</div>
             <h3>Technology-Driven Learning</h3>
             <p>
-              Modern ICT and STEM integration from early years to high school helps our learners become creators,
-              not just consumers, of technology.
+              Modern ICT and STEM integration from early years to high school helps learners become creators,
+              not just consumers, of technology, aligned to the Digital Literacy Programme spirit.
             </p>
           </div>
           <div class="why-card">
-            <div class="why-icon">🤝</div>
+            <div class="why-icon" aria-hidden="true">🤝</div>
             <h3>Strong Pastoral Care</h3>
             <p>
               We walk with each learner through mentorship, guidance and spiritual nurturing, ensuring
-              no child walks alone in their journey.
+              no child walks alone on their journey – whether they come from Bondo town, lake region,
+              or beyond.
             </p>
           </div>
           <div class="why-card">
-            <div class="why-icon">🏅</div>
+            <div class="why-icon" aria-hidden="true">🏅</div>
             <h3>Balanced Academics & Co-Curriculars</h3>
             <p>
-              From sports and music to clubs and environmental activities, every learner discovers
+              From ball games and athletics to music, drama and environmental clubs, every learner discovers
               their gifts beyond the classroom.
             </p>
           </div>
@@ -1428,26 +1521,29 @@
       <div class="section-inner">
         <div class="section-header" data-animate>
           <h2>Learning Resources</h2>
-          <p>Tools and spaces that empower every learner to thrive.</p>
+          <p>Tools and spaces that empower each learner to thrive in a Kenyan and global context.</p>
         </div>
 
         <div class="resource-list" data-animate>
           <div class="resource-item">
             <h3>Digital Learning Hub</h3>
-            Blended learning platforms, interactive content, and supervised computer labs to support research
-            and independent study.
+            Blended learning platforms, supervised computer labs and responsible internet use policies to support
+            research, coding and independent study.
           </div>
           <div class="resource-item">
             <h3>Libraries & Reading Corners</h3>
-            Age-appropriate libraries with curated storybooks, reference materials, and quiet reading zones.
+            Age-appropriate libraries with Kiswahili and English texts, storybooks, reference materials and quiet
+            reading zones.
           </div>
           <div class="resource-item">
             <h3>STEM & ICT Facilities</h3>
-            Science laboratories, maker-spaces, robotics kits, and ICT labs that foster hands-on experimentation.
+            Science laboratories, maker-spaces, robotics kits and ICT labs that foster hands-on experimentation in line
+            with CBC projects and STEM clubs.
           </div>
           <div class="resource-item">
-            <h3>Pastoral Care & Guidance</h3>
-            Dedicated class teachers, counselors, and mentorship programs for emotional and social support.
+            <h3>Pastoral Care & Chaplaincy</h3>
+            Dedicated class teachers, counsellors and chaplaincy support provide emotional and spiritual guidance in
+            partnership with parents and guardians.
           </div>
         </div>
       </div>
@@ -1458,37 +1554,49 @@
       <div class="section-inner">
         <div class="section-header" data-animate>
           <h2>Admissions & Parent Experience</h2>
-          <p>We keep the process simple, warm and transparent.</p>
+          <p>We keep the process simple, warm and transparent for Kenyan and international families.</p>
         </div>
 
         <div class="two-column">
           <div class="card" data-animate>
             <span class="pill">Admission Steps</span>
             <h3>How to Join NewDawn School</h3>
-            <div class="steps">
+            <div class="steps" aria-label="Admission steps">
               <div class="step">
                 <div class="step-title">1. Initial Inquiry</div>
-                <div class="step-text">Call, WhatsApp or submit the form below to share your child’s details and preferred level.</div>
+                <div class="step-text">
+                  Call, WhatsApp or submit the form below to share your child’s details, previous school
+                  and preferred class.
+                </div>
               </div>
               <div class="step">
                 <div class="step-title">2. School Tour & Discussion</div>
-                <div class="step-text">Visit the campus, meet our team and experience our learning environment.</div>
+                <div class="step-text">
+                  Visit the campus, meet our leadership and get a feel of the learning environment, boarding / day options
+                  and fee structure.
+                </div>
               </div>
               <div class="step">
                 <div class="step-title">3. Assessment & Placement</div>
-                <div class="step-text">Learners undergo a friendly placement assessment to determine the best starting point.</div>
+                <div class="step-text">
+                  Learners undergo a friendly placement assessment aligned to CBC and international expectations
+                  to determine the best starting point.
+                </div>
               </div>
               <div class="step">
                 <div class="step-title">4. Registration & Onboarding</div>
-                <div class="step-text">Complete registration, receive welcome packs and join the NewDawn family.</div>
+                <div class="step-text">
+                  Complete registration, receive joining instructions, uniform details and term dates, and officially
+                  join the NewDawn family.
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="card" data-animate aria-live="polite">
+          <div class="card" data-animate>
             <span class="pill">Parent Voices</span>
             <h3>What Our Parents Say</h3>
-            <div class="testimonial-wrapper">
+            <div class="testimonial-wrapper" aria-live="polite">
               <div class="testimonial-card" id="testimonialCard">
                 <p class="testimonial-text" id="testimonialText">
                   “NewDawn has changed how my child sees learning. She comes home excited to share what she discovered each day.”
@@ -1507,7 +1615,7 @@
       <div class="section-inner">
         <div class="section-header" data-animate>
           <h2>Our Leadership & Staff</h2>
-          <p>A passionate, qualified, and caring team walking the journey with every learner.</p>
+          <p>A passionate, qualified and caring team walking the journey with every learner.</p>
         </div>
 
         <div class="staff-grid" data-animate>
@@ -1515,29 +1623,117 @@
             <div class="staff-role">School Director</div>
             <div class="staff-name">[Name Here]</div>
             <p>
-              Provides strategic vision, governance, and oversight to ensure NewDawn remains a center of excellence.
+              Provides strategic vision, governance and oversight to ensure NewDawn remains a centre of
+              excellence and service to the community.
             </p>
           </div>
           <div class="staff-card">
             <div class="staff-role">Head Teacher</div>
             <div class="staff-name">[Name Here]</div>
             <p>
-              Oversees day-to-day academic operations, staff coordination, and continuous improvement of teaching standards.
+              Oversees day-to-day academic operations, teacher development and continuous improvement of
+              learning outcomes.
             </p>
           </div>
           <div class="staff-card">
-            <div class="staff-role">CBC & Junior School Team</div>
+            <div class="staff-role">CBC & Junior Secondary Team</div>
             <div class="staff-name">Dedicated Class Teachers</div>
             <p>
-              Nurturing early literacy, numeracy, and values through engaging, age-appropriate strategies.
+              Nurturing early literacy, numeracy and competencies through engaging, learner-centred strategies
+              and project work.
             </p>
           </div>
           <div class="staff-card">
             <div class="staff-role">Senior & IGCSE Faculty</div>
             <div class="staff-name">Subject Specialists</div>
             <p>
-              Experienced educators preparing learners for national and international examinations and life beyond school.
+              Experienced educators preparing learners for local and international examinations, tertiary
+              education and the future of work.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUSION, SAFETY & QUALITY -->
+    <section class="section" id="inclusion">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Inclusion, Safeguarding & Quality</h2>
+          <p>Every child matters. We are intentional about safety, dignity and support for diverse learners.</p>
+        </div>
+
+        <div class="three-grid" data-animate>
+          <div class="policy-card">
+            <h3>Inclusive Education & Disability Support</h3>
+            <ul class="policy-list">
+              <li>We welcome learners with mild to moderate learning differences and collaborate with parents on support plans.</li>
+              <li>Classrooms prioritise clear signage, visual schedules and differentiated instruction.</li>
+              <li>Reasonable accommodations (extra time, seating, simplified instructions) are considered based on individual needs.</li>
+              <li>Teachers receive ongoing training on inclusive, learner-friendly practices.</li>
+            </ul>
+          </div>
+
+          <div class="policy-card">
+            <h3>Child Protection & Safeguarding</h3>
+            <ul class="policy-list">
+              <li>Zero tolerance for bullying, harassment or abuse – reporting channels are communicated to learners and parents.</li>
+              <li>Clear behaviour and discipline policies that emphasise restoration rather than humiliation.</li>
+              <li>Visitors’ protocols, supervised play areas and secure pick-up procedures.</li>
+              <li>Regular guidance and life-skills sessions aligned to age and Kenyan context.</li>
+            </ul>
+          </div>
+
+          <div class="policy-card">
+            <h3>Quality Standards & Governance</h3>
+            <ul class="policy-list">
+              <li>Alignment with Ministry of Education guidelines and changing CBC requirements.</li>
+              <li>Termly assessment cycles with feedback to parents and learners.</li>
+              <li>Active School Board and parents’ engagement through meetings and communication channels.</li>
+              <li>Data protection culture – learner records handled with confidentiality and integrity.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KENYAN CALENDAR & FEES SUMMARY -->
+    <section class="section alt-bg" id="calendar">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>School Calendar & Fee Highlights</h2>
+          <p>Designed around the Kenyan school year, with transparent communication on investment in your child’s education.</p>
+        </div>
+
+        <div class="calendar-grid" data-animate>
+          <div class="calendar-card">
+            <h3>Typical Kenyan School Year</h3>
+            <ul>
+              <li><strong>Term 1:</strong> January – March / April</li>
+              <li><strong>Term 2:</strong> May – July / August</li>
+              <li><strong>Term 3:</strong> September – November / December</li>
+              <li>Official dates communicated each year through circulars and SMS.</li>
+            </ul>
+          </div>
+
+          <div class="calendar-card">
+            <h3>Key NewDawn Events</h3>
+            <ul>
+              <li>Opening & closing days with parent briefings.</li>
+              <li>Open days, talent shows and sports days.</li>
+              <li>Academic clinics and report card collection.</li>
+              <li>School trips, community service and environmental action days.</li>
+            </ul>
+          </div>
+
+          <div class="calendar-card">
+            <h3>Fee Structure Overview (KES)</h3>
+            <ul>
+              <li>Fees are payable per term in Kenya Shillings (KES).</li>
+              <li>Different bands for Early Years, Primary, Junior Secondary and Senior School.</li>
+              <li>Flexible payment plans can be discussed with the accounts office.</li>
+              <li>Detailed fee schedule is shared privately with interested parents.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1548,31 +1744,35 @@
       <div class="section-inner">
         <div class="section-header" data-animate>
           <h2>Frequently Asked Questions</h2>
-          <p>Quick answers to common questions from parents and guardians.</p>
+          <p>Quick answers to common questions from Kenyan and international parents.</p>
         </div>
         <div class="faq-grid" data-animate>
           <details>
             <summary>What curriculum do you follow?</summary>
             <p>
-              We implement the Kenyan CBC pathway in the early and middle years, with IGCSE and A-Level options in high school.
+              We implement the Kenyan CBC pathway in the early and middle years, with Junior Secondary in Grades 7–9
+              and IGCSE / A-Level options in senior school.
             </p>
           </details>
           <details>
             <summary>Do you provide school transport?</summary>
             <p>
-              Yes, transport is available on designated routes. Please contact the office for current coverage and fees.
+              Yes, transport is available on designated routes around Bondo and neighbouring areas. Please contact the office
+              for current routes and charges.
             </p>
           </details>
           <details>
             <summary>How can I start the admission process?</summary>
             <p>
-              Call or WhatsApp us, or submit the inquiry form below. Our office will guide you step-by-step.
+              Call or WhatsApp us using the number on this site, or submit the inquiry form below. Our office will guide you
+              through interviews, assessments and joining instructions.
             </p>
           </details>
           <details>
-            <summary>Do you offer scholarships or financial support?</summary>
+            <summary>Do you offer scholarships or bursaries?</summary>
             <p>
-              Limited support is available based on need and performance. Speak with our administration for current opportunities.
+              Limited support is considered based on need and performance. Speak with our administration for current
+              opportunities and criteria.
             </p>
           </details>
         </div>
@@ -1584,16 +1784,16 @@
       <div class="section-inner">
         <div class="section-header" data-animate>
           <h2>Contact & Visit Us</h2>
-          <p>We are happy to walk you through admissions, visits, and any questions you may have.</p>
+          <p>We are happy to walk you through admissions, visits and any questions you may have.</p>
         </div>
 
         <div class="contact-layout">
           <div class="contact-details" data-animate>
-            <p><strong>📍 Address:</strong> V7XM+56R, Kisumu, Kisian - Bondo - Usenge Rd, Bondo</p>
+            <p><strong>📍 Address:</strong> V7XM+56R, Kisumu, Kisian - Bondo - Usenge Rd, Bondo, Siaya County, Kenya</p>
             <p><strong>📞 Call or WhatsApp:</strong> <a href="tel:+254769924670">+254 769 924670</a></p>
-            <p><strong>🌐 Website:</strong> <a href="https://www.newdawnschool.ac.ke" target="_blank">www.newdawnschool.ac.ke</a></p>
+            <p><strong>🌐 Website:</strong> <a href="https://www.newdawnschool.ac.ke" target="_blank" rel="noopener">www.newdawnschool.ac.ke</a></p>
             <p><strong>✉️ Email:</strong> <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></p>
-            <p><strong>School Hours:</strong> Monday – Friday, 7:00am – 5:00pm</p>
+            <p><strong>School Hours:</strong> Monday – Friday, 7:00am – 5:00pm (East Africa Time)</p>
 
             <div class="map-placeholder" aria-label="Map to NewDawn School">
               <!-- Replace src with real map embed when ready -->
@@ -1601,6 +1801,7 @@
                 src="https://www.google.com/maps/embed?pb="
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
+                title="Map showing NewDawn School location"
               ></iframe>
             </div>
           </div>
@@ -1608,9 +1809,9 @@
           <div class="contact-form" id="apply" data-animate>
             <h3>Apply / Request Information</h3>
             <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:8px;">
-              Share your details and we will get back to you with admission guidance and next steps.
+              Share your details and we will get back to you with admission guidance, fee information and next steps.
             </p>
-            <form action="#" method="post">
+            <form action="#" method="post" aria-label="Inquiry form">
               <div class="form-row">
                 <div class="form-group">
                   <label for="parentName">Parent / Guardian Name</label>
@@ -1628,7 +1829,7 @@
                 </div>
                 <div class="form-group">
                   <label for="level">Class / Level</label>
-                  <input type="text" id="level" name="level" placeholder="e.g. Grade 3, Year 7" />
+                  <input type="text" id="level" name="level" placeholder="e.g. Grade 3, JSS Grade 7, A-Level" />
                 </div>
               </div>
               <div class="form-group">
@@ -1643,14 +1844,14 @@
     </section>
 
     <!-- GALLERY -->
-    <section class="section alt-bg" id="gallery" aria-label="Photo gallery">
+    <section class="section alt-bg" id="gallery">
       <div class="section-inner">
         <div class="section-header" data-animate>
           <h2>Campus Life & Gallery</h2>
           <p>A glimpse into daily life, learning, and celebrations at NewDawn School.</p>
         </div>
 
-        <div class="photo-grid" data-animate>
+        <div class="photo-grid" data-animate aria-label="Photo gallery">
           <!-- Known numbered photos -->
           <img class="gallery-img" src="1.jpg"  alt="NewDawn School moment 1" loading="lazy">
           <img class="gallery-img" src="2.jpg"  alt="NewDawn School moment 2" loading="lazy">
@@ -1672,7 +1873,7 @@
           <img class="gallery-img" src="07.jpg" alt="NewDawn School extended gallery 07" loading="lazy">
           <img class="gallery-img" src="08.jpg" alt="NewDawn School extended gallery 08" loading="lazy">
 
-          <!-- Extra photos – adjust names if needed -->
+          <!-- Extra photos – adjust names to match your repo if needed -->
           <img class="gallery-img" src="A.jpg"  alt="NewDawn School extra photo A" loading="lazy">
           <img class="gallery-img" src="AA.jpg" alt="NewDawn School extra photo AA" loading="lazy">
           <img class="gallery-img" src="B.jpg"  alt="NewDawn School extra photo B" loading="lazy">
@@ -1739,12 +1940,12 @@
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
-    <span class="lightbox-close" id="lightbox-close" aria-label="Close gallery">&times;</span>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&times;</button>
     <img id="lightbox-img" src="" alt="Expanded gallery view">
   </div>
 
   <!-- WHATSAPP FLOATING BUTTON -->
-  <a class="whatsapp" href="https://wa.me/254769924670" target="_blank" aria-label="Chat with us on WhatsApp">
+  <a class="whatsapp" href="https://wa.me/254769924670" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat with NewDawn School on WhatsApp">
   </a>
 
@@ -1755,33 +1956,63 @@
 
   <!-- FOOTER -->
   <footer role="contentinfo">
-    <div class="footer-top">
-      Kisumu, Kisian - Bondo - Usenge Rd, Bondo •
-      <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a> •
-      <a href="tel:+254769924670">+254 769 924670</a>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-heading">NewDawn School</div>
+        <p>
+          CBC, Junior Secondary, IGCSE & A-Level school in Bondo, Siaya County, offering holistic,
+          values-based education for learners from Kindergarten to Year 12.
+        </p>
+      </div>
+      <div>
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#inclusion">Inclusion & Safeguarding</a></li>
+          <li><a href="#calendar">Calendar & Fees</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Stay Connected</div>
+        <div class="social-links">
+          <a href="#" aria-label="NewDawn School on Facebook">Facebook</a>
+          <a href="#" aria-label="NewDawn School on Instagram">Instagram</a>
+          <a href="#" aria-label="NewDawn School on YouTube">YouTube</a>
+        </div>
+        <div class="newsletter" style="margin-top:6px;">
+          <div style="font-size:0.8rem; margin-bottom:4px;">Join our email updates (coming soon):</div>
+          <input type="email" placeholder="Your email address" aria-label="Email for newsletter (not yet active)">
+          <button type="button">Notify Me</button>
+        </div>
+      </div>
     </div>
+
     <div class="footer-bottom">
-      &copy; 2025 NewDawn School. All rights reserved.
+      <div>
+        &copy; 2025 NewDawn School. All rights reserved.
+      </div>
+      <div style="font-size:0.75rem; max-width:420px;">
+        We respect the privacy and dignity of our learners, staff and parents. Any personal data shared with the school
+        is handled with confidentiality and used only for legitimate educational purposes.
+      </div>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
-  <script>
-    // GOOGLE TRANSLATE
+  <!-- GOOGLE TRANSLATE -->
+  <script type="text/javascript">
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        {
-          pageLanguage: 'en',
-          includedLanguages: 'en,sw,fr,es,de,ar,zh-CN',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        },
-        'google_translate_element'
-      );
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,sw,fr,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
     }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+  <!-- SCRIPTS -->
   <script>
     // HERO SLIDER
     let currentIndex = 0;
@@ -1813,35 +2044,6 @@
       });
     });
 
-    // ACCESSIBILITY PANEL
-    const a11yToggle = document.getElementById('a11yToggle');
-    const a11yPanel = document.getElementById('a11yPanel');
-    const btnContrast = document.getElementById('btnContrast');
-    const btnText = document.getElementById('btnText');
-
-    a11yToggle.addEventListener('click', () => {
-      const isOpen = a11yPanel.classList.toggle('open');
-      a11yToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    btnContrast.addEventListener('click', () => {
-      const isOn = document.body.classList.toggle('high-contrast');
-      btnContrast.setAttribute('aria-pressed', isOn ? 'true' : 'false');
-    });
-
-    btnText.addEventListener('click', () => {
-      const isOn = document.body.classList.toggle('large-text');
-      btnText.setAttribute('aria-pressed', isOn ? 'true' : 'false');
-    });
-
-    // Close accessibility panel when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!a11yPanel.contains(e.target) && !a11yToggle.contains(e.target)) {
-        a11yPanel.classList.remove('open');
-        a11yToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-
     // GALLERY LIGHTBOX
     const galleryImages = document.querySelectorAll('.gallery-img');
     const lightbox = document.getElementById('lightbox');
@@ -1853,6 +2055,7 @@
         lightboxImg.src = img.src;
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
+        lightboxClose.focus();
       });
     });
 
@@ -1911,7 +2114,7 @@
       },
       {
         text: "“The balance between academics, discipline and co-curricular activities is exactly what we wanted for our son.”",
-        name: "Parent, Year 8",
+        name: "Parent, JSS Grade 8",
         role: "Siaya County"
       },
       {
@@ -1934,6 +2137,19 @@
       tRole.textContent = t.role;
     }
     setInterval(rotateTestimonial, 7000);
+
+    // ACCESSIBILITY TOGGLES
+    const contrastToggle = document.getElementById('contrastToggle');
+    const fontToggle = document.getElementById('fontToggle');
+    const bodyEl = document.body;
+
+    contrastToggle.addEventListener('click', () => {
+      bodyEl.classList.toggle('high-contrast');
+    });
+
+    fontToggle.addEventListener('click', () => {
+      bodyEl.classList.toggle('large-font');
+    });
   </script>
 </body>
 </html>
