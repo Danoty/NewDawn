@@ -67,7 +67,35 @@
       scroll-margin-top: 130px;
     }
 
-    /* ANIMATION BASE */
+    /* GLOBAL ACCESSIBILITY */
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      background: #000;
+      color: #fff;
+      padding: 8px 12px;
+      z-index: 2000;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 10px;
+      outline: 3px solid #fff;
+    }
+
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* Scroll animations base */
     [data-animate] {
       opacity: 0;
       transform: translateY(14px);
@@ -142,6 +170,13 @@
       color: #e0f5ec;
     }
 
+    .top-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
     .top-contact {
       font-size: 0.8rem;
       text-align: right;
@@ -150,6 +185,10 @@
     .top-contact a {
       color: #ffeedb;
       text-decoration: none;
+    }
+
+    .translate-widget {
+      font-size: 0.75rem;
     }
 
     /* NAV */
@@ -241,6 +280,77 @@
 
     .nav-toggle span::after {
       top: 5px;
+    }
+
+    /* ACCESSIBILITY PANEL */
+    .a11y-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .a11y-toggle {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 4px 10px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .a11y-toggle span {
+      font-size: 1rem;
+    }
+
+    .a11y-panel {
+      position: absolute;
+      top: 100%;
+      right: 16px;
+      margin-top: 4px;
+      background: #ffffff;
+      color: #000;
+      border-radius: 10px;
+      padding: 8px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      font-size: 0.8rem;
+      display: none;
+      z-index: 1200;
+      min-width: 180px;
+    }
+
+    .a11y-panel.open {
+      display: block;
+    }
+
+    .a11y-panel h4 {
+      margin-bottom: 6px;
+      font-size: 0.82rem;
+    }
+
+    .a11y-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .a11y-btn {
+      border-radius: 999px;
+      border: 1px solid #ccc;
+      padding: 4px 10px;
+      background: #f4f4f4;
+      cursor: pointer;
+      font-size: 0.78rem;
+      text-align: left;
+    }
+
+    .a11y-btn[aria-pressed="true"] {
+      background: #0c4b33;
+      color: #fff;
+      border-color: #0c4b33;
     }
 
     /* HERO SLIDER */
@@ -932,6 +1042,7 @@
       display: none;
       align-items: center;
       gap: 6px;
+      border: none;
     }
 
     .back-to-top.show {
@@ -966,6 +1077,28 @@
       opacity: 0.8;
     }
 
+    /* HIGH CONTRAST & LARGE TEXT MODES */
+
+    body.high-contrast {
+      --primary: #000000;
+      --primary-dark: #000000;
+      --bg-light: #000000;
+      --text-main: #ffffff;
+      --text-muted: #f5f5f5;
+      --accent: #ffff00;
+      --accent-dark: #ffcc00;
+      background-color: #000;
+      color: #fff;
+    }
+
+    body.high-contrast a {
+      color: #ffff00;
+    }
+
+    body.large-text {
+      font-size: 110%;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .two-column,
@@ -988,12 +1121,7 @@
       }
 
       .top-bar {
-        align-items: center;
-      }
-
-      .top-contact {
-        text-align: right;
-        width: 100%;
+        align-items: flex-start;
       }
 
       .nav-toggle {
@@ -1038,6 +1166,10 @@
       .stats-grid {
         grid-template-columns: minmax(0, 1fr);
       }
+
+      .top-meta {
+        align-items: flex-end;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1078,12 +1210,19 @@
       .photo-grid img {
         height: 170px;
       }
+
+      .a11y-panel {
+        right: 10px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- ACCESSIBILITY: SKIP LINK -->
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
   <!-- HEADER -->
-  <header>
+  <header role="banner">
     <div class="top-bar">
       <div class="logo-container">
         <a href="#home" aria-label="Back to homepage">
@@ -1094,9 +1233,26 @@
           </div>
         </a>
       </div>
-      <div class="top-contact">
-        <div>📞 <a href="tel:+254769924670">+254 769 924670</a></div>
-        <div>✉️ <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></div>
+
+      <div class="top-meta">
+        <div class="top-contact">
+          <div>📞 <a href="tel:+254769924670">+254 769 924670</a></div>
+          <div>✉️ <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></div>
+        </div>
+        <div class="a11y-wrapper">
+          <div id="google_translate_element" class="translate-widget" aria-label="Language selector"></div>
+          <button class="a11y-toggle" id="a11yToggle" aria-expanded="false" aria-controls="a11yPanel">
+            <span>♿</span> Accessibility
+          </button>
+        </div>
+      </div>
+
+      <div class="a11y-panel" id="a11yPanel" aria-label="Accessibility options">
+        <h4>Accessibility Settings</h4>
+        <div class="a11y-buttons">
+          <button class="a11y-btn" id="btnContrast" aria-pressed="false">Toggle high contrast</button>
+          <button class="a11y-btn" id="btnText" aria-pressed="false">Toggle larger text</button>
+        </div>
       </div>
     </div>
 
@@ -1119,469 +1275,471 @@
     </div>
   </header>
 
-  <!-- HERO / SLIDER -->
-  <section class="slider-container" id="home">
-    <div class="slider">
-      <img src="01.jpg" alt="Learners interacting in a classroom" loading="eager">
-      <img src="02.jpg" alt="Colourful classroom setup ready for pupils" loading="lazy">
-      <img src="03.jpg" alt="Teacher working closely with a young learner" loading="lazy">
-      <img src="04.jpg" alt="Outdoor play and learning area at NewDawn School" loading="lazy">
-      <img src="05.jpg" alt="NewDawn School bus and learners outside" loading="lazy">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-kicker">Bondo • Siaya County • Kenya</div>
-      <h1 class="hero-title">Holistic, Future-Ready Education for Global Citizens.</h1>
-      <p class="hero-subtitle">
-        From Kindergarten to Year 12, we blend CBC, IGCSE & A-Level pathways, strong values,
-        and technology-driven learning to nurture confident, creative and ethical leaders.
-      </p>
-      <div class="hero-ctas">
-        <a href="#apply" class="btn-primary">Apply for Admission</a>
-        <a href="#cbc" class="btn-outline">Explore Our Curriculum</a>
+  <main id="mainContent" role="main">
+    <!-- HERO / SLIDER -->
+    <section class="slider-container" id="home" aria-label="NewDawn School highlights">
+      <div class="slider">
+        <img src="01.jpg" alt="Learners interacting in a classroom" loading="eager">
+        <img src="02.jpg" alt="Colourful classroom setup ready for pupils" loading="lazy">
+        <img src="03.jpg" alt="Teacher working closely with a young learner" loading="lazy">
+        <img src="04.jpg" alt="Outdoor play and learning area at NewDawn School" loading="lazy">
+        <img src="05.jpg" alt="NewDawn School bus and learners outside" loading="lazy">
       </div>
-    </div>
-    <div class="hero-badge">
-      <strong>1000+ Learners</strong>
-      CBC • IGCSE • A-Level
-    </div>
-  </section>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-kicker">Bondo • Siaya County • Kenya</div>
+        <h1 class="hero-title">Holistic, Future-Ready Education for Global Citizens.</h1>
+        <p class="hero-subtitle">
+          From Kindergarten to Year 12, we blend CBC, IGCSE & A-Level pathways, strong values,
+          and technology-driven learning to nurture confident, creative and ethical leaders.
+        </p>
+        <div class="hero-ctas">
+          <a href="#apply" class="btn-primary">Apply for Admission</a>
+          <a href="#cbc" class="btn-outline">Explore Our Curriculum</a>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <strong>1000+ Learners</strong>
+        CBC • IGCSE • A-Level
+      </div>
+    </section>
 
-  <!-- STATISTICS -->
-  <section class="statistics" aria-label="Enrollment statistics">
-    <div class="stats-grid" data-animate>
-      <div class="stat-card">
-        <div class="stat-label">Total Enrolled Pupils</div>
-        <div class="stat-number">1000</div>
-        <div class="stat-note">Across all learning levels</div>
+    <!-- STATISTICS -->
+    <section class="statistics" aria-label="Enrollment statistics">
+      <div class="stats-grid" data-animate>
+        <div class="stat-card">
+          <div class="stat-label">Total Enrolled Pupils</div>
+          <div class="stat-number">1000</div>
+          <div class="stat-note">Across all learning levels</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pupils in Current Session</div>
+          <div class="stat-number">600</div>
+          <div class="stat-note">Actively engaged this term</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Graduated</div>
+          <div class="stat-number">400</div>
+          <div class="stat-note">Alumni thriving globally</div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Pupils in Current Session</div>
-        <div class="stat-number">600</div>
-        <div class="stat-note">Actively engaged this term</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Total Graduated</div>
-        <div class="stat-number">400</div>
-        <div class="stat-note">Alumni thriving globally</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT / CBC -->
-  <section class="section alt-bg" id="about">
-    <div class="section-inner">
-      <div class="section-header" data-animate>
-        <h2>About NewDawn School</h2>
-        <p>Excellence, character, and innovation at the shores of Lake Victoria.</p>
-      </div>
-
-      <div class="two-column">
-        <div class="card" data-animate>
-          <span class="pill">Who We Are</span>
-          <h3>A Beacon of Academic & Character Excellence</h3>
-          <p>
-            NewDawn School is a dynamic learning community offering holistic education from
-            Kindergarten to Year 12. Located in the heart of Bondo, Siaya County, we strive to
-            nurture each learner academically, socially, emotionally, and spiritually.
-          </p>
-          <p>
-            We combine inquiry-based learning, modern facilities, and a caring environment to help
-            our pupils discover their strengths, explore their passions, and unlock their God-given potential.
-          </p>
+    <!-- ABOUT / CBC -->
+    <section class="section alt-bg" id="about">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>About NewDawn School</h2>
+          <p>Excellence, character, and innovation at the shores of Lake Victoria.</p>
         </div>
 
-        <div class="card" id="cbc" data-animate>
-          <span class="pill">Curriculum Pathways</span>
-          <h3>CBC, IGCSE & A-Level Integration</h3>
-          <div class="cbc-grid">
-            <div class="cbc-item">
-              <strong>Kindergarten (Ages 3–5)</strong>
-              Play-based early years foundation that builds confidence, communication, and curiosity.
-            </div>
-            <div class="cbc-item">
-              <strong>Primary (Years 1–6)</strong>
-              CBC-aligned learning, with strong literacy, numeracy, environmental activities, and life skills.
-            </div>
-            <div class="cbc-item">
-              <strong>Middle School (Years 7–9)</strong>
-              Critical thinking, problem-solving, community projects, STEM exposure, and career awareness.
-            </div>
-            <div class="cbc-item">
-              <strong>High School (Years 10–12)</strong>
-              IGCSE & A-Level options, rigorous academics, leadership training, and university preparation.
-            </div>
-            <div class="cbc-item">
-              <strong>Co-Curricular & Enrichment</strong>
-              ICT, Robotics, STEM clubs, music, fine arts, sports, mentorship, and community service programs.
+        <div class="two-column">
+          <div class="card" data-animate>
+            <span class="pill">Who We Are</span>
+            <h3>A Beacon of Academic & Character Excellence</h3>
+            <p>
+              NewDawn School is a dynamic learning community offering holistic education from
+              Kindergarten to Year 12. Located in the heart of Bondo, Siaya County, we strive to
+              nurture each learner academically, socially, emotionally, and spiritually.
+            </p>
+            <p>
+              We combine inquiry-based learning, modern facilities, and a caring environment to help
+              our pupils discover their strengths, explore their passions, and unlock their God-given potential.
+            </p>
+          </div>
+
+          <div class="card" id="cbc" data-animate>
+            <span class="pill">Curriculum Pathways</span>
+            <h3>CBC, IGCSE & A-Level Integration</h3>
+            <div class="cbc-grid">
+              <div class="cbc-item">
+                <strong>Kindergarten (Ages 3–5)</strong>
+                Play-based early years foundation that builds confidence, communication, and curiosity.
+              </div>
+              <div class="cbc-item">
+                <strong>Primary (Years 1–6)</strong>
+                CBC-aligned learning, with strong literacy, numeracy, environmental activities, and life skills.
+              </div>
+              <div class="cbc-item">
+                <strong>Middle School (Years 7–9)</strong>
+                Critical thinking, problem-solving, community projects, STEM exposure, and career awareness.
+              </div>
+              <div class="cbc-item">
+                <strong>High School (Years 10–12)</strong>
+                IGCSE & A-Level options, rigorous academics, leadership training, and university preparation.
+              </div>
+              <div class="cbc-item">
+                <strong>Co-Curricular & Enrichment</strong>
+                ICT, Robotics, STEM clubs, music, fine arts, sports, mentorship, and community service programs.
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- WHY NEWDAWN -->
-  <section class="section" id="why">
-    <div class="section-inner">
-      <div class="section-header" data-animate>
-        <h2>Why Families Choose NewDawn</h2>
-        <p>A safe, joyful and globally-minded environment for every child.</p>
-      </div>
+    <!-- WHY NEWDAWN -->
+    <section class="section" id="why">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Why Families Choose NewDawn</h2>
+          <p>A safe, joyful and globally-minded environment for every child.</p>
+        </div>
 
-      <div class="why-grid" data-animate>
-        <div class="why-card">
-          <div class="why-icon">🌍</div>
-          <h3>Global Outlook, Local Roots</h3>
-          <p>
-            We blend Kenyan CBC with international programmes, preparing learners to compete globally
-            while staying grounded in African values.
-          </p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">💻</div>
-          <h3>Technology-Driven Learning</h3>
-          <p>
-            Modern ICT and STEM integration from early years to high school helps our learners become creators,
-            not just consumers, of technology.
-          </p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🤝</div>
-          <h3>Strong Pastoral Care</h3>
-          <p>
-            We walk with each learner through mentorship, guidance and spiritual nurturing, ensuring
-            no child walks alone in their journey.
-          </p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🏅</div>
-          <h3>Balanced Academics & Co-Curriculars</h3>
-          <p>
-            From sports and music to clubs and environmental activities, every learner discovers
-            their gifts beyond the classroom.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESOURCES -->
-  <section class="section alt-bg" id="resources">
-    <div class="section-inner">
-      <div class="section-header" data-animate>
-        <h2>Learning Resources</h2>
-        <p>Tools and spaces that empower every learner to thrive.</p>
-      </div>
-
-      <div class="resource-list" data-animate>
-        <div class="resource-item">
-          <h3>Digital Learning Hub</h3>
-          Blended learning platforms, interactive content, and supervised computer labs to support research
-          and independent study.
-        </div>
-        <div class="resource-item">
-          <h3>Libraries & Reading Corners</h3>
-          Age-appropriate libraries with curated storybooks, reference materials, and quiet reading zones.
-        </div>
-        <div class="resource-item">
-          <h3>STEM & ICT Facilities</h3>
-          Science laboratories, maker-spaces, robotics kits, and ICT labs that foster hands-on experimentation.
-        </div>
-        <div class="resource-item">
-          <h3>Pastoral Care & Guidance</h3>
-          Dedicated class teachers, counselors, and mentorship programs for emotional and social support.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ADMISSIONS & TESTIMONIALS -->
-  <section class="section" id="admissions">
-    <div class="section-inner">
-      <div class="section-header" data-animate>
-        <h2>Admissions & Parent Experience</h2>
-        <p>We keep the process simple, warm and transparent.</p>
-      </div>
-
-      <div class="two-column">
-        <div class="card" data-animate>
-          <span class="pill">Admission Steps</span>
-          <h3>How to Join NewDawn School</h3>
-          <div class="steps">
-            <div class="step">
-              <div class="step-title">1. Initial Inquiry</div>
-              <div class="step-text">Call, WhatsApp or submit the form below to share your child’s details and preferred level.</div>
-            </div>
-            <div class="step">
-              <div class="step-title">2. School Tour & Discussion</div>
-              <div class="step-text">Visit the campus, meet our team and experience our learning environment.</div>
-            </div>
-            <div class="step">
-              <div class="step-title">3. Assessment & Placement</div>
-              <div class="step-text">Learners undergo a friendly placement assessment to determine the best starting point.</div>
-            </div>
-            <div class="step">
-              <div class="step-title">4. Registration & Onboarding</div>
-              <div class="step-text">Complete registration, receive welcome packs and join the NewDawn family.</div>
-            </div>
+        <div class="why-grid" data-animate>
+          <div class="why-card">
+            <div class="why-icon">🌍</div>
+            <h3>Global Outlook, Local Roots</h3>
+            <p>
+              We blend Kenyan CBC with international programmes, preparing learners to compete globally
+              while staying grounded in African values.
+            </p>
           </div>
-        </div>
-
-        <div class="card" data-animate>
-          <span class="pill">Parent Voices</span>
-          <h3>What Our Parents Say</h3>
-          <div class="testimonial-wrapper">
-            <div class="testimonial-card" id="testimonialCard">
-              <p class="testimonial-text" id="testimonialText">
-                “NewDawn has changed how my child sees learning. She comes home excited to share what she discovered each day.”
-              </p>
-              <div class="testimonial-name" id="testimonialName">Parent, Grade 3</div>
-              <div class="testimonial-role" id="testimonialRole">Bondo</div>
-            </div>
+          <div class="why-card">
+            <div class="why-icon">💻</div>
+            <h3>Technology-Driven Learning</h3>
+            <p>
+              Modern ICT and STEM integration from early years to high school helps our learners become creators,
+              not just consumers, of technology.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">🤝</div>
+            <h3>Strong Pastoral Care</h3>
+            <p>
+              We walk with each learner through mentorship, guidance and spiritual nurturing, ensuring
+              no child walks alone in their journey.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">🏅</div>
+            <h3>Balanced Academics & Co-Curriculars</h3>
+            <p>
+              From sports and music to clubs and environmental activities, every learner discovers
+              their gifts beyond the classroom.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- STAFF -->
-  <section class="section alt-bg" id="staff">
-    <div class="section-inner">
-      <div class="section-header" data-animate>
-        <h2>Our Leadership & Staff</h2>
-        <p>A passionate, qualified, and caring team walking the journey with every learner.</p>
-      </div>
-
-      <div class="staff-grid" data-animate>
-        <div class="staff-card">
-          <div class="staff-role">School Director</div>
-          <div class="staff-name">[Name Here]</div>
-          <p>
-            Provides strategic vision, governance, and oversight to ensure NewDawn remains a center of excellence.
-          </p>
+    <!-- RESOURCES -->
+    <section class="section alt-bg" id="resources">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Learning Resources</h2>
+          <p>Tools and spaces that empower every learner to thrive.</p>
         </div>
-        <div class="staff-card">
-          <div class="staff-role">Head Teacher</div>
-          <div class="staff-name">[Name Here]</div>
-          <p>
-            Oversees day-to-day academic operations, staff coordination, and continuous improvement of teaching standards.
-          </p>
-        </div>
-        <div class="staff-card">
-          <div class="staff-role">CBC & Junior School Team</div>
-          <div class="staff-name">Dedicated Class Teachers</div>
-          <p>
-            Nurturing early literacy, numeracy, and values through engaging, age-appropriate strategies.
-          </p>
-        </div>
-        <div class="staff-card">
-          <div class="staff-role">Senior & IGCSE Faculty</div>
-          <div class="staff-name">Subject Specialists</div>
-          <p>
-            Experienced educators preparing learners for national and international examinations and life beyond school.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="section-inner">
-      <div class="section-header" data-animate>
-        <h2>Frequently Asked Questions</h2>
-        <p>Quick answers to common questions from parents and guardians.</p>
-      </div>
-      <div class="faq-grid" data-animate>
-        <details>
-          <summary>What curriculum do you follow?</summary>
-          <p>
-            We implement the Kenyan CBC pathway in the early and middle years, with IGCSE and A-Level options in high school.
-          </p>
-        </details>
-        <details>
-          <summary>Do you provide school transport?</summary>
-          <p>
-            Yes, transport is available on designated routes. Please contact the office for current coverage and fees.
-          </p>
-        </details>
-        <details>
-          <summary>How can I start the admission process?</summary>
-          <p>
-            Call or WhatsApp us, or submit the inquiry form below. Our office will guide you step-by-step.
-          </p>
-        </details>
-        <details>
-          <summary>Do you offer scholarships or financial support?</summary>
-          <p>
-            Limited support is available based on need and performance. Speak with our administration for current opportunities.
-          </p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="section-inner">
-      <div class="section-header" data-animate>
-        <h2>Contact & Visit Us</h2>
-        <p>We are happy to walk you through admissions, visits, and any questions you may have.</p>
-      </div>
-
-      <div class="contact-layout">
-        <div class="contact-details" data-animate>
-          <p><strong>📍 Address:</strong> V7XM+56R, Kisumu, Kisian - Bondo - Usenge Rd, Bondo</p>
-          <p><strong>📞 Call or WhatsApp:</strong> <a href="tel:+254769924670">+254 769 924670</a></p>
-          <p><strong>🌐 Website:</strong> <a href="https://www.newdawnschool.ac.ke" target="_blank">www.newdawnschool.ac.ke</a></p>
-          <p><strong>✉️ Email:</strong> <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></p>
-          <p><strong>School Hours:</strong> Monday – Friday, 7:00am – 5:00pm</p>
-
-          <div class="map-placeholder" aria-label="Map to NewDawn School">
-            <!-- Replace src with real map embed when ready -->
-            <iframe
-              src="https://www.google.com/maps/embed?pb="
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
+        <div class="resource-list" data-animate>
+          <div class="resource-item">
+            <h3>Digital Learning Hub</h3>
+            Blended learning platforms, interactive content, and supervised computer labs to support research
+            and independent study.
+          </div>
+          <div class="resource-item">
+            <h3>Libraries & Reading Corners</h3>
+            Age-appropriate libraries with curated storybooks, reference materials, and quiet reading zones.
+          </div>
+          <div class="resource-item">
+            <h3>STEM & ICT Facilities</h3>
+            Science laboratories, maker-spaces, robotics kits, and ICT labs that foster hands-on experimentation.
+          </div>
+          <div class="resource-item">
+            <h3>Pastoral Care & Guidance</h3>
+            Dedicated class teachers, counselors, and mentorship programs for emotional and social support.
           </div>
         </div>
-
-        <div class="contact-form" id="apply" data-animate>
-          <h3>Apply / Request Information</h3>
-          <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:8px;">
-            Share your details and we will get back to you with admission guidance and next steps.
-          </p>
-          <form action="#" method="post">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="parentName">Parent / Guardian Name</label>
-                <input type="text" id="parentName" name="parentName" placeholder="Your full name" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone / WhatsApp</label>
-                <input type="tel" id="phone" name="phone" placeholder="+254..." required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="childName">Learner's Name</label>
-                <input type="text" id="childName" name="childName" placeholder="Child's name" />
-              </div>
-              <div class="form-group">
-                <label for="level">Class / Level</label>
-                <input type="text" id="level" name="level" placeholder="e.g. Grade 3, Year 7" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="message">Message / Inquiry</label>
-              <textarea id="message" name="message" placeholder="Tell us how we may assist you..."></textarea>
-            </div>
-            <button type="submit" class="btn-primary">Submit Inquiry</button>
-          </form>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- GALLERY -->
-  <section class="section alt-bg" id="gallery">
-    <div class="section-inner">
-      <div class="section-header" data-animate>
-        <h2>Campus Life & Gallery</h2>
-        <p>A glimpse into daily life, learning, and celebrations at NewDawn School.</p>
-      </div>
-
-      <div class="photo-grid" data-animate>
-        <!-- Known numbered photos -->
-        <img class="gallery-img" src="1.jpg"  alt="NewDawn School moment 1" loading="lazy">
-        <img class="gallery-img" src="2.jpg"  alt="NewDawn School moment 2" loading="lazy">
-        <img class="gallery-img" src="3.jpg"  alt="NewDawn School moment 3" loading="lazy">
-        <img class="gallery-img" src="4.jpg"  alt="NewDawn School moment 4" loading="lazy">
-        <img class="gallery-img" src="5.jpg"  alt="NewDawn School moment 5" loading="lazy">
-        <img class="gallery-img" src="6.jpg"  alt="NewDawn School moment 6" loading="lazy">
-        <img class="gallery-img" src="7.jpg"  alt="NewDawn School moment 7" loading="lazy">
-        <img class="gallery-img" src="8.jpg"  alt="NewDawn School moment 8" loading="lazy">
-        <img class="gallery-img" src="9.jpg"  alt="NewDawn School moment 9" loading="lazy">
-        <img class="gallery-img" src="0.jpg"  alt="NewDawn School moment 0" loading="lazy">
-
-        <img class="gallery-img" src="01.jpg" alt="NewDawn School extended gallery 01" loading="lazy">
-        <img class="gallery-img" src="02.jpg" alt="NewDawn School extended gallery 02" loading="lazy">
-        <img class="gallery-img" src="03.jpg" alt="NewDawn School extended gallery 03" loading="lazy">
-        <img class="gallery-img" src="04.jpg" alt="NewDawn School extended gallery 04" loading="lazy">
-        <img class="gallery-img" src="05.jpg" alt="NewDawn School extended gallery 05" loading="lazy">
-        <img class="gallery-img" src="06.jpg" alt="NewDawn School extended gallery 06" loading="lazy">
-        <img class="gallery-img" src="07.jpg" alt="NewDawn School extended gallery 07" loading="lazy">
-        <img class="gallery-img" src="08.jpg" alt="NewDawn School extended gallery 08" loading="lazy">
-
-        <!-- Extra photos – keep or adjust names to match repo -->
-        <img class="gallery-img" src="A.jpg"  alt="NewDawn School extra photo A" loading="lazy">
-        <img class="gallery-img" src="AA.jpg" alt="NewDawn School extra photo AA" loading="lazy">
-        <img class="gallery-img" src="B.jpg"  alt="NewDawn School extra photo B" loading="lazy">
-        <img class="gallery-img" src="BB.jpg" alt="NewDawn School extra photo BB" loading="lazy">
-        <img class="gallery-img" src="C.jpg"  alt="NewDawn School extra photo C" loading="lazy">
-        <img class="gallery-img" src="CC.jpg" alt="NewDawn School extra photo CC" loading="lazy">
-        <img class="gallery-img" src="D.jpg"  alt="NewDawn School extra photo D" loading="lazy">
-        <img class="gallery-img" src="DD.jpg" alt="NewDawn School extra photo DD" loading="lazy">
-        <img class="gallery-img" src="E.jpg"  alt="NewDawn School extra photo E" loading="lazy">
-        <img class="gallery-img" src="EE.jpg" alt="NewDawn School extra photo EE" loading="lazy">
-        <img class="gallery-img" src="F.jpg"  alt="NewDawn School extra photo F" loading="lazy">
-        <img class="gallery-img" src="FF.jpg" alt="NewDawn School extra photo FF" loading="lazy">
-        <img class="gallery-img" src="G.jpg"  alt="NewDawn School extra photo G" loading="lazy">
-        <img class="gallery-img" src="GG.jpg" alt="NewDawn School extra photo GG" loading="lazy">
-        <img class="gallery-img" src="H.jpg"  alt="NewDawn School extra photo H" loading="lazy">
-        <img class="gallery-img" src="HH.jpg" alt="NewDawn School extra photo HH" loading="lazy">
-        <img class="gallery-img" src="I.jpg"  alt="NewDawn School extra photo I" loading="lazy">
-        <img class="gallery-img" src="II.jpg" alt="NewDawn School extra photo II" loading="lazy">
-        <img class="gallery-img" src="J.jpg"  alt="NewDawn School extra photo J" loading="lazy">
-        <img class="gallery-img" src="JJ.jpg" alt="NewDawn School extra photo JJ" loading="lazy">
-        <img class="gallery-img" src="K.jpg"  alt="NewDawn School extra photo K" loading="lazy">
-        <img class="gallery-img" src="KK.jpg" alt="NewDawn School extra photo KK" loading="lazy">
-        <img class="gallery-img" src="L.jpg"  alt="NewDawn School extra photo L" loading="lazy">
-        <img class="gallery-img" src="M.jpg"  alt="NewDawn School extra photo M" loading="lazy">
-        <img class="gallery-img" src="N.jpg"  alt="NewDawn School extra photo N" loading="lazy">
-        <img class="gallery-img" src="O.jpg"  alt="NewDawn School extra photo O" loading="lazy">
-        <img class="gallery-img" src="P.jpg"  alt="NewDawn School extra photo P" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <!-- MEDIA / VIDEOS -->
-  <section class="section" id="media">
-    <div class="section-inner">
-      <div class="section-header" data-animate>
-        <h2>Events & Media</h2>
-        <p>Short clips from our school assemblies, trips and classroom moments.</p>
-      </div>
-
-      <div class="media-grid" data-animate>
-        <div class="media-card">
-          <h3>School Highlights Video 1</h3>
-          <video controls preload="metadata">
-            <!-- Rename first video to video1.mp4 OR change src -->
-            <source src="video1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <p>A quick look at learning, play and community life at NewDawn School.</p>
+    <!-- ADMISSIONS & TESTIMONIALS -->
+    <section class="section" id="admissions">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Admissions & Parent Experience</h2>
+          <p>We keep the process simple, warm and transparent.</p>
         </div>
 
-        <div class="media-card">
-          <h3>School Highlights Video 2</h3>
-          <video controls preload="metadata">
-            <!-- Rename second video to video2.mp4 OR change src -->
-            <source src="video2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <p>Clubs, sports, environment days and special events captured in motion.</p>
+        <div class="two-column">
+          <div class="card" data-animate>
+            <span class="pill">Admission Steps</span>
+            <h3>How to Join NewDawn School</h3>
+            <div class="steps">
+              <div class="step">
+                <div class="step-title">1. Initial Inquiry</div>
+                <div class="step-text">Call, WhatsApp or submit the form below to share your child’s details and preferred level.</div>
+              </div>
+              <div class="step">
+                <div class="step-title">2. School Tour & Discussion</div>
+                <div class="step-text">Visit the campus, meet our team and experience our learning environment.</div>
+              </div>
+              <div class="step">
+                <div class="step-title">3. Assessment & Placement</div>
+                <div class="step-text">Learners undergo a friendly placement assessment to determine the best starting point.</div>
+              </div>
+              <div class="step">
+                <div class="step-title">4. Registration & Onboarding</div>
+                <div class="step-text">Complete registration, receive welcome packs and join the NewDawn family.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" data-animate aria-live="polite">
+            <span class="pill">Parent Voices</span>
+            <h3>What Our Parents Say</h3>
+            <div class="testimonial-wrapper">
+              <div class="testimonial-card" id="testimonialCard">
+                <p class="testimonial-text" id="testimonialText">
+                  “NewDawn has changed how my child sees learning. She comes home excited to share what she discovered each day.”
+                </p>
+                <div class="testimonial-name" id="testimonialName">Parent, Grade 3</div>
+                <div class="testimonial-role" id="testimonialRole">Bondo</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- STAFF -->
+    <section class="section alt-bg" id="staff">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Our Leadership & Staff</h2>
+          <p>A passionate, qualified, and caring team walking the journey with every learner.</p>
+        </div>
+
+        <div class="staff-grid" data-animate>
+          <div class="staff-card">
+            <div class="staff-role">School Director</div>
+            <div class="staff-name">[Name Here]</div>
+            <p>
+              Provides strategic vision, governance, and oversight to ensure NewDawn remains a center of excellence.
+            </p>
+          </div>
+          <div class="staff-card">
+            <div class="staff-role">Head Teacher</div>
+            <div class="staff-name">[Name Here]</div>
+            <p>
+              Oversees day-to-day academic operations, staff coordination, and continuous improvement of teaching standards.
+            </p>
+          </div>
+          <div class="staff-card">
+            <div class="staff-role">CBC & Junior School Team</div>
+            <div class="staff-name">Dedicated Class Teachers</div>
+            <p>
+              Nurturing early literacy, numeracy, and values through engaging, age-appropriate strategies.
+            </p>
+          </div>
+          <div class="staff-card">
+            <div class="staff-role">Senior & IGCSE Faculty</div>
+            <div class="staff-name">Subject Specialists</div>
+            <p>
+              Experienced educators preparing learners for national and international examinations and life beyond school.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Frequently Asked Questions</h2>
+          <p>Quick answers to common questions from parents and guardians.</p>
+        </div>
+        <div class="faq-grid" data-animate>
+          <details>
+            <summary>What curriculum do you follow?</summary>
+            <p>
+              We implement the Kenyan CBC pathway in the early and middle years, with IGCSE and A-Level options in high school.
+            </p>
+          </details>
+          <details>
+            <summary>Do you provide school transport?</summary>
+            <p>
+              Yes, transport is available on designated routes. Please contact the office for current coverage and fees.
+            </p>
+          </details>
+          <details>
+            <summary>How can I start the admission process?</summary>
+            <p>
+              Call or WhatsApp us, or submit the inquiry form below. Our office will guide you step-by-step.
+            </p>
+          </details>
+          <details>
+            <summary>Do you offer scholarships or financial support?</summary>
+            <p>
+              Limited support is available based on need and performance. Speak with our administration for current opportunities.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Contact & Visit Us</h2>
+          <p>We are happy to walk you through admissions, visits, and any questions you may have.</p>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-details" data-animate>
+            <p><strong>📍 Address:</strong> V7XM+56R, Kisumu, Kisian - Bondo - Usenge Rd, Bondo</p>
+            <p><strong>📞 Call or WhatsApp:</strong> <a href="tel:+254769924670">+254 769 924670</a></p>
+            <p><strong>🌐 Website:</strong> <a href="https://www.newdawnschool.ac.ke" target="_blank">www.newdawnschool.ac.ke</a></p>
+            <p><strong>✉️ Email:</strong> <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></p>
+            <p><strong>School Hours:</strong> Monday – Friday, 7:00am – 5:00pm</p>
+
+            <div class="map-placeholder" aria-label="Map to NewDawn School">
+              <!-- Replace src with real map embed when ready -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb="
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="contact-form" id="apply" data-animate>
+            <h3>Apply / Request Information</h3>
+            <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:8px;">
+              Share your details and we will get back to you with admission guidance and next steps.
+            </p>
+            <form action="#" method="post">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="parentName">Parent / Guardian Name</label>
+                  <input type="text" id="parentName" name="parentName" placeholder="Your full name" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone / WhatsApp</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+254..." required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="childName">Learner's Name</label>
+                  <input type="text" id="childName" name="childName" placeholder="Child's name" />
+                </div>
+                <div class="form-group">
+                  <label for="level">Class / Level</label>
+                  <input type="text" id="level" name="level" placeholder="e.g. Grade 3, Year 7" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Message / Inquiry</label>
+                <textarea id="message" name="message" placeholder="Tell us how we may assist you..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary">Submit Inquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section alt-bg" id="gallery" aria-label="Photo gallery">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Campus Life & Gallery</h2>
+          <p>A glimpse into daily life, learning, and celebrations at NewDawn School.</p>
+        </div>
+
+        <div class="photo-grid" data-animate>
+          <!-- Known numbered photos -->
+          <img class="gallery-img" src="1.jpg"  alt="NewDawn School moment 1" loading="lazy">
+          <img class="gallery-img" src="2.jpg"  alt="NewDawn School moment 2" loading="lazy">
+          <img class="gallery-img" src="3.jpg"  alt="NewDawn School moment 3" loading="lazy">
+          <img class="gallery-img" src="4.jpg"  alt="NewDawn School moment 4" loading="lazy">
+          <img class="gallery-img" src="5.jpg"  alt="NewDawn School moment 5" loading="lazy">
+          <img class="gallery-img" src="6.jpg"  alt="NewDawn School moment 6" loading="lazy">
+          <img class="gallery-img" src="7.jpg"  alt="NewDawn School moment 7" loading="lazy">
+          <img class="gallery-img" src="8.jpg"  alt="NewDawn School moment 8" loading="lazy">
+          <img class="gallery-img" src="9.jpg"  alt="NewDawn School moment 9" loading="lazy">
+          <img class="gallery-img" src="0.jpg"  alt="NewDawn School moment 0" loading="lazy">
+
+          <img class="gallery-img" src="01.jpg" alt="NewDawn School extended gallery 01" loading="lazy">
+          <img class="gallery-img" src="02.jpg" alt="NewDawn School extended gallery 02" loading="lazy">
+          <img class="gallery-img" src="03.jpg" alt="NewDawn School extended gallery 03" loading="lazy">
+          <img class="gallery-img" src="04.jpg" alt="NewDawn School extended gallery 04" loading="lazy">
+          <img class="gallery-img" src="05.jpg" alt="NewDawn School extended gallery 05" loading="lazy">
+          <img class="gallery-img" src="06.jpg" alt="NewDawn School extended gallery 06" loading="lazy">
+          <img class="gallery-img" src="07.jpg" alt="NewDawn School extended gallery 07" loading="lazy">
+          <img class="gallery-img" src="08.jpg" alt="NewDawn School extended gallery 08" loading="lazy">
+
+          <!-- Extra photos – adjust names if needed -->
+          <img class="gallery-img" src="A.jpg"  alt="NewDawn School extra photo A" loading="lazy">
+          <img class="gallery-img" src="AA.jpg" alt="NewDawn School extra photo AA" loading="lazy">
+          <img class="gallery-img" src="B.jpg"  alt="NewDawn School extra photo B" loading="lazy">
+          <img class="gallery-img" src="BB.jpg" alt="NewDawn School extra photo BB" loading="lazy">
+          <img class="gallery-img" src="C.jpg"  alt="NewDawn School extra photo C" loading="lazy">
+          <img class="gallery-img" src="CC.jpg" alt="NewDawn School extra photo CC" loading="lazy">
+          <img class="gallery-img" src="D.jpg"  alt="NewDawn School extra photo D" loading="lazy">
+          <img class="gallery-img" src="DD.jpg" alt="NewDawn School extra photo DD" loading="lazy">
+          <img class="gallery-img" src="E.jpg"  alt="NewDawn School extra photo E" loading="lazy">
+          <img class="gallery-img" src="EE.jpg" alt="NewDawn School extra photo EE" loading="lazy">
+          <img class="gallery-img" src="F.jpg"  alt="NewDawn School extra photo F" loading="lazy">
+          <img class="gallery-img" src="FF.jpg" alt="NewDawn School extra photo FF" loading="lazy">
+          <img class="gallery-img" src="G.jpg"  alt="NewDawn School extra photo G" loading="lazy">
+          <img class="gallery-img" src="GG.jpg" alt="NewDawn School extra photo GG" loading="lazy">
+          <img class="gallery-img" src="H.jpg"  alt="NewDawn School extra photo H" loading="lazy">
+          <img class="gallery-img" src="HH.jpg" alt="NewDawn School extra photo HH" loading="lazy">
+          <img class="gallery-img" src="I.jpg"  alt="NewDawn School extra photo I" loading="lazy">
+          <img class="gallery-img" src="II.jpg" alt="NewDawn School extra photo II" loading="lazy">
+          <img class="gallery-img" src="J.jpg"  alt="NewDawn School extra photo J" loading="lazy">
+          <img class="gallery-img" src="JJ.jpg" alt="NewDawn School extra photo JJ" loading="lazy">
+          <img class="gallery-img" src="K.jpg"  alt="NewDawn School extra photo K" loading="lazy">
+          <img class="gallery-img" src="KK.jpg" alt="NewDawn School extra photo KK" loading="lazy">
+          <img class="gallery-img" src="L.jpg"  alt="NewDawn School extra photo L" loading="lazy">
+          <img class="gallery-img" src="M.jpg"  alt="NewDawn School extra photo M" loading="lazy">
+          <img class="gallery-img" src="N.jpg"  alt="NewDawn School extra photo N" loading="lazy">
+          <img class="gallery-img" src="O.jpg"  alt="NewDawn School extra photo O" loading="lazy">
+          <img class="gallery-img" src="P.jpg"  alt="NewDawn School extra photo P" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA / VIDEOS -->
+    <section class="section" id="media">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Events & Media</h2>
+          <p>Short clips from our school assemblies, trips and classroom moments.</p>
+        </div>
+
+        <div class="media-grid" data-animate>
+          <div class="media-card">
+            <h3>School Highlights Video 1</h3>
+            <video controls preload="metadata">
+              <!-- Rename first video to video1.mp4 OR change src -->
+              <source src="video1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p>A quick look at learning, play and community life at NewDawn School.</p>
+          </div>
+
+          <div class="media-card">
+            <h3>School Highlights Video 2</h3>
+            <video controls preload="metadata">
+              <!-- Rename second video to video2.mp4 OR change src -->
+              <source src="video2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p>Clubs, sports, environment days and special events captured in motion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox">
-    <span class="lightbox-close" id="lightbox-close">&times;</span>
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <span class="lightbox-close" id="lightbox-close" aria-label="Close gallery">&times;</span>
     <img id="lightbox-img" src="" alt="Expanded gallery view">
   </div>
 
@@ -1596,7 +1754,7 @@
   </button>
 
   <!-- FOOTER -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-top">
       Kisumu, Kisian - Bondo - Usenge Rd, Bondo •
       <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a> •
@@ -1608,6 +1766,22 @@
   </footer>
 
   <!-- SCRIPTS -->
+  <script>
+    // GOOGLE TRANSLATE
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,sw,fr,es,de,ar,zh-CN',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        },
+        'google_translate_element'
+      );
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   <script>
     // HERO SLIDER
     let currentIndex = 0;
@@ -1626,15 +1800,46 @@
     const mainNav = document.getElementById('mainNav');
 
     navToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     mainNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
           mainNav.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
         }
       });
+    });
+
+    // ACCESSIBILITY PANEL
+    const a11yToggle = document.getElementById('a11yToggle');
+    const a11yPanel = document.getElementById('a11yPanel');
+    const btnContrast = document.getElementById('btnContrast');
+    const btnText = document.getElementById('btnText');
+
+    a11yToggle.addEventListener('click', () => {
+      const isOpen = a11yPanel.classList.toggle('open');
+      a11yToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    btnContrast.addEventListener('click', () => {
+      const isOn = document.body.classList.toggle('high-contrast');
+      btnContrast.setAttribute('aria-pressed', isOn ? 'true' : 'false');
+    });
+
+    btnText.addEventListener('click', () => {
+      const isOn = document.body.classList.toggle('large-text');
+      btnText.setAttribute('aria-pressed', isOn ? 'true' : 'false');
+    });
+
+    // Close accessibility panel when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!a11yPanel.contains(e.target) && !a11yToggle.contains(e.target)) {
+        a11yPanel.classList.remove('open');
+        a11yToggle.setAttribute('aria-expanded', 'false');
+      }
     });
 
     // GALLERY LIGHTBOX
@@ -1647,22 +1852,26 @@
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
         lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
       });
     });
 
-    lightboxClose.addEventListener('click', () => {
+    function closeLightbox() {
       lightbox.classList.remove('active');
-    });
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
 
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
-        lightbox.classList.remove('active');
+        closeLightbox();
       }
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
+        closeLightbox();
       }
     });
 
