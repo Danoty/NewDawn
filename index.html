@@ -673,6 +673,40 @@
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
     }
 
+    /* MEDIA / VIDEOS */
+    #media {
+      background: #fdfdfd;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .media-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .media-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--primary-dark);
+    }
+
+    .media-card video {
+      width: 100%;
+      border-radius: 14px;
+      margin-bottom: 8px;
+      background: #000;
+    }
+
     /* LIGHTBOX */
     .lightbox {
       position: fixed;
@@ -825,7 +859,7 @@
       }
 
       nav.open {
-        max-height: 280px;
+        max-height: 320px;
       }
 
       nav a {
@@ -922,6 +956,7 @@
         <a href="#staff"><span>Staff</span></a>
         <a href="#contact"><span>Contact</span></a>
         <a href="#gallery"><span>Gallery</span></a>
+        <a href="#media"><span>Media</span></a>
       </nav>
     </div>
   </header>
@@ -1171,7 +1206,7 @@
       </div>
 
       <div class="photo-grid">
-        <!-- 1–9 and 0 -->
+        <!-- Existing numbered photos -->
         <img class="gallery-img" src="1.jpg"  alt="NewDawn School moment 1">
         <img class="gallery-img" src="2.jpg"  alt="NewDawn School moment 2">
         <img class="gallery-img" src="3.jpg"  alt="NewDawn School moment 3">
@@ -1183,7 +1218,6 @@
         <img class="gallery-img" src="9.jpg"  alt="NewDawn School moment 9">
         <img class="gallery-img" src="0.jpg"  alt="NewDawn School moment 0">
 
-        <!-- 01–08 -->
         <img class="gallery-img" src="01.jpg" alt="NewDawn School extended gallery 01">
         <img class="gallery-img" src="02.jpg" alt="NewDawn School extended gallery 02">
         <img class="gallery-img" src="03.jpg" alt="NewDawn School extended gallery 03">
@@ -1192,6 +1226,68 @@
         <img class="gallery-img" src="06.jpg" alt="NewDawn School extended gallery 06">
         <img class="gallery-img" src="07.jpg" alt="NewDawn School extended gallery 07">
         <img class="gallery-img" src="08.jpg" alt="NewDawn School extended gallery 08">
+
+        <!-- EXTRA PHOTOS YOU JUST UPLOADED
+             If names are different, change A.jpg, AA.jpg... to match -->
+        <img class="gallery-img" src="A.jpg"  alt="NewDawn School extra photo A">
+        <img class="gallery-img" src="AA.jpg" alt="NewDawn School extra photo AA">
+        <img class="gallery-img" src="B.jpg"  alt="NewDawn School extra photo B">
+        <img class="gallery-img" src="BB.jpg" alt="NewDawn School extra photo BB">
+        <img class="gallery-img" src="C.jpg"  alt="NewDawn School extra photo C">
+        <img class="gallery-img" src="CC.jpg" alt="NewDawn School extra photo CC">
+        <img class="gallery-img" src="D.jpg"  alt="NewDawn School extra photo D">
+        <img class="gallery-img" src="DD.jpg" alt="NewDawn School extra photo DD">
+        <img class="gallery-img" src="E.jpg"  alt="NewDawn School extra photo E">
+        <img class="gallery-img" src="EE.jpg" alt="NewDawn School extra photo EE">
+        <img class="gallery-img" src="F.jpg"  alt="NewDawn School extra photo F">
+        <img class="gallery-img" src="FF.jpg" alt="NewDawn School extra photo FF">
+        <img class="gallery-img" src="G.jpg"  alt="NewDawn School extra photo G">
+        <img class="gallery-img" src="GG.jpg" alt="NewDawn School extra photo GG">
+        <img class="gallery-img" src="H.jpg"  alt="NewDawn School extra photo H">
+        <img class="gallery-img" src="HH.jpg" alt="NewDawn School extra photo HH">
+        <img class="gallery-img" src="I.jpg"  alt="NewDawn School extra photo I">
+        <img class="gallery-img" src="II.jpg" alt="NewDawn School extra photo II">
+        <img class="gallery-img" src="J.jpg"  alt="NewDawn School extra photo J">
+        <img class="gallery-img" src="JJ.jpg" alt="NewDawn School extra photo JJ">
+        <img class="gallery-img" src="K.jpg"  alt="NewDawn School extra photo K">
+        <img class="gallery-img" src="KK.jpg" alt="NewDawn School extra photo KK">
+        <img class="gallery-img" src="L.jpg"  alt="NewDawn School extra photo L">
+        <img class="gallery-img" src="M.jpg"  alt="NewDawn School extra photo M">
+        <img class="gallery-img" src="N.jpg"  alt="NewDawn School extra photo N">
+        <img class="gallery-img" src="O.jpg"  alt="NewDawn School extra photo O">
+        <img class="gallery-img" src="P.jpg"  alt="NewDawn School extra photo P">
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA / VIDEOS -->
+  <section class="section" id="media">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Events & Media</h2>
+        <p>Short clips from our school assemblies, trips and classroom moments.</p>
+      </div>
+
+      <div class="media-grid">
+        <div class="media-card">
+          <h3>School Highlights Video 1</h3>
+          <video controls preload="metadata">
+            <!-- Rename your first video to video1.mp4 OR change this src -->
+            <source src="video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>A quick look at learning, play and community life at NewDawn School.</p>
+        </div>
+
+        <div class="media-card">
+          <h3>School Highlights Video 2</h3>
+          <video controls preload="metadata">
+            <!-- Rename your second video to video2.mp4 OR change this src -->
+            <source src="video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p>Clubs, sports, environment days and special events captured in motion.</p>
+        </div>
       </div>
     </div>
   </section>
