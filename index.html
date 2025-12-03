@@ -6,7 +6,7 @@
   <title>NewDawn School – Inspiring Future Leaders in Bondo, Kenya</title>
 
   <!-- SEO -->
-  <meta name="description" content="NewDawn School in Bondo, Siaya County, Kenya – CBC, IGCSE & A-Level school offering holistic, tech-driven education from Kindergarten to Year 12.">
+  <meta name="description" content="NewDawn School in Bondo, Siaya County, Kenya – CBC, Junior Secondary, IGCSE & A-Level school offering holistic, tech-driven education from Kindergarten to Year 12.">
   <meta name="keywords" content="NewDawn School, Bondo, Siaya, Kenya, CBC, junior secondary, primary school, high school, IGCSE, A Level, STEM, holistic education">
   <meta name="author" content="NewDawn School">
   <meta name="country" content="Kenya" />
@@ -15,7 +15,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="NewDawn School – Inspiring Future Leaders in Kenya">
-  <meta property="og:description" content="Holistic, tech-driven learning environment in Bondo, Siaya County – CBC, IGCSE & A-Level.">
+  <meta property="og:description" content="Holistic, tech-driven learning environment in Bondo, Siaya County – CBC, Junior Secondary, IGCSE & A-Level.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://danoty.github.io/NewDawn/">
   <meta property="og:image" content="01.jpg">
@@ -34,7 +34,7 @@
     "@context": "https://schema.org",
     "@type": "School",
     "name": "NewDawn School",
-    "description": "CBC, IGCSE & A-Level school offering holistic, values-based education in Bondo, Siaya County, Kenya.",
+    "description": "CBC, Junior Secondary, IGCSE & A-Level school offering holistic, values-based education in Bondo, Siaya County, Kenya.",
     "url": "https://danoty.github.io/NewDawn/",
     "logo": "https://danoty.github.io/NewDawn/logo.png",
     "address": {
@@ -109,9 +109,10 @@
     }
 
     section {
-      scroll-margin-top: 140px;
+      scroll-margin-top: 130px;
     }
 
+    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       * {
         scroll-behavior: auto !important;
@@ -138,6 +139,7 @@
       top: 10px;
     }
 
+    /* Focus outlines */
     a:focus,
     button:focus,
     input:focus,
@@ -146,6 +148,7 @@
       outline-offset: 2px;
     }
 
+    /* ANIMATION BASE */
     [data-animate] {
       opacity: 0;
       transform: translateY(14px);
@@ -189,12 +192,69 @@
       gap: 12px;
     }
 
-    .logo-container img {
+    /* GLITTER / GLOW LOGO WRAP */
+    .logo-mark {
+      position: relative;
+      border-radius: 50%;
+      padding: 4px;
+      background: radial-gradient(circle at 30% 0%, #ffffff 0, #ffe9c5 30%, #f3b76c 55%, #e46b33 85%);
+      box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.6),
+        0 0 18px rgba(255, 204, 128, 0.75),
+        0 0 40px rgba(255, 127, 50, 0.65);
+      animation: logoPulse 2.6s ease-in-out infinite;
+      overflow: visible;
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        rgba(255,255,255,0.1) 0deg,
+        rgba(255,255,255,0.7) 45deg,
+        rgba(255,255,255,0.1) 90deg,
+        transparent 180deg,
+        transparent 360deg
+      );
+      mix-blend-mode: screen;
+      opacity: 0.9;
+      pointer-events: none;
+      animation: sparkleSpin 4.5s linear infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        box-shadow:
+          0 0 0 2px rgba(255, 255, 255, 0.6),
+          0 0 18px rgba(255, 204, 128, 0.75),
+          0 0 40px rgba(255, 127, 50, 0.65);
+      }
+      50% {
+        transform: translateY(-1px) scale(1.03);
+        box-shadow:
+          0 0 0 2px rgba(255, 255, 255, 0.8),
+          0 0 26px rgba(255, 235, 179, 0.95),
+          0 0 60px rgba(255, 152, 0, 0.9);
+      }
+    }
+
+    @keyframes sparkleSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .logo-mark img {
       height: 60px;
-      width: auto;
+      width: 60px;
       border-radius: 50%;
       background-color: #ffffff;
-      padding: 4px;
+      padding: 2px;
+      position: relative;
+      z-index: 1;
     }
 
     .logo-container a {
@@ -237,6 +297,7 @@
       text-decoration: none;
     }
 
+    /* Accessibility controls + translate */
     .accessibility-controls {
       display: flex;
       align-items: center;
@@ -264,6 +325,7 @@
       padding: 2px 6px;
     }
 
+    /* NAV */
     .nav-wrapper {
       width: 100%;
       max-width: var(--max-width);
@@ -283,6 +345,7 @@
       flex: 1;
     }
 
+    /* SUPER-HOT MENU STYLING */
     nav a {
       color: white;
       text-decoration: none;
@@ -293,19 +356,48 @@
       position: relative;
       overflow: hidden;
       white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 127, 50, 0.14),
+        rgba(255, 255, 255, 0.09)
+      );
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
     }
 
+    /* Soft glow overlay */
     nav a::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(255, 255, 255, 0.16);
+      background: radial-gradient(circle at 0 0, rgba(255,255,255,0.7), transparent 55%);
       opacity: 0;
       transition: opacity 0.25s ease;
     }
 
-    nav a:hover::before {
-      opacity: 1;
+    /* Hot underline */
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 4px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff7f32, #ffd452, #ff7f32);
+      transform: scaleX(0);
+      transform-origin: center;
+      opacity: 0.95;
+      transition: transform 0.25s ease;
     }
 
     nav a span {
@@ -313,6 +405,46 @@
       z-index: 1;
     }
 
+    nav a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.32);
+      border-color: rgba(255,255,255,0.7);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 152, 0, 0.5),
+        rgba(255, 255, 255, 0.16)
+      );
+      color: #fffdf6;
+    }
+
+    nav a:hover::before {
+      opacity: 0.55;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* ACTIVE LINK ON SCROLL */
+    nav a.active {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 152, 0, 0.7),
+        rgba(255, 255, 255, 0.2)
+      );
+      border-color: rgba(255,255,255,0.85);
+      color: #fffdf3;
+    }
+
+    nav a.active::before {
+      opacity: 0.7;
+    }
+
+    nav a.active::after {
+      transform: scaleX(1);
+    }
+
+    /* Hamburger button */
     .nav-toggle {
       display: none;
       background: rgba(0, 0, 0, 0.2);
@@ -355,16 +487,13 @@
 
     /* ANNOUNCEMENT BAR */
     .announcement-bar {
-      margin-top: 118px;
       background: #fffbdd;
       color: #4a3b00;
       font-size: 0.85rem;
       padding: 6px 16px;
       text-align: center;
       border-bottom: 1px solid rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 998;
+      margin-top: 130px;
     }
     .announcement-bar a {
       color: #0c4b33;
@@ -379,7 +508,6 @@
       width: 100%;
       height: 440px;
       background-color: #000;
-      margin-top: 0;
     }
 
     .slider {
@@ -518,7 +646,7 @@
       font-size: 0.95rem;
     }
 
-    /* SECTIONS */
+    /* SECTIONS GENERAL */
     .section {
       padding: 50px 16px;
       background-color: #ffffff;
@@ -549,7 +677,7 @@
       font-size: 0.95rem;
     }
 
-    /* STATISTICS */
+    /* STATS */
     .statistics {
       padding: 40px 16px 32px;
       background: radial-gradient(circle at top left, #e8fff6 0, #ffffff 40%);
@@ -592,7 +720,7 @@
       color: var(--text-muted);
     }
 
-    /* LAYOUTS */
+    /* ABOUT / CBC LAYOUT */
     .two-column {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -652,6 +780,7 @@
       color: var(--primary);
     }
 
+    /* WHY NEWDAWN */
     .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -679,6 +808,7 @@
       color: var(--primary-dark);
     }
 
+    /* RESOURCES SECTION */
     .resource-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -701,6 +831,7 @@
       color: var(--primary-dark);
     }
 
+    /* ADMISSIONS STEPS */
     .steps {
       border-left: 3px solid rgba(12, 75, 51, 0.18);
       margin-top: 10px;
@@ -736,6 +867,7 @@
       color: var(--text-muted);
     }
 
+    /* TESTIMONIALS */
     .testimonial-wrapper {
       max-width: 720px;
       margin: 0 auto;
@@ -768,6 +900,7 @@
       color: var(--accent-dark);
     }
 
+    /* STAFF SECTION */
     .staff-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -799,6 +932,7 @@
       color: var(--text-muted);
     }
 
+    /* INCLUSION & SAFEGUARDING */
     .three-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -831,6 +965,7 @@
       margin-bottom: 4px;
     }
 
+    /* KENYAN CALENDAR / FEES SUMMARY */
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -862,6 +997,7 @@
       margin-bottom: 4px;
     }
 
+    /* FAQ */
     .faq-grid {
       max-width: 800px;
       margin: 0 auto;
@@ -895,6 +1031,7 @@
       margin-top: 6px;
     }
 
+    /* CONTACT SECTION */
     .contact-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
@@ -1126,47 +1263,6 @@
       display: inline-flex;
     }
 
-    /* COOKIE BANNER */
-    .cookie-banner {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0,0,0,0.88);
-      color: #ffffff;
-      font-size: 0.78rem;
-      padding: 8px 10px;
-      z-index: 1500;
-    }
-    .cookie-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .cookie-inner p {
-      flex: 1;
-      min-width: 200px;
-      margin: 0;
-    }
-    .cookie-inner button {
-      border-radius: 999px;
-      border: none;
-      padding: 6px 10px;
-      cursor: pointer;
-      background: var(--accent);
-      color: #000;
-      font-size: 0.8rem;
-    }
-    .cookie-inner a {
-      color: #fffbdd;
-      text-decoration: underline;
-      font-size: 0.78rem;
-    }
-
     /* FOOTER */
     footer {
       background: var(--primary-dark);
@@ -1226,6 +1322,7 @@
       font-size: 0.9rem;
     }
 
+    /* Newsletter */
     .newsletter input {
       width: 100%;
       max-width: 240px;
@@ -1244,6 +1341,53 @@
       cursor: pointer;
       background: var(--accent);
       color: #000;
+    }
+
+    /* COOKIE BANNER */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.88);
+      color: #ffffff;
+      font-size: 0.78rem;
+      padding: 8px 10px;
+      z-index: 1500;
+    }
+    .cookie-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cookie-inner p {
+      flex: 1;
+      min-width: 200px;
+      margin: 0;
+    }
+    .cookie-inner button {
+      border-radius: 999px;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+      background: var(--accent);
+      color: #000;
+      font-size: 0.8rem;
+    }
+    .cookie-inner a {
+      color: #fffbdd;
+      text-decoration: underline;
+      font-size: 0.78rem;
+    }
+    @media (max-width: 600px) {
+      .cookie-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     /* RESPONSIVE */
@@ -1299,6 +1443,11 @@
 
       nav a {
         padding: 7px 10px;
+        width: 100%;
+      }
+
+      .announcement-bar {
+        margin-top: 130px;
       }
 
       .slider-container {
@@ -1318,16 +1467,10 @@
       }
     }
 
-    @media (max-width: 600px) {
-      .cookie-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
     @media (max-width: 480px) {
-      .logo-container img {
+      .logo-mark img {
         height: 50px;
+        width: 50px;
       }
 
       .logo-text h1 {
@@ -1374,7 +1517,9 @@
     <div class="top-bar">
       <div class="logo-container">
         <a href="#home" aria-label="Back to homepage">
-          <img src="logo.png" alt="NewDawn School Logo" loading="lazy" />
+          <div class="logo-mark">
+            <img src="logo.png" alt="NewDawn School Logo" loading="lazy" />
+          </div>
           <div class="logo-text">
             <h1>NewDawn School</h1>
             <span>Inspiring Future Leaders</span>
@@ -1405,21 +1550,22 @@
         <a href="#why"><span>Why NewDawn</span></a>
         <a href="#resources"><span>Resources</span></a>
         <a href="#admissions"><span>Admissions</span></a>
-        <a href="#portals"><span>Portals</span></a>
         <a href="#staff"><span>Staff</span></a>
         <a href="#inclusion"><span>Inclusion & Safety</span></a>
         <a href="#calendar"><span>Calendar & Fees</span></a>
+        <a href="#portals"><span>Portals</span></a>
         <a href="#contact"><span>Contact</span></a>
         <a href="#gallery"><span>Gallery</span></a>
         <a href="#media"><span>Media</span></a>
+        <a href="#faq"><span>FAQ</span></a>
       </nav>
     </div>
   </header>
 
-  <!-- ANNOUNCEMENT BAR -->
+  <!-- GLOBAL ANNOUNCEMENT / EMERGENCY BAR -->
   <div class="announcement-bar" role="status" aria-live="polite">
-    🎓 2025 Term 1 admissions now open.
-    <a href="#admissions">View admissions details</a> or
+    🎓 2025 Term 1 admissions now open. 
+    <a href="#admissions">View admissions details</a> or 
     <a href="#contact">contact the office</a>.
   </div>
 
@@ -1668,48 +1814,6 @@
       </div>
     </section>
 
-    <!-- PORTALS -->
-    <section class="section" id="portals">
-      <div class="section-inner">
-        <div class="section-header" data-animate>
-          <h2>Online Portals</h2>
-          <p>Secure access points for parents, learners and staff (coming soon).</p>
-        </div>
-
-        <div class="why-grid" data-animate>
-          <div class="why-card">
-            <h3>Parent Portal</h3>
-            <p>
-              View term dates, fee statements, announcements and your child’s academic reports in one secure space.
-            </p>
-            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
-              <em>Integration in progress.</em>
-            </p>
-          </div>
-
-          <div class="why-card">
-            <h3>Learner Portal</h3>
-            <p>
-              Access assignments, digital resources and club information, aligning with CBC projects and revision work.
-            </p>
-            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
-              <em>Login link will appear here once activated.</em>
-            </p>
-          </div>
-
-          <div class="why-card">
-            <h3>Staff Portal</h3>
-            <p>
-              Central place for teaching resources, internal notices and professional development opportunities.
-            </p>
-            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
-              <em>Restricted access for NewDawn staff.</em>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- STAFF -->
     <section class="section alt-bg" id="staff">
       <div class="section-inner">
@@ -1839,6 +1943,48 @@
       </div>
     </section>
 
+    <!-- PORTALS -->
+    <section class="section" id="portals">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Online Portals</h2>
+          <p>Secure access points for parents, learners and staff (coming soon).</p>
+        </div>
+
+        <div class="why-grid" data-animate>
+          <div class="why-card">
+            <h3>Parent Portal</h3>
+            <p>
+              View term dates, fee statements, announcements and your child’s academic reports in one secure space.
+            </p>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
+              <em>Integration in progress.</em>
+            </p>
+          </div>
+
+          <div class="why-card">
+            <h3>Learner Portal</h3>
+            <p>
+              Access assignments, digital resources and club information, aligning with CBC projects and revision work.
+            </p>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
+              <em>Login link will appear here once activated.</em>
+            </p>
+          </div>
+
+          <div class="why-card">
+            <h3>Staff Portal</h3>
+            <p>
+              Central place for teaching resources, internal notices and professional development opportunities.
+            </p>
+            <p style="font-size:0.82rem; color:var(--text-muted); margin-top:6px;">
+              <em>Restricted access for NewDawn staff.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section class="section" id="faq">
       <div class="section-inner">
@@ -1875,45 +2021,6 @@
               opportunities and criteria.
             </p>
           </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- POLICIES & DOWNLOADS -->
-    <section class="section alt-bg" id="policies">
-      <div class="section-inner">
-        <div class="section-header" data-animate>
-          <h2>Policies & Downloads</h2>
-          <p>Key documents that guide how we operate as a safe, transparent and accountable school.</p>
-        </div>
-
-        <div class="three-grid" data-animate>
-          <div class="policy-card">
-            <h3>Admissions & Fees</h3>
-            <ul class="policy-list">
-              <li><a href="#" download>Admissions Information Pack (PDF)</a></li>
-              <li><a href="#" download>Fee Structure Summary – 2025 (PDF)</a></li>
-              <li><a href="#" download>Uniform & Supplies List (PDF)</a></li>
-            </ul>
-          </div>
-
-          <div class="policy-card">
-            <h3>Child Protection & Safeguarding</h3>
-            <ul class="policy-list">
-              <li><a href="#" download>Child Protection Policy (PDF)</a></li>
-              <li><a href="#" download>Anti-Bullying & Behaviour Policy (PDF)</a></li>
-              <li><a href="#" download>ICT & Online Safety Guidelines (PDF)</a></li>
-            </ul>
-          </div>
-
-          <div class="policy-card">
-            <h3>Data & Complaints</h3>
-            <ul class="policy-list">
-              <li><a href="#" download>Data Protection & Privacy Notice (PDF)</a></li>
-              <li><a href="#" download>Complaints & Feedback Procedure (PDF)</a></li>
-              <li><a href="#contact">Contact the school office</a> for any clarification.</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
@@ -1991,7 +2098,7 @@
         </div>
 
         <div class="photo-grid" data-animate aria-label="Photo gallery">
-          <!-- 1..9, 0 -->
+          <!-- Numbered photos -->
           <img class="gallery-img" src="1.jpg"  alt="NewDawn School moment 1" loading="lazy">
           <img class="gallery-img" src="2.jpg"  alt="NewDawn School moment 2" loading="lazy">
           <img class="gallery-img" src="3.jpg"  alt="NewDawn School moment 3" loading="lazy">
@@ -2003,7 +2110,6 @@
           <img class="gallery-img" src="9.jpg"  alt="NewDawn School moment 9" loading="lazy">
           <img class="gallery-img" src="0.jpg"  alt="NewDawn School moment 0" loading="lazy">
 
-          <!-- 01..08 -->
           <img class="gallery-img" src="01.jpg" alt="NewDawn School extended gallery 01" loading="lazy">
           <img class="gallery-img" src="02.jpg" alt="NewDawn School extended gallery 02" loading="lazy">
           <img class="gallery-img" src="03.jpg" alt="NewDawn School extended gallery 03" loading="lazy">
@@ -2041,6 +2147,46 @@
               Your browser does not support the video tag.
             </video>
             <p>Clubs, sports, environment days and special events captured in motion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICIES & DOWNLOADS -->
+    <section class="section alt-bg" id="policies">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Policies & Downloads</h2>
+          <p>Key documents that guide how we operate as a safe, transparent and accountable school.</p>
+        </div>
+
+        <div class="three-grid" data-animate>
+          <div class="policy-card">
+            <h3>Admissions & Fees</h3>
+            <ul class="policy-list">
+              <!-- Replace # with links to your PDFs when ready -->
+              <li><a href="#" download>Admissions Information Pack (PDF)</a></li>
+              <li><a href="#" download>Fee Structure Summary – 2025 (PDF)</a></li>
+              <li><a href="#" download>Uniform & Supplies List (PDF)</a></li>
+            </ul>
+          </div>
+
+          <div class="policy-card">
+            <h3>Child Protection & Safeguarding</h3>
+            <ul class="policy-list">
+              <li><a href="#" download>Child Protection Policy (PDF)</a></li>
+              <li><a href="#" download>Anti-Bullying & Behaviour Policy (PDF)</a></li>
+              <li><a href="#" download>ICT & Online Safety Guidelines (PDF)</a></li>
+            </ul>
+          </div>
+
+          <div class="policy-card">
+            <h3>Data & Complaints</h3>
+            <ul class="policy-list">
+              <li><a href="#" download>Data Protection & Privacy Notice (PDF)</a></li>
+              <li><a href="#" download>Complaints & Feedback Procedure (PDF)</a></li>
+              <li><a href="#contact">Contact the school office</a> for any clarification.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -2288,6 +2434,35 @@
         banner.style.display = 'none';
       });
     })();
+
+    // SUPER-HOT MENU: ACTIVE LINK ON SCROLL
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = mainNav.querySelectorAll('a[href^="#"]');
+
+    function setActiveNav() {
+      const scrollPos = window.scrollY + 150; // offset below header
+      let currentId = '';
+
+      sections.forEach(sec => {
+        const top = sec.offsetTop;
+        const height = sec.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          currentId = sec.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href').slice(1);
+        if (href === currentId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActiveNav);
+    window.addEventListener('load', setActiveNav);
   </script>
 </body>
 </html>
