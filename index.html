@@ -112,7 +112,6 @@
       scroll-margin-top: 130px;
     }
 
-    /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
       * {
         scroll-behavior: auto !important;
@@ -122,7 +121,6 @@
       }
     }
 
-    /* Skip link */
     .skip-link {
       position: absolute;
       top: -40px;
@@ -139,7 +137,6 @@
       top: 10px;
     }
 
-    /* Focus outlines */
     a:focus,
     button:focus,
     input:focus,
@@ -148,7 +145,6 @@
       outline-offset: 2px;
     }
 
-    /* ANIMATION BASE */
     [data-animate] {
       opacity: 0;
       transform: translateY(14px);
@@ -160,7 +156,6 @@
       transform: translateY(0);
     }
 
-    /* HEADER / NAVBAR */
     header {
       background: var(--bg-hero);
       color: white;
@@ -192,7 +187,6 @@
       gap: 12px;
     }
 
-    /* GLITTER / GLOW LOGO WRAP */
     .logo-mark {
       position: relative;
       border-radius: 50%;
@@ -297,7 +291,6 @@
       text-decoration: none;
     }
 
-    /* Accessibility controls + translate */
     .accessibility-controls {
       display: flex;
       align-items: center;
@@ -325,7 +318,6 @@
       padding: 2px 6px;
     }
 
-    /* NAV */
     .nav-wrapper {
       width: 100%;
       max-width: var(--max-width);
@@ -345,7 +337,6 @@
       flex: 1;
     }
 
-    /* SUPER-HOT MENU STYLING */
     nav a {
       color: white;
       text-decoration: none;
@@ -374,7 +365,6 @@
         color 0.18s ease;
     }
 
-    /* Soft glow overlay */
     nav a::before {
       content: "";
       position: absolute;
@@ -384,7 +374,6 @@
       transition: opacity 0.25s ease;
     }
 
-    /* Hot underline */
     nav a::after {
       content: "";
       position: absolute;
@@ -425,7 +414,6 @@
       transform: scaleX(1);
     }
 
-    /* ACTIVE LINK ON SCROLL */
     nav a.active {
       background: linear-gradient(
         135deg,
@@ -444,7 +432,6 @@
       transform: scaleX(1);
     }
 
-    /* Hamburger button */
     .nav-toggle {
       display: none;
       background: rgba(0, 0, 0, 0.2);
@@ -485,7 +472,6 @@
       top: 5px;
     }
 
-    /* ANNOUNCEMENT BAR */
     .announcement-bar {
       background: #fffbdd;
       color: #4a3b00;
@@ -501,7 +487,6 @@
       text-decoration: underline;
     }
 
-    /* HERO SLIDER */
     .slider-container {
       position: relative;
       overflow: hidden;
@@ -646,7 +631,6 @@
       font-size: 0.95rem;
     }
 
-    /* SECTIONS GENERAL */
     .section {
       padding: 50px 16px;
       background-color: #ffffff;
@@ -677,7 +661,6 @@
       font-size: 0.95rem;
     }
 
-    /* STATS */
     .statistics {
       padding: 40px 16px 32px;
       background: radial-gradient(circle at top left, #e8fff6 0, #ffffff 40%);
@@ -720,7 +703,6 @@
       color: var(--text-muted);
     }
 
-    /* ABOUT / CBC LAYOUT */
     .two-column {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -780,7 +762,6 @@
       color: var(--primary);
     }
 
-    /* WHY NEWDAWN */
     .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -808,7 +789,6 @@
       color: var(--primary-dark);
     }
 
-    /* RESOURCES SECTION */
     .resource-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -831,7 +811,6 @@
       color: var(--primary-dark);
     }
 
-    /* ADMISSIONS STEPS */
     .steps {
       border-left: 3px solid rgba(12, 75, 51, 0.18);
       margin-top: 10px;
@@ -867,7 +846,6 @@
       color: var(--text-muted);
     }
 
-    /* TESTIMONIALS */
     .testimonial-wrapper {
       max-width: 720px;
       margin: 0 auto;
@@ -900,7 +878,6 @@
       color: var(--accent-dark);
     }
 
-    /* STAFF SECTION */
     .staff-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -932,7 +909,6 @@
       color: var(--text-muted);
     }
 
-    /* INCLUSION & SAFEGUARDING */
     .three-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -965,7 +941,6 @@
       margin-bottom: 4px;
     }
 
-    /* KENYAN CALENDAR / FEES SUMMARY */
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -997,7 +972,6 @@
       margin-bottom: 4px;
     }
 
-    /* FAQ */
     .faq-grid {
       max-width: 800px;
       margin: 0 auto;
@@ -1031,7 +1005,6 @@
       margin-top: 6px;
     }
 
-    /* CONTACT SECTION */
     .contact-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
@@ -1126,7 +1099,6 @@
       border: 0;
     }
 
-    /* GALLERY */
     #gallery {
       background: #ffffff;
     }
@@ -1152,7 +1124,6 @@
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
     }
 
-    /* MEDIA / VIDEOS */
     #media {
       background: #fdfdfd;
     }
@@ -1186,7 +1157,6 @@
       background: #000;
     }
 
-    /* LIGHTBOX */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -1220,7 +1190,6 @@
       border: none;
     }
 
-    /* WHATSAPP FLOATING BUTTON */
     .whatsapp {
       position: fixed;
       bottom: 20px;
@@ -1240,7 +1209,6 @@
       transition: transform 0.15s ease;
     }
 
-    /* BACK TO TOP */
     .back-to-top {
       position: fixed;
       bottom: 20px;
@@ -1263,7 +1231,6 @@
       display: inline-flex;
     }
 
-    /* FOOTER */
     footer {
       background: var(--primary-dark);
       color: white;
@@ -1322,7 +1289,6 @@
       font-size: 0.9rem;
     }
 
-    /* Newsletter */
     .newsletter input {
       width: 100%;
       max-width: 240px;
@@ -1343,7 +1309,6 @@
       color: #000;
     }
 
-    /* COOKIE BANNER */
     .cookie-banner {
       position: fixed;
       bottom: 0;
@@ -1390,7 +1355,6 @@
       }
     }
 
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       .two-column,
       .contact-layout {
@@ -1438,7 +1402,7 @@
       }
 
       nav.open {
-        max-height: 340px;
+        max-height: 380px;
       }
 
       nav a {
@@ -1512,7 +1476,6 @@
 <body>
   <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-  <!-- HEADER -->
   <header role="banner">
     <div class="top-bar">
       <div class="logo-container">
@@ -1547,6 +1510,7 @@
         <a href="#home"><span>Home</span></a>
         <a href="#about"><span>About Us</span></a>
         <a href="#cbc"><span>CBC & Academics</span></a>
+        <a href="#kindergarten"><span>Kindergarten</span></a>
         <a href="#why"><span>Why NewDawn</span></a>
         <a href="#resources"><span>Resources</span></a>
         <a href="#admissions"><span>Admissions</span></a>
@@ -1562,7 +1526,6 @@
     </div>
   </header>
 
-  <!-- GLOBAL ANNOUNCEMENT / EMERGENCY BAR -->
   <div class="announcement-bar" role="status" aria-live="polite">
     🎓 2025 Term 1 admissions now open. 
     <a href="#admissions">View admissions details</a> or 
@@ -1570,7 +1533,6 @@
   </div>
 
   <main id="mainContent" tabindex="-1">
-    <!-- HERO / SLIDER -->
     <section class="slider-container" id="home" aria-label="NewDawn School highlights">
       <div class="slider">
         <img src="01.jpg" alt="Learners interacting in a classroom" loading="eager">
@@ -1599,7 +1561,6 @@
       </div>
     </section>
 
-    <!-- STATISTICS -->
     <section class="statistics" aria-label="Enrollment statistics">
       <div class="stats-grid" data-animate>
         <div class="stat-card">
@@ -1620,7 +1581,6 @@
       </div>
     </section>
 
-    <!-- ABOUT / CBC -->
     <section class="section alt-bg" id="about">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -1674,7 +1634,83 @@
       </div>
     </section>
 
-    <!-- WHY NEWDAWN -->
+    <!-- NEW: KINDERGARTEN / EARLY YEARS SECTION -->
+    <section class="section" id="kindergarten">
+      <div class="section-inner">
+        <div class="section-header" data-animate>
+          <h2>Kindergarten • Early Years (PP1 & PP2)</h2>
+          <p>A joyful, colourful and nurturing start to lifelong learning.</p>
+        </div>
+
+        <div class="two-column">
+          <div class="card" data-animate>
+            <span class="pill">Early Childhood Foundation</span>
+            <h3>Warm, Safe & Stimulating for Young Minds</h3>
+            <p>
+              Our Kindergarten program focuses on <strong>play-based learning</strong>,
+              emotional development, early literacy, numeracy and imagination.
+              Every child is loved, noticed and supported.
+            </p>
+            <ul style="margin-top:10px; padding-left:18px; color:var(--text-muted); font-size:0.9rem; line-height:1.5;">
+              <li>✓ Colourful child-friendly classrooms</li>
+              <li>✓ Creative Arts, Music & Movement</li>
+              <li>✓ Outdoor play, sand pits & water play</li>
+              <li>✓ Story time & picture books</li>
+              <li>✓ Early STEM curiosity activities</li>
+              <li>✓ Social & emotional development support</li>
+              <li>✓ Safe nap/quiet rest areas</li>
+              <li>✓ Age-appropriate toys & learning kits</li>
+            </ul>
+          </div>
+
+          <div class="card" data-animate>
+            <span class="pill">Learning Areas</span>
+            <h3>What Your Child Will Experience</h3>
+            <div class="cbc-grid">
+              <div class="cbc-item">
+                <strong>Language & Communication</strong>
+                Simple English, Kiswahili, story telling, sounds and phonics.
+              </div>
+              <div class="cbc-item">
+                <strong>Early Numeracy</strong>
+                Counting, shapes, colours, patterns and problem-solving.
+              </div>
+              <div class="cbc-item">
+                <strong>Environmental Activities</strong>
+                Nature walks, gardening and exploration of the world around them.
+              </div>
+              <div class="cbc-item">
+                <strong>Creative Arts</strong>
+                Drawing, colouring, painting, clay modelling and craft work.
+              </div>
+              <div class="cbc-item">
+                <strong>Music & Movement</strong>
+                Singing, dancing, rhythm games and physical coordination.
+              </div>
+              <div class="cbc-item">
+                <strong>Life Skills</strong>
+                Sharing, turn-taking, confidence-building and simple routines.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-grid" data-animate style="margin-top:20px;">
+          <img class="gallery-img" src="1.jpg"  alt="Kindergarten play time" loading="lazy">
+          <img class="gallery-img" src="2.jpg"  alt="Kindergarten creative class" loading="lazy">
+          <img class="gallery-img" src="3.jpg"  alt="Kids in an early years activity" loading="lazy">
+          <img class="gallery-img" src="04.jpg" alt="Outdoor Kindergarten fun" loading="lazy">
+          <img class="gallery-img" src="05.jpg" alt="Colourful kindergarten classroom" loading="lazy">
+        </div>
+
+        <div style="text-align:center; margin-top:25px;" data-animate>
+          <a href="#apply" class="btn-primary" style="font-size:1rem; padding:12px 26px;">
+            Enroll Your Child in Kindergarten
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="why">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -1720,7 +1756,6 @@
       </div>
     </section>
 
-    <!-- RESOURCES -->
     <section class="section alt-bg" id="resources">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -1753,7 +1788,6 @@
       </div>
     </section>
 
-    <!-- ADMISSIONS & TESTIMONIALS -->
     <section class="section" id="admissions">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -1814,7 +1848,6 @@
       </div>
     </section>
 
-    <!-- STAFF -->
     <section class="section alt-bg" id="staff">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -1859,7 +1892,6 @@
       </div>
     </section>
 
-    <!-- INCLUSION, SAFETY & QUALITY -->
     <section class="section" id="inclusion">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -1901,7 +1933,6 @@
       </div>
     </section>
 
-    <!-- KENYAN CALENDAR & FEES SUMMARY -->
     <section class="section alt-bg" id="calendar">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -1943,7 +1974,6 @@
       </div>
     </section>
 
-    <!-- PORTALS -->
     <section class="section" id="portals">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -1985,7 +2015,6 @@
       </div>
     </section>
 
-    <!-- FAQ -->
     <section class="section" id="faq">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -2025,7 +2054,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -2042,7 +2070,6 @@
             <p><strong>School Hours:</strong> Monday – Friday, 7:00am – 5:00pm (East Africa Time)</p>
 
             <div class="map-placeholder" aria-label="Map to NewDawn School">
-              <!-- Replace src with real map embed when ready -->
               <iframe
                 src="https://www.google.com/maps/embed?pb="
                 loading="lazy"
@@ -2089,7 +2116,6 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
     <section class="section alt-bg" id="gallery">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -2098,7 +2124,6 @@
         </div>
 
         <div class="photo-grid" data-animate aria-label="Photo gallery">
-          <!-- Numbered photos -->
           <img class="gallery-img" src="1.jpg"  alt="NewDawn School moment 1" loading="lazy">
           <img class="gallery-img" src="2.jpg"  alt="NewDawn School moment 2" loading="lazy">
           <img class="gallery-img" src="3.jpg"  alt="NewDawn School moment 3" loading="lazy">
@@ -2122,7 +2147,6 @@
       </div>
     </section>
 
-    <!-- MEDIA / VIDEOS -->
     <section class="section" id="media">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -2152,7 +2176,6 @@
       </div>
     </section>
 
-    <!-- POLICIES & DOWNLOADS -->
     <section class="section alt-bg" id="policies">
       <div class="section-inner">
         <div class="section-header" data-animate>
@@ -2164,7 +2187,6 @@
           <div class="policy-card">
             <h3>Admissions & Fees</h3>
             <ul class="policy-list">
-              <!-- Replace # with links to your PDFs when ready -->
               <li><a href="#" download>Admissions Information Pack (PDF)</a></li>
               <li><a href="#" download>Fee Structure Summary – 2025 (PDF)</a></li>
               <li><a href="#" download>Uniform & Supplies List (PDF)</a></li>
@@ -2193,23 +2215,19 @@
     </section>
   </main>
 
-  <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&times;</button>
     <img id="lightbox-img" src="" alt="Expanded gallery view">
   </div>
 
-  <!-- WHATSAPP FLOATING BUTTON -->
   <a class="whatsapp" href="https://wa.me/254769924670" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat with NewDawn School on WhatsApp">
   </a>
 
-  <!-- BACK TO TOP BUTTON -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     ↑ Top
   </button>
 
-  <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="footer-inner">
       <div>
@@ -2255,7 +2273,6 @@
     </div>
   </footer>
 
-  <!-- COOKIE / ANALYTICS CONSENT BANNER -->
   <div id="cookieBanner" class="cookie-banner" aria-label="Cookie and analytics notice">
     <div class="cookie-inner">
       <p>
@@ -2267,7 +2284,6 @@
     </div>
   </div>
 
-  <!-- GOOGLE TRANSLATE -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -2279,9 +2295,7 @@
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- SCRIPTS -->
   <script>
-    // HERO SLIDER
     let currentIndex = 0;
     const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slider img');
@@ -2293,7 +2307,6 @@
     }
     setInterval(slideImages, 4500);
 
-    // MOBILE NAV TOGGLE
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
 
@@ -2311,7 +2324,6 @@
       });
     });
 
-    // GALLERY LIGHTBOX
     const galleryImages = document.querySelectorAll('.gallery-img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -2345,7 +2357,6 @@
       }
     });
 
-    // BACK TO TOP
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {
@@ -2359,7 +2370,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // SCROLL ANIMATIONS
     const animatedEls = document.querySelectorAll('[data-animate]');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -2372,7 +2382,6 @@
 
     animatedEls.forEach(el => observer.observe(el));
 
-    // TESTIMONIAL ROTATOR
     const testimonials = [
       {
         text: "“NewDawn has changed how my child sees learning. She comes home excited to share what she discovered each day.”",
@@ -2405,7 +2414,6 @@
     }
     setInterval(rotateTestimonial, 7000);
 
-    // ACCESSIBILITY TOGGLES
     const contrastToggle = document.getElementById('contrastToggle');
     const fontToggle = document.getElementById('fontToggle');
     const bodyEl = document.body;
@@ -2418,7 +2426,6 @@
       bodyEl.classList.toggle('large-font');
     });
 
-    // COOKIE / ANALYTICS CONSENT
     (function () {
       const banner = document.getElementById('cookieBanner');
       const accept = document.getElementById('cookieAccept');
@@ -2435,12 +2442,11 @@
       });
     })();
 
-    // SUPER-HOT MENU: ACTIVE LINK ON SCROLL
     const sections = document.querySelectorAll('main section[id]');
     const navLinks = mainNav.querySelectorAll('a[href^="#"]');
 
     function setActiveNav() {
-      const scrollPos = window.scrollY + 150; // offset below header
+      const scrollPos = window.scrollY + 150;
       let currentId = '';
 
       sections.forEach(sec => {
