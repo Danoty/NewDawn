@@ -5,40 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NewDawn School – Inspiring Future Leaders in Bondo, Kenya</title>
 
-  <!-- SEO -->
-  <meta name="description" content="NewDawn School in Bondo, Siaya County, Kenya – a CBC-aligned private school offering Playgroup, Pre-Primary, Primary and Junior School with strong enrichment in music, reading culture and languages." />
-  <meta name="keywords" content="NewDawn School, Bondo, Siaya, Kenya, CBC, Playgroup, PP1, PP2, Primary, Junior School, French, Music, Smart Boards, private school" />
+  <meta name="description" content="NewDawn School in Bondo, Siaya County, Kenya – CBC-aligned private school offering Playgroup, Pre-Primary, Primary and Junior School." />
+  <meta name="keywords" content="NewDawn School, Bondo, Siaya, Kenya, CBC, Playgroup, PP1, PP2, Primary, Junior School, private school" />
   <meta name="author" content="NewDawn School" />
   <meta property="og:title" content="NewDawn School – Inspiring Future Leaders in Kenya" />
-  <meta property="og:description" content="Holistic, future-ready education in Bondo, Siaya County – CBC aligned, enriched with music, reading culture, and languages." />
+  <meta property="og:description" content="Holistic, future-ready education in Bondo, Siaya County – CBC aligned and modern." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="01.jpg" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "School",
-    "name": "NewDawn School",
-    "description": "CBC-aligned private school on a spacious 2-acre campus along the Bondo–Kisian Highway in Bondo, Siaya County, Kenya.",
-    "url": "https://danoty.github.io/NewDawn/",
-    "logo": "https://danoty.github.io/NewDawn/logo.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Bondo–Kisian Highway",
-      "addressLocality": "Bondo",
-      "addressRegion": "Siaya County",
-      "addressCountry": "KE"
-    },
-    "telephone": "+254769924670",
-    "email": "info@newdawnschool.ac.ke"
-  }
-  </script>
 
   <style>
     :root{
@@ -53,7 +30,6 @@
       --radius:18px;
       --max:1200px;
     }
-
     *{margin:0;padding:0;box-sizing:border-box}
     html,body{font-family:"Poppins",system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:#111;scroll-behavior:smooth;overflow-x:hidden}
     body{line-height:1.6}
@@ -71,7 +47,7 @@
     }
     body.high-contrast a{color:#ff0}
 
-    /* Subtle premium glow */
+    /* Premium glow */
     .glitter{position:relative;isolation:isolate}
     .glitter::before{
       content:"";position:absolute;inset:-40px;pointer-events:none;z-index:-1;opacity:.7;filter:blur(10px);
@@ -137,7 +113,7 @@
       border:1px solid rgba(255,255,255,.25);
     }
 
-    /* NAV */
+    /* NAV — one line on desktop */
     .navrow{max-width:var(--max);margin:0 auto;padding:0 14px 10px;display:flex;align-items:center;gap:10px}
     .nav-toggle{
       display:none;
@@ -148,17 +124,17 @@
       white-space:nowrap;
     }
     nav{
-      flex:1;display:flex;align-items:center;gap:8px;
+      flex:1;display:flex;align-items:center;gap:6px;
       white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
       scrollbar-width:none;
     }
     nav::-webkit-scrollbar{display:none}
     nav a{
-      color:#fff;text-decoration:none;font-weight:600;
-      font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
-      padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background: linear-gradient(135deg, rgba(255,127,50,.16), rgba(255,255,255,.08));
+      color:#fff;text-decoration:none;font-weight:700;
+      font-size:.70rem;letter-spacing:.10em;text-transform:uppercase;
+      padding:7px 9px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(255,127,50,.14), rgba(255,255,255,.07));
       box-shadow: 0 6px 16px rgba(0,0,0,.14);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       position:relative;overflow:hidden;
@@ -194,7 +170,7 @@
     .cta{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:12px 18px;border-radius:999px;font-weight:700;text-decoration:none;
+      padding:12px 18px;border-radius:999px;font-weight:800;text-decoration:none;
       border:1px solid transparent;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
       white-space:nowrap
     }
@@ -230,7 +206,7 @@
     /* Cards */
     .two{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:22px;align-items:start}
     .card{background:var(--card);border-radius:var(--radius);padding:20px 18px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04)}
-    .pill{display:inline-block;padding:5px 10px;border-radius:999px;background:rgba(12,75,51,.08);color:var(--primary-dark);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;font-weight:700}
+    .pill{display:inline-block;padding:5px 10px;border-radius:999px;background:rgba(12,75,51,.08);color:var(--primary-dark);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;font-weight:800}
     .card h3{color:var(--primary-dark);margin-bottom:8px;font-size:1.18rem}
     .card p{color:var(--muted);font-size:.95rem;margin-bottom:10px}
     .list{padding-left:18px;color:var(--muted);font-size:.95rem}
@@ -259,7 +235,7 @@
     .gitem:hover img{transform:scale(1.08);filter:saturate(1.12) contrast(1.08) brightness(1.02)}
     .gitem::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,.55) 100%);opacity:.9;pointer-events:none}
     .gitem span{
-      position:absolute;left:10px;bottom:10px;z-index:2;color:#fff;font-size:.8rem;font-weight:700;
+      position:absolute;left:10px;bottom:10px;z-index:2;color:#fff;font-size:.8rem;font-weight:800;
       background:rgba(255,127,50,.85);padding:6px 10px;border-radius:999px;box-shadow:0 10px 20px rgba(0,0,0,.25)
     }
     .g1{grid-column:span 6;aspect-ratio:16/9}
@@ -275,7 +251,7 @@
     .vwrap video{width:100%;height:100%;object-fit:cover;display:block}
     .vtag{
       position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.92);
-      color:#0b2c1e;padding:8px 12px;border-radius:999px;font-weight:800;font-size:.86rem;
+      color:#0b2c1e;padding:8px 12px;border-radius:999px;font-weight:900;font-size:.86rem;
       box-shadow:0 12px 24px rgba(0,0,0,.25)
     }
     .vbody{padding:14px 14px 16px}
@@ -286,15 +262,12 @@
     .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;z-index:2000}
     .lightbox.active{display:flex}
     .lightbox img{max-width:92vw;max-height:90vh;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.6)}
-    .lb-close{position:fixed;top:16px;right:18px;border:0;background:transparent;color:#fff;font-size:2rem;cursor:pointer;font-weight:800}
+    .lb-close{position:fixed;top:16px;right:18px;border:0;background:transparent;color:#fff;font-size:2rem;cursor:pointer;font-weight:900}
 
     /* Contact */
     .contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px}
     .map{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow)}
     .map iframe{width:100%;height:220px;border:0}
-    .form label{display:block;font-size:.78rem;color:var(--muted);margin:8px 0 4px}
-    .form input,.form textarea{width:100%;padding:10px 10px;border-radius:12px;border:1px solid #d6dbe3;font-family:inherit;font-size:.95rem}
-    .form textarea{min-height:110px;resize:vertical}
 
     /* Floating */
     .whatsapp{position:fixed;right:18px;bottom:18px;z-index:1000}
@@ -302,7 +275,7 @@
     .topbtn{
       position:fixed;left:18px;bottom:18px;z-index:1000;
       display:none;align-items:center;gap:8px;background:var(--primary);color:#fff;border:0;
-      padding:10px 12px;border-radius:999px;cursor:pointer;box-shadow:0 12px 26px rgba(0,0,0,.28);font-weight:700
+      padding:10px 12px;border-radius:999px;cursor:pointer;box-shadow:0 12px 26px rgba(0,0,0,.28);font-weight:800
     }
     .topbtn.show{display:inline-flex}
 
@@ -393,10 +366,8 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#programs">Programs</a>
-        <a href="#kindergarten">Kindergarten</a>
         <a href="#why">Why NewDawn</a>
         <a href="#admissions">Admissions</a>
-        <a href="#resources">Resources</a>
         <a href="#gallery">Gallery</a>
         <a href="#media">Videos</a>
         <a href="#contact">Contact</a>
@@ -420,11 +391,10 @@
           <h1 class="h1">A World-Class School Experience — Modern, Safe, and Future-Ready.</h1>
           <p class="sub">
             A CBC-aligned private school on a spacious <strong>2-acre campus</strong> along the Bondo–Kisian Highway,
-            offering <strong>Playgroup</strong>, <strong>Pre-Primary</strong>, <strong>Primary</strong> and <strong>Junior School</strong>,
-            enriched with <strong>music</strong>, <strong>reading culture</strong>, and languages — with digitized classrooms (smart boards).
+            offering <strong>Playgroup</strong>, <strong>Pre-Primary</strong>, <strong>Primary</strong> and <strong>Junior School</strong>.
           </p>
           <div class="cta">
-            <a class="btn primary" href="#apply">Apply / Request Info</a>
+            <a class="btn primary" href="#admissions">Apply / Request Info</a>
             <a class="btn ghost" href="#gallery">View Gallery</a>
             <a class="btn ghost" href="#media">Watch Videos</a>
           </div>
@@ -437,30 +407,7 @@
       </div>
     </section>
 
-    <!-- STATS -->
-    <section class="stats">
-      <div class="wrap">
-        <div class="grid3" data-animate>
-          <div class="stat">
-            <div class="lbl">Current Learner Enrollment</div>
-            <div class="num">390</div>
-            <div class="note">Learners currently enrolled at NewDawn.</div>
-          </div>
-          <div class="stat">
-            <div class="lbl">Graduated</div>
-            <div class="num">40</div>
-            <div class="note">Learners who have successfully completed.</div>
-          </div>
-          <div class="stat">
-            <div class="lbl">Growing Alumni Network</div>
-            <div class="num">40+</div>
-            <div class="note">Our alumni community continues to grow every year.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT / PROGRAMS -->
+    <!-- ABOUT -->
     <section class="section alt" id="about">
       <div class="wrap">
         <div class="sec-head" data-animate>
@@ -474,97 +421,24 @@
             <h3>Private • CBC-Aligned • Ministry Registered</h3>
             <p>
               NewDawn School is a private institution situated on a spacious <strong>2-acre campus</strong> along the
-              <strong>Bondo–Kisian Highway</strong>, just outside Bondo town, serving Bondo Sub-County with a culturally
-              diverse learner community.
+              <strong>Bondo–Kisian Highway</strong>, just outside Bondo town.
             </p>
             <p>
-              Our academic program is based on the <strong>National Competency Based Curriculum (CBC)</strong> and is
-              <strong>fully registered with the Ministry of Education</strong>. <strong>English</strong> is the language of instruction.
+              Our academic program is based on the <strong>National Competency Based Curriculum (CBC)</strong>.
+              <strong>English</strong> is the language of instruction.
             </p>
           </div>
 
           <div class="card" id="programs" data-animate>
-            <span class="pill">Curriculum & Enrichment</span>
+            <span class="pill">Enrichment</span>
             <h3>Beyond the Classroom</h3>
             <ul class="list">
-              <li><strong>Music program:</strong> drums, guitar, violins, violas, cello & digital keyboard.</li>
-              <li><strong>Reading culture:</strong> weekly storybook sessions to foster strong reading habits.</li>
-              <li><strong>Language:</strong> French classes for Grades 4–6.</li>
-              <li><strong>Competitions:</strong> spelling bees and debates to build confidence & communication.</li>
-              <li><strong>Future skills:</strong> plans to introduce more life skills such as culinary arts.</li>
-              <li><strong>Digitized learning:</strong> Junior School classrooms equipped with smart boards.</li>
+              <li><strong>Music program:</strong> drums, guitar, strings & keyboard.</li>
+              <li><strong>Reading culture:</strong> weekly storybook sessions.</li>
+              <li><strong>French:</strong> for Grades 4–6.</li>
+              <li><strong>Competitions:</strong> spelling bees & debates.</li>
+              <li><strong>Digitized classrooms:</strong> smart boards (Junior School).</li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- KINDERGARTEN -->
-    <section class="section" id="kindergarten">
-      <div class="wrap">
-        <div class="sec-head" data-animate>
-          <h2>Kindergarten • Pre-Primary</h2>
-          <p>Warm, colourful, and joyful learning for our youngest learners.</p>
-        </div>
-
-        <div class="two">
-          <div class="card" data-animate>
-            <span class="pill">Early Years</span>
-            <h3>Nurturing Confidence from Day One</h3>
-            <p>
-              Our early years program builds communication, curiosity, independence and social skills through
-              guided play, stories, music, movement, and creative activities in a safe environment.
-            </p>
-            <ul class="list">
-              <li>Play-based learning + strong routines</li>
-              <li>Creative Arts, Music & Movement</li>
-              <li>Story time + picture books</li>
-              <li>Outdoor play and exploration</li>
-              <li>Gentle support for social & emotional growth</li>
-            </ul>
-          </div>
-
-          <div class="card" data-animate>
-            <span class="pill">Facilities</span>
-            <h3>Safe, Spacious, Supportive</h3>
-            <p>
-              Dedicated spaces for Early Childhood Development and Primary education, plus specialized music instruction areas.
-              The campus offers ample room for academic, recreational, and extracurricular activities.
-            </p>
-            <p><strong>Our commitment:</strong> a safe and supportive environment for both learners and staff.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section class="section alt" id="why">
-      <div class="wrap">
-        <div class="sec-head" data-animate>
-          <h2>Why Families Choose NewDawn</h2>
-          <p>Strong outcomes, strong values, and strong care — with modern learning tools.</p>
-        </div>
-
-        <div class="fgrid" data-animate>
-          <div class="fcard">
-            <div class="ico">🌍</div>
-            <h3>Global Readiness</h3>
-            <p>Communication, critical thinking, confidence, and leadership — built through debates, reading culture and enrichment.</p>
-          </div>
-          <div class="fcard">
-            <div class="ico">💻</div>
-            <h3>Digitized Classrooms</h3>
-            <p>Junior School classrooms are fully digitized and equipped with smart boards for engaging learning.</p>
-          </div>
-          <div class="fcard">
-            <div class="ico">🎵</div>
-            <h3>Music Excellence</h3>
-            <p>Structured music instruction with real instruments (drums, guitar, strings, keyboard) for talent growth.</p>
-          </div>
-          <div class="fcard">
-            <div class="ico">🛡️</div>
-            <h3>Safety & Support</h3>
-            <p>We prioritize a safe and supportive environment for learners and staff across the campus.</p>
           </div>
         </div>
       </div>
@@ -588,72 +462,21 @@
               <li><strong>3.</strong> Learner assessment & placement.</li>
               <li><strong>4.</strong> Registration & onboarding.</li>
             </ul>
-            <p style="color:var(--muted);font-size:.92rem;margin-top:10px">
-              Tip: Mention the class/level you’re interested in (Playgroup, Pre-Primary, Primary, Junior School).
-            </p>
           </div>
 
-          <div class="card form" id="apply" data-animate>
-            <span class="pill">Apply / Request Info</span>
-            <h3>We’ll Get Back to You</h3>
-            <form action="#" method="post" aria-label="Inquiry form">
-              <label for="parentName">Parent / Guardian Name</label>
-              <input id="parentName" name="parentName" type="text" placeholder="Your full name" required />
-
-              <label for="phone">Phone / WhatsApp</label>
-              <input id="phone" name="phone" type="tel" placeholder="+254..." required />
-
-              <label for="childName">Learner’s Name</label>
-              <input id="childName" name="childName" type="text" placeholder="Learner’s name" />
-
-              <label for="level">Class / Level</label>
-              <input id="level" name="level" type="text" placeholder="e.g., PP1, Grade 3, Junior School" />
-
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us how we may help..."></textarea>
-
-              <button class="btn primary" type="submit">Submit Inquiry</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESOURCES -->
-    <section class="section alt" id="resources">
-      <div class="wrap">
-        <div class="sec-head" data-animate>
-          <h2>Learning Resources</h2>
-          <p>Tools and spaces that help learners thrive.</p>
-        </div>
-
-        <div class="fgrid" data-animate>
-          <div class="fcard">
-            <div class="ico">📚</div>
-            <h3>Reading Culture</h3>
-            <p>Weekly storybook sessions that encourage reading beyond the classroom and build a strong foundation.</p>
-          </div>
-          <div class="fcard">
-            <div class="ico">🗣️</div>
-            <h3>Language Growth</h3>
-            <p>French classes for Grades 4–6 plus spelling bees and debates to strengthen expression and confidence.</p>
-          </div>
-          <div class="fcard">
-            <div class="ico">🎓</div>
-            <h3>Holistic Development</h3>
-            <p>Music lessons and enrichment activities that support creativity, discipline, and balanced growth.</p>
-          </div>
-          <div class="fcard">
-            <div class="ico">🍲</div>
-            <h3>Life Skills (Planned)</h3>
-            <p>We plan to introduce more life skills such as culinary arts, aligning learning with real-world skills.</p>
+          <div class="card" data-animate>
+            <span class="pill">Fast Contact</span>
+            <h3>Chat on WhatsApp</h3>
+            <p style="color:var(--muted)">For fastest response, message us directly.</p>
+            <a class="btn primary" href="https://wa.me/254769924670" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            <a class="btn ghost" href="mailto:info@newdawnschool.ac.ke" style="margin-top:10px;">Send Email</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- GALLERY -->
-    <section class="section" id="gallery">
+    <section class="section alt" id="gallery">
       <div class="wrap">
         <div class="sec-head" data-animate>
           <h2>Gallery</h2>
@@ -676,8 +499,8 @@
       </div>
     </section>
 
-    <!-- VIDEOS (autoplay, loop, muted) -->
-    <section class="section alt" id="media">
+    <!-- VIDEOS -->
+    <section class="section" id="media">
       <div class="wrap">
         <div class="sec-head" data-animate>
           <h2>Video Highlights</h2>
@@ -687,9 +510,7 @@
         <div class="media-grid" data-animate>
           <div class="vcard">
             <div class="vwrap">
-              <video class="autovid" autoplay muted loop playsinline preload="metadata" poster="01.jpg">
-                <source data-asset="video1.mp4" type="video/mp4" />
-              </video>
+              <video class="autovid" autoplay muted loop playsinline preload="auto" poster="01.jpg"></video>
               <div class="vtag">Video 1</div>
             </div>
             <div class="vbody">
@@ -700,9 +521,7 @@
 
           <div class="vcard">
             <div class="vwrap">
-              <video class="autovid" autoplay muted loop playsinline preload="metadata" poster="02.jpg">
-                <source data-asset="video2.mp4" type="video/mp4" />
-              </video>
+              <video class="autovid" autoplay muted loop playsinline preload="auto" poster="02.jpg"></video>
               <div class="vtag">Video 2</div>
             </div>
             <div class="vbody">
@@ -713,13 +532,13 @@
         </div>
 
         <p style="text-align:center;color:var(--muted);font-size:.88rem;margin-top:12px">
-          Autoplay works best when muted (browser policy). Your videos are set correctly for this.
+          Note: autoplay is best supported when videos are muted (browser policy).
         </p>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section" id="contact">
+    <section class="section alt" id="contact">
       <div class="wrap">
         <div class="sec-head" data-animate>
           <h2>Contact & Visit Us</h2>
@@ -729,10 +548,9 @@
         <div class="contact">
           <div class="card" data-animate>
             <span class="pill">Contact</span>
-            <p><strong>📍 Address:</strong> V7XM+56R, Kisumu, Kisian - Bondo - Usenge Rd, Bondo, Siaya County, Kenya</p>
+            <p><strong>📍 Address:</strong> Bondo–Kisian Highway, Bondo, Siaya County, Kenya</p>
             <p><strong>📞 Call or WhatsApp:</strong> <a href="tel:+254769924670">+254 769 924670</a></p>
             <p><strong>✉️ Email:</strong> <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></p>
-            <p><strong>School Hours:</strong> Monday – Friday, 7:00am – 5:00pm (EAT)</p>
 
             <div class="map" style="margin-top:12px;">
               <iframe
@@ -744,14 +562,14 @@
             </div>
           </div>
 
-          <div class="card form" data-animate>
+          <div class="card" data-animate>
             <span class="pill">Fast Inquiry</span>
-            <h3>Send a Quick Message</h3>
+            <h3>Chat Now</h3>
             <p style="color:var(--muted);font-size:.94rem;margin-bottom:10px">
-              Tip: For fastest response, use WhatsApp below.
+              Tap below to message us instantly.
             </p>
             <a class="btn primary" href="https://wa.me/254769924670" target="_blank" rel="noopener">Chat on WhatsApp</a>
-            <a class="btn ghost" href="#apply" style="margin-top:10px;">Or fill the application form above</a>
+            <a class="btn ghost" href="mailto:info@newdawnschool.ac.ke" style="margin-top:10px;">Send Email</a>
           </div>
         </div>
       </div>
@@ -777,8 +595,7 @@
       <div>
         <h4>NewDawn School</h4>
         <p style="color:rgba(255,255,255,.85);font-size:.9rem">
-          CBC-aligned private school in Bondo, Siaya County, on a spacious 2-acre campus. Enriched learning through music,
-          reading culture, languages and digitized classrooms.
+          CBC-aligned private school in Bondo, Siaya County. Modern learning, safe environment, and holistic growth.
         </p>
       </div>
       <div>
@@ -814,19 +631,14 @@
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script>
-    /* ==========================
-       TOPTIER CLEAN JS (stable)
-       ========================== */
+    /* ===== CLEAN, BROKEN-LINK SAFE JS ===== */
 
-    // 1) Base path (GitHub Pages: https://USERNAME.github.io/REPO/)
-    // If your repo name is different, change it here:
     const REPO_NAME = "NewDawn";
 
     function getAssetBase() {
       const isGithub = location.hostname.endsWith("github.io");
       if (!isGithub) return "";
       const parts = location.pathname.split("/").filter(Boolean);
-      // Expected: ["NewDawn", "index.html"] or ["NewDawn"]
       if (parts.length > 0 && parts[0] === REPO_NAME) return `/${REPO_NAME}/`;
       return "";
     }
@@ -839,11 +651,10 @@
       return ASSET_BASE + path;
     }
 
-    // 2) Helpers
     const $ = (sel, root = document) => root.querySelector(sel);
     const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-    // 3) Mobile nav
+    // Mobile nav
     (function initNav() {
       const navToggle = $("#navToggle");
       const nav = $("#mainNav");
@@ -864,7 +675,7 @@
       });
     })();
 
-    // 4) Active nav highlighting
+    // Active nav
     (function initActiveNav() {
       const nav = $("#mainNav");
       if (!nav) return;
@@ -887,7 +698,7 @@
       window.addEventListener("load", setActive);
     })();
 
-    // 5) Scroll-in animation
+    // Scroll-in animation
     (function initAnimations() {
       const els = $$("[data-animate]");
       if (!els.length) return;
@@ -904,7 +715,24 @@
       els.forEach(el => obs.observe(el));
     })();
 
-    // 6) Lightbox gallery
+    // A11y toggles
+    (function initA11y() {
+      const body = document.body;
+      $("#contrastToggle")?.addEventListener("click", () => body.classList.toggle("high-contrast"));
+      $("#fontToggle")?.addEventListener("click", () => body.classList.toggle("large-font"));
+    })();
+
+    // Back to top
+    (function initTopBtn() {
+      const btn = $("#topBtn");
+      if (!btn) return;
+      function onScroll() { btn.classList.toggle("show", window.scrollY > 520); }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+      onScroll();
+    })();
+
+    // Lightbox
     (function initLightbox() {
       const lb = $("#lightbox");
       const lbImg = $("#lbImg");
@@ -928,79 +756,92 @@
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
     })();
 
-    // 7) Back to top
-    (function initTopBtn() {
-      const btn = $("#topBtn");
-      if (!btn) return;
-
-      function onScroll() { btn.classList.toggle("show", window.scrollY > 520); }
-      window.addEventListener("scroll", onScroll, { passive: true });
-      btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-      onScroll();
+    // Fix image paths + hide broken images (no broken icons)
+    (function fixImages() {
+      $$("img[src]").forEach(img => {
+        const s = img.getAttribute("src");
+        img.src = asset(s);
+        img.addEventListener("error", () => {
+          const gitem = img.closest(".gitem");
+          if (gitem) gitem.style.display = "none";
+          else img.style.display = "none";
+        }, { once: true });
+      });
     })();
 
-    // 8) A11y toggles
-    (function initA11y() {
-      const body = document.body;
-      $("#contrastToggle")?.addEventListener("click", () => body.classList.toggle("high-contrast"));
-      $("#fontToggle")?.addEventListener("click", () => body.classList.toggle("large-font"));
-    })();
-
-    // 9) Fix asset paths for images + videos (robust)
-    (function fixAssetPaths() {
-      $$("img[src]").forEach(img => img.src = asset(img.getAttribute("src")));
-
-      // Replace video sources that use data-asset
-      $$("source[data-asset]").forEach(s => s.src = asset(s.getAttribute("data-asset")));
-
-      // Posters
-      $$("video[poster]").forEach(v => v.poster = asset(v.getAttribute("poster")));
-    })();
-
-    // 10) Autoplay helper (tries play; ignores policy blocks)
+    // Autoplay helper
     async function safePlay(videoEl) {
       try { await videoEl.play(); } catch (_) {}
     }
 
-    // 11) Hero playlist (video1 + video2) background
+    // Try multiple filenames until one exists (fixes broken video links)
+    async function setVideoSourceBest(videoEl, candidates) {
+      for (const c of candidates) {
+        const url = asset(c);
+        try {
+          const res = await fetch(url, { method: "HEAD", cache: "no-cache" });
+          if (res.ok) {
+            videoEl.innerHTML = `<source src="${url}" type="video/mp4">`;
+            videoEl.load();
+            await safePlay(videoEl);
+            return url;
+          }
+        } catch (_) {}
+      }
+      return null;
+    }
+
+    // HERO playlist using your actual filenames: video1 + video2 (no extension supported)
     (function initHeroPlaylist() {
       const hero = $("#heroVideo");
       if (!hero) return;
-
-      const playlist = [asset("video1.mp4"), asset("video2.mp4")];
-      let idx = 0;
 
       hero.muted = true;
       hero.playsInline = true;
       hero.autoplay = true;
       hero.preload = "auto";
 
-      function setSource(src) {
-        hero.pause();
-        hero.innerHTML = `<source src="${src}" type="video/mp4">`;
-        hero.load();
-        safePlay(hero);
-      }
+      const v1 = ["video1", "video1.mp4", "video1.webm", "Video 1.mp4", "Video1.mp4"];
+      const v2 = ["video2", "video2.mp4", "video2.webm", "Video 2.mp4", "Video2.mp4"];
 
-      // Start immediately
-      setSource(playlist[0]);
+      let playlistResolved = [];
+      let idx = 0;
 
-      // Rotate every 14 seconds (adjust if you want)
-      setInterval(() => {
-        idx = (idx + 1) % playlist.length;
-        setSource(playlist[idx]);
-      }, 14000);
+      (async () => {
+        const src1 = await setVideoSourceBest(hero, v1);
+        const src2 = await setVideoSourceBest(document.createElement("video"), v2); // head-check only
+        if (src1) playlistResolved.push(src1);
+        if (src2) playlistResolved.push(src2);
+
+        // If second exists, rotate. If not, keep first.
+        if (playlistResolved.length >= 2) {
+          setInterval(async () => {
+            idx = (idx + 1) % playlistResolved.length;
+            hero.innerHTML = `<source src="${playlistResolved[idx]}" type="video/mp4">`;
+            hero.load();
+            await safePlay(hero);
+          }, 14000);
+        }
+      })();
     })();
 
-    // 12) Ensure the two page videos always start
+    // Media videos (Video 1 + Video 2)
     (function initMediaVideos() {
-      $$(".autovid").forEach(v => {
-        v.muted = true;      // required for autoplay
+      const vids = $$(".autovid");
+      if (vids.length < 2) return;
+
+      vids.forEach(v => {
+        v.muted = true;
         v.playsInline = true;
         v.autoplay = true;
         v.loop = true;
-        safePlay(v);
       });
+
+      const v1 = ["video1", "video1.mp4", "video1.webm", "Video 1.mp4", "Video1.mp4"];
+      const v2 = ["video2", "video2.mp4", "video2.webm", "Video 2.mp4", "Video2.mp4"];
+
+      setVideoSourceBest(vids[0], v1);
+      setVideoSourceBest(vids[1], v2);
     })();
   </script>
 </body>
