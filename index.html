@@ -3,538 +3,1295 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NewDawn School – Inspiring Future Leaders in Bondo, Kenya</title>
+  <title>NewDawn School – World-Class Learning in Bondo, Kenya</title>
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- SEO -->
+  <meta name="description" content="NewDawn School is a private CBC-aligned school founded in 2016 on a 2-acre campus along Bondo–Kisian Highway. Playgroup, PP1–PP2, Primary (Grades 1–6) and Junior School (from 2025).">
+  <meta name="keywords" content="NewDawn School, Bondo, Siaya, Kenya, CBC, PP1, PP2, Playgroup, Primary, Junior School, smart boards, French, music, spelling bee, debates">
+  <meta name="author" content="NewDawn School" />
+  <meta name="country" content="Kenya" />
+  <meta name="geo.region" content="KE" />
+  <meta name="geo.placename" content="Bondo, Siaya County" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="NewDawn School – Modern, Safe, Future-Ready" />
+  <meta property="og:description" content="A private CBC-aligned school in Bondo, Siaya on a 2-acre campus. Playgroup, PP1–PP2, Primary and Junior School (from 2025)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://danoty.github.io/NewDawn/" />
+  <meta property="og:image" content="01.jpg" />
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"School",
+    "name":"NewDawn School",
+    "description":"A private CBC-aligned school founded in 2016 on a 2-acre campus along Bondo–Kisian Highway (Bondo, Siaya County, Kenya). Playgroup, PP1–PP2, Primary (Grades 1–6) and Junior School (introduced in 2025).",
+    "url":"https://danoty.github.io/NewDawn/",
+    "logo":"https://danoty.github.io/NewDawn/logo.png",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Bondo–Kisian Highway",
+      "addressLocality":"Bondo",
+      "addressRegion":"Siaya County",
+      "addressCountry":"KE"
+    },
+    "telephone":"+254769924670",
+    "email":"info@newdawnschool.ac.ke"
+  }
+  </script>
 
   <style>
     :root{
       --primary:#0c4b33;
-      --primary-dark:#062517;
+      --primary-dark:#083522;
       --accent:#ff7f32;
-      --accent-2:#ffd452;
+      --accent2:#ffd452;
       --bg:#ffffff;
-      --muted:#6b7280;
-      --card:#ffffff;
-      --shadow: 0 12px 34px rgba(0,0,0,.12);
+      --bg-soft:#f4f6fb;
+      --text:#1d1f24;
+      --muted:#5e6673;
       --radius:18px;
+      --shadow:0 14px 40px rgba(0,0,0,.12);
       --max:1200px;
-
-      /* FIXED HEADER HEIGHT (used to prevent overlap) */
-      --headerH: 112px;
+      --header-h:84px;
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{font-family:"Poppins",system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:#111;scroll-behavior:smooth;overflow-x:hidden}
-    body{line-height:1.6}
-    section{scroll-margin-top: calc(var(--headerH) + 20px);}
+    html,body{font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);scroll-behavior:smooth;overflow-x:hidden}
+    body.large-font{font-size:18px}
+    body.high-contrast{
+      --primary:#000;--primary-dark:#000;--accent:#ffff00;--accent2:#ffffff;--bg:#000;--bg-soft:#000;
+      --text:#fff;--muted:#e3e3e3;
+      background:#000;color:#fff
+    }
 
-    .skip-link{position:absolute;top:-48px;left:10px;background:#000;color:#fff;padding:10px 12px;border-radius:10px;z-index:9999;text-decoration:none;font-size:.9rem}
-    .skip-link:focus{top:10px}
-    a:focus,button:focus,input:focus,textarea:focus{outline:3px solid #ffbf47;outline-offset:2px}
+    a:focus,button:focus,input:focus,textarea:focus{outline:2px solid #ffbf47;outline-offset:2px}
+    section{scroll-margin-top:calc(var(--header-h) + 30px)}
 
-    /* Header */
+    @media (prefers-reduced-motion: reduce){
+      *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+    }
+
+    /* ----- Glitter / premium background accents (subtle) ----- */
+    .sparkle-bg{
+      position:relative;
+      isolation:isolate;
+    }
+    .sparkle-bg::before{
+      content:"";
+      position:absolute;inset:-120px;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,212,82,.22), transparent 55%),
+        radial-gradient(circle at 80% 30%, rgba(255,127,50,.18), transparent 55%),
+        radial-gradient(circle at 60% 90%, rgba(12,75,51,.18), transparent 55%),
+        conic-gradient(from 180deg, rgba(255,255,255,.10), rgba(255,255,255,0), rgba(255,255,255,.12));
+      filter: blur(18px);
+      opacity:.9;
+      z-index:-2;
+      animation:floatGlow 10s ease-in-out infinite;
+    }
+    .sparkle-bg::after{
+      content:"";
+      position:absolute;inset:-1px;
+      background:linear-gradient(120deg, rgba(255,127,50,.10), rgba(255,255,255,0), rgba(255,212,82,.10));
+      z-index:-1;
+      pointer-events:none;
+      opacity:.65;
+    }
+    @keyframes floatGlow{
+      0%,100%{transform:translateY(0) scale(1)}
+      50%{transform:translateY(10px) scale(1.02)}
+    }
+
+    /* ----- Skip link ----- */
+    .skip-link{
+      position:absolute;left:12px;top:-40px;
+      background:#000;color:#fff;padding:8px 12px;border-radius:10px;
+      z-index:9999;text-decoration:none;font-size:.85rem
+    }
+    .skip-link:focus{top:12px}
+
+    /* ----- Header ----- */
     header{
-      position:fixed;top:0;left:0;right:0;z-index:999;
-      background: linear-gradient(135deg, rgba(7,33,24,.92), rgba(12,75,51,.88));
+      position:fixed;top:0;left:0;right:0;
+      height:var(--header-h);
+      z-index:999;
+      background:linear-gradient(135deg, rgba(7,33,24,.96), rgba(12,75,51,.92));
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 8px 24px rgba(0,0,0,.18);
+      box-shadow:0 10px 26px rgba(0,0,0,.18);
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
-    .hdr{
-      max-width:var(--max);margin:0 auto;padding:10px 14px 8px;
-      display:flex;align-items:center;gap:12px;justify-content:space-between;
+    .header-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      height:100%;
+      padding:10px 14px;
+      display:flex;
+      align-items:center;
+      gap:12px;
     }
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;min-width:260px}
-    .logo-wrap{
-      position:relative;border-radius:50%;padding:4px;
+
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      text-decoration:none;color:#fff;
+      min-width:260px;
+    }
+    .logo-mark{
+      width:52px;height:52px;border-radius:50%;
+      padding:3px;
       background: radial-gradient(circle at 30% 0%, #fff 0, #ffe9c5 30%, #f3b76c 55%, #e46b33 85%);
-      box-shadow: 0 0 0 2px rgba(255,255,255,.55), 0 0 18px rgba(255,204,128,.6), 0 0 40px rgba(255,127,50,.55);
+      box-shadow:0 0 0 2px rgba(255,255,255,.65), 0 0 18px rgba(255,204,128,.70), 0 0 40px rgba(255,127,50,.55);
+      position:relative;flex:0 0 auto;
+      animation:logoPulse 2.6s ease-in-out infinite;
     }
-    .logo{width:56px;height:56px;border-radius:50%;background:#fff;padding:2px}
-    .brand .t1{font-weight:800;letter-spacing:.02em;font-size:1.15rem;line-height:1.1}
-    .brand .t2{font-size:.72rem;color:#e5f7ef;opacity:.95}
-
-    .hdr-right{display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
-    .contact-mini{display:flex;flex-direction:column;gap:2px;text-align:right;font-size:.74rem;color:#eaf7f1}
-    .contact-mini a{color:#ffeedb;text-decoration:none}
-    .contact-mini a:hover{text-decoration:underline}
-
-    .chip{
-      border:1px solid rgba(255,255,255,.55);
-      background: rgba(0,0,0,.18);
-      color:#fff;border-radius:999px;
-      padding:6px 10px;
-      font-size:.74rem;cursor:pointer;
-      white-space:nowrap;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    .logo-mark::after{
+      content:"";
+      position:absolute;inset:-6px;border-radius:50%;
+      background:conic-gradient(from 0deg, rgba(255,255,255,.08) 0deg, rgba(255,255,255,.75) 45deg, rgba(255,255,255,.08) 90deg, transparent 180deg, transparent 360deg);
+      mix-blend-mode:screen;
+      opacity:.85;
+      animation:sparkleSpin 5s linear infinite;
+      pointer-events:none;
     }
-    .chip:hover{transform:translateY(-1px);background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.8)}
-
-    #google_translate_element{
-      background: rgba(0,0,0,.12);
-      border-radius:999px;
-      padding:2px 8px;
-      border:1px solid rgba(255,255,255,.25);
+    @keyframes logoPulse{
+      0%,100%{transform:translateY(0) scale(1)}
+      50%{transform:translateY(-1px) scale(1.03)}
     }
+    @keyframes sparkleSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+    .logo-mark img{width:100%;height:100%;border-radius:50%;background:#fff;display:block}
 
-    /* NAV */
-    .navrow{max-width:var(--max);margin:0 auto;padding:0 14px 10px;display:flex;align-items:center;gap:10px}
-    .nav-toggle{
-      display:none;
-      border:1px solid rgba(255,255,255,.45);
-      background: rgba(0,0,0,.2);
-      color:#fff;border-radius:12px;
-      padding:8px 10px;cursor:pointer;font-size:.85rem;
-      white-space:nowrap;
+    .brand-text{display:flex;flex-direction:column;line-height:1.05}
+    .brand-text strong{font-size:1.05rem;letter-spacing:.02em}
+    .brand-text span{font-size:.72rem;color:#dff6ed;opacity:.95}
+
+    /* ----- One-line menu (desktop + mobile) ----- */
+    .nav-wrap{
+      flex:1;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
     }
     nav{
-      flex:1;display:flex;align-items:center;gap:6px;
-      white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+      flex:1;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
       scrollbar-width:none;
+      padding:4px 2px;
     }
     nav::-webkit-scrollbar{display:none}
+
     nav a{
-      color:#fff;text-decoration:none;font-weight:800;
-      font-size:.70rem;letter-spacing:.10em;text-transform:uppercase;
-      padding:7px 9px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: linear-gradient(135deg, rgba(255,127,50,.14), rgba(255,255,255,.07));
-      box-shadow: 0 6px 16px rgba(0,0,0,.14);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    nav a:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.65);background: linear-gradient(135deg, rgba(255,152,0,.52), rgba(255,255,255,.14))}
-
-    /* ✅ CLEAR APPLY BUTTON (always visible) */
-    .applyTop{
       flex:0 0 auto;
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 14px;border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), #ff5f17);
-      color:#111;text-decoration:none;font-weight:900;font-size:.82rem;
-      box-shadow:0 14px 30px rgba(0,0,0,.25);
-      border:1px solid rgba(255,255,255,.25);
-      white-space:nowrap;
-      transform:translateY(0);
-      transition:transform .15s ease, filter .15s ease;
-    }
-    .applyTop:hover{transform:translateY(-1px);filter:brightness(1.03)}
-    .applyTop:active{transform:translateY(0)}
-
-    /* ✅ FIX: Announcement bar must NOT sit under header */
-    .announce{
-      position:relative;
-      margin-top: var(--headerH);
-      z-index:10;
-      background: linear-gradient(90deg, #fff7cc, #fff2b0);
-      color:#2b2100;
-      border-bottom:1px solid rgba(0,0,0,.10);
-      text-align:center;
-      padding:10px 12px;
-      font-size:.92rem;
-      font-weight:700;
-    }
-    .announce a{
-      color:#111;
-      font-weight:900;
       text-decoration:none;
+      color:#fff;
+      font-weight:600;
+      font-size:.72rem;              /* reduced so it fits one line */
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      padding:9px 12px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(255,127,50,.12), rgba(255,255,255,.08));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 6px 16px rgba(0,0,0,.16);
+      position:relative;
+      white-space:nowrap;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    }
+    nav a::after{
+      content:"";
+      position:absolute;left:14px;right:14px;bottom:6px;height:2px;border-radius:999px;
+      background:linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
+      transform:scaleX(0);
+      transform-origin:center;
+      transition:transform .22s ease;
+      opacity:.95;
+    }
+    nav a:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.70);
+      background:linear-gradient(135deg, rgba(255,152,0,.45), rgba(255,255,255,.12));
+      box-shadow:0 10px 22px rgba(0,0,0,.28);
+    }
+    nav a:hover::after{transform:scaleX(1)}
+    nav a.active::after{transform:scaleX(1)}
+    nav a.active{
+      border-color:rgba(255,255,255,.80);
+      background:linear-gradient(135deg, rgba(255,152,0,.60), rgba(255,255,255,.14));
+    }
+
+    .header-actions{
+      display:flex;align-items:center;gap:8px;flex:0 0 auto;
+    }
+
+    .a11y-btn{
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.55);
+      background:rgba(0,0,0,.22);
+      color:#fff;
+      padding:8px 10px;
+      cursor:pointer;
+      font-size:.72rem;
+      white-space:nowrap;
+      transition:background .15s ease, transform .15s ease;
+    }
+    .a11y-btn:hover{background:rgba(255,255,255,.14);transform:translateY(-1px)}
+    #google_translate_element{
+      background:rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.18);
+      padding:2px 8px;border-radius:999px;
+      transform:scale(.95);
+      transform-origin:right center;
+    }
+
+    /* ----- Announcement bar ----- */
+    .announcement{
+      margin-top:var(--header-h);
+      background:#fffbdd;
+      color:#4a3b00;
+      font-size:.88rem;
+      padding:10px 14px;
+      border-bottom:1px solid rgba(0,0,0,.08);
+      text-align:center;
+    }
+    .announcement a{color:var(--primary);font-weight:700;text-decoration:underline}
+
+    /* ----- Hero with video background ----- */
+    .hero{
+      position:relative;
+      min-height:78vh;
+      display:flex;
+      align-items:center;
+      padding:42px 14px 26px;
+      background:#000;
+      overflow:hidden;
+    }
+    .hero .hero-media{
+      position:absolute;inset:0;
+      z-index:0;
+    }
+    .hero video{
+      width:100%;height:100%;
+      object-fit:cover;
+      display:block;
+      filter:brightness(.70) contrast(1.05) saturate(1.05);
+    }
+    .hero .hero-overlay{
+      position:absolute;inset:0;
+      background:
+        linear-gradient(115deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.42) 40%, rgba(12,75,51,.78) 100%),
+        radial-gradient(circle at 20% 20%, rgba(255,127,50,.18), transparent 60%),
+        radial-gradient(circle at 80% 30%, rgba(255,212,82,.12), transparent 55%);
+      z-index:1;
+    }
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:var(--max);
+      margin:0 auto;
+      width:100%;
+      display:grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+      gap:22px;
+      align-items:center;
+    }
+    .hero-copy{
+      color:#fff;
+      animation:heroIn 1.05s ease both;
+    }
+    @keyframes heroIn{
+      from{opacity:0;transform:translateY(14px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      font-size:.82rem;
+      letter-spacing:.20em;
+      text-transform:uppercase;
+      opacity:.92;
+      margin-bottom:10px;
+    }
+    .kicker .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 0 6px rgba(255,127,50,.22), 0 0 20px rgba(255,127,50,.35);
+    }
+    .hero h1{
+      font-size:clamp(2.1rem, 4vw, 3.2rem);
+      line-height:1.08;
+      margin-bottom:12px;
+      font-weight:800;
+      text-shadow:0 12px 30px rgba(0,0,0,.35);
+    }
+    .hero p{
+      max-width:740px;
+      font-size:1.02rem;
+      color:#f2f7f4;
+      opacity:.96;
+      margin-bottom:18px;
+    }
+    .cta-row{
+      display:flex;flex-wrap:wrap;gap:12px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:.95rem;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      position:relative;
+      overflow:hidden;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg, var(--accent), #ff9a3d);
+      color:#0b140f;
+      box-shadow:0 14px 30px rgba(0,0,0,.26);
+    }
+    .btn-primary::after{
+      content:"";
+      position:absolute;inset:-40px;
+      background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 60%);
+      opacity:.35;
+      transform:translateX(-30%);
+      transition:transform .4s ease;
+    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(0,0,0,.34)}
+    .btn-primary:hover::after{transform:translateX(15%)}
+
+    .btn-outline{
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border-color:rgba(255,255,255,.55);
+      backdrop-filter: blur(8px);
+    }
+    .btn-outline:hover{transform:translateY(-2px);background:rgba(255,255,255,.14)}
+
+    .hero-card{
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.5);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px 16px;
+      color:var(--text);
+      backdrop-filter: blur(10px);
+    }
+    .hero-card h3{font-size:1rem;color:var(--primary-dark);margin-bottom:8px}
+    .pill{
+      display:inline-block;
       padding:6px 10px;
       border-radius:999px;
-      background:rgba(255,127,50,.35);
-      margin-left:6px;
-      display:inline-block;
+      background:rgba(12,75,51,.08);
+      color:var(--primary-dark);
+      font-size:.72rem;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:8px;
     }
-    .announce a:hover{background:rgba(255,127,50,.50)}
-
-    /* HERO video background */
-    .hero{position:relative;height:min(78vh,620px);width:100%;overflow:hidden;background:#000}
-    .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.68) saturate(1.08) contrast(1.02);transform:scale(1.02)}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg, rgba(0,0,0,.64) 0%, rgba(0,0,0,.25) 40%, rgba(12,75,51,.80) 100%);pointer-events:none}
-    .hero-inner{position:relative;max-width:var(--max);margin:0 auto;padding:0 16px;height:100%;display:flex;align-items:center}
-    .hero-box{max-width:760px;color:#fff}
-    .kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.82rem;opacity:.92;display:flex;align-items:center;gap:10px}
-    .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(255,127,50,.2)}
-    .h1{margin-top:12px;font-weight:800;font-size:clamp(2.0rem,4.2vw,3.4rem);line-height:1.05;text-shadow:0 10px 30px rgba(0,0,0,.35)}
-    .sub{margin-top:12px;font-size:clamp(.98rem,1.4vw,1.12rem);color:rgba(255,255,255,.92);max-width:640px}
-    .cta{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:12px 18px;border-radius:999px;font-weight:900;text-decoration:none;
-      border:1px solid transparent;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-      white-space:nowrap
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:10px;
+      margin-top:8px;
     }
-    .btn.primary{background:var(--accent);color:#111;box-shadow:0 14px 30px rgba(0,0,0,.28)}
-    .btn.primary:hover{transform:translateY(-1px);background:#ff6b1f}
-    .btn.ghost{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.65);color:#fff}
-    .btn.ghost:hover{transform:translateY(-1px);background:rgba(255,255,255,.14)}
-
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-    .section{padding:58px 0}
-    .section.alt{background:#f4f7fb}
-    .sec-head{text-align:center;margin-bottom:28px}
-    .sec-head h2{font-size:1.95rem;color:var(--primary-dark);margin-bottom:6px}
-    .sec-head p{color:var(--muted);font-size:1rem}
-
-    /* Videos section */
-    .media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .vcard{overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);background:var(--card)}
-    .vwrap{position:relative;width:100%;aspect-ratio:16/9;background:#000}
-    .vwrap video{width:100%;height:100%;object-fit:cover;display:block}
-    .vtag{
-      position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.92);
-      color:#0b2c1e;padding:8px 12px;border-radius:999px;font-weight:900;font-size:.86rem;
-      box-shadow:0 12px 24px rgba(0,0,0,.25)
-    }
-    .vbody{padding:14px 14px 16px}
-    .vbody h3{color:var(--primary-dark);font-size:1.06rem;margin-bottom:4px}
-    .vbody p{color:var(--muted);font-size:.94rem}
-
-    .videoWarn{
-      display:none;
-      margin:12px auto 0;
-      max-width:900px;
-      padding:10px 12px;
+    .stat{
+      background:#fff;
       border-radius:14px;
-      background:#fff0f0;
-      border:1px solid rgba(0,0,0,.08);
-      color:#7a0000;
-      font-weight:800;
+      border:1px solid rgba(0,0,0,.06);
+      padding:10px 10px;
       text-align:center;
     }
-    .videoWarn.show{display:block}
+    .stat b{display:block;font-size:1.35rem;color:var(--accent);line-height:1.1}
+    .stat span{font-size:.78rem;color:var(--muted)}
+    .mini-note{margin-top:10px;font-size:.85rem;color:#2b2f36}
+    .mini-note em{color:var(--primary-dark);font-style:normal;font-weight:700}
 
-    /* Responsive */
-    @media (max-width:980px){
-      .media-grid{grid-template-columns:1fr}
+    /* ----- Sections ----- */
+    .section{padding:56px 14px}
+    .section.alt{background:var(--bg-soft)}
+    .inner{max-width:var(--max);margin:0 auto}
+    .section-title{text-align:center;margin-bottom:26px}
+    .section-title h2{
+      font-size:1.9rem;
+      color:var(--primary-dark);
+      margin-bottom:6px;
+      font-weight:800;
     }
-    @media (max-width:820px){
-      .contact-mini{display:none}
-      .nav-toggle{display:inline-flex}
-      nav{
-        position:absolute;left:14px;right:14px;top:100%;margin-top:10px;
-        background:rgba(7,33,24,.98);border:1px solid rgba(255,255,255,.14);border-radius:16px;
-        padding:10px;flex-wrap:wrap;gap:8px;white-space:normal;max-height:0;overflow:hidden;
-        transition:max-height .25s ease;box-shadow:0 14px 30px rgba(0,0,0,.3)
-      }
-      nav.open{max-height:560px}
-      nav a{font-size:.78rem;padding:9px 10px}
-      .navrow{position:relative}
+    .section-title p{color:var(--muted);font-size:.98rem}
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(0, .85fr);
+      gap:18px;
+      align-items:start;
     }
-    @media (max-width:480px){
-      .logo{width:50px;height:50px}
-      .brand .t1{font-size:1.05rem}
-      .hero{height:520px}
-      .btn{width:100%}
-      .cta{gap:8px}
-      .applyTop{padding:9px 12px;font-size:.78rem}
+    .card{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.05);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px 16px;
+    }
+    .card h3{color:var(--primary-dark);margin-bottom:8px}
+    .card p{color:var(--muted);font-size:.95rem}
+    .list{
+      margin-top:10px;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.55;
+    }
+    .list li{margin-bottom:6px}
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:14px;
+    }
+    .feature{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.05);
+      border-radius:var(--radius);
+      box-shadow:0 10px 26px rgba(0,0,0,.08);
+      padding:16px 14px;
+    }
+    .feature .icon{font-size:1.35rem;margin-bottom:8px}
+    .feature h4{color:var(--primary-dark);margin-bottom:6px}
+    .feature p{color:var(--muted);font-size:.92rem}
+
+    /* ----- Gallery (top-tier layout) ----- */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:12px;
+    }
+    .g-item{
+      position:relative;
+      border-radius:18px;
+      overflow:hidden;
+      background:#0b0b0b;
+      box-shadow:0 16px 36px rgba(0,0,0,.16);
+      cursor:zoom-in;
+      border:1px solid rgba(255,255,255,.15);
+    }
+    .g-item img{
+      width:100%;height:100%;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.02);
+      filter:saturate(1.05) contrast(1.02);
+      transition:transform .35s ease, filter .35s ease;
+    }
+    .g-item:hover img{transform:scale(1.08);filter:saturate(1.12) contrast(1.06)}
+    .g-item::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.35));
+      pointer-events:none;
+    }
+    /* Mosaic sizing */
+    .span-6{grid-column:span 6}
+    .span-4{grid-column:span 4}
+    .span-3{grid-column:span 3}
+    .h-360{height:360px}
+    .h-260{height:260px}
+    .h-220{height:220px}
+
+    /* ----- Lightbox ----- */
+    .lightbox{
+      position:fixed;inset:0;
+      background:rgba(0,0,0,.88);
+      display:none;
+      align-items:center;justify-content:center;
+      z-index:2000;
+      padding:18px;
+    }
+    .lightbox.active{display:flex}
+    .lightbox img{
+      max-width:min(1100px, 92vw);
+      max-height:88vh;
+      border-radius:14px;
+      box-shadow:0 18px 60px rgba(0,0,0,.6);
+    }
+    .lb-close{
+      position:fixed;top:16px;right:18px;
+      border:0;background:rgba(255,255,255,.12);
+      color:#fff;
+      width:44px;height:44px;border-radius:50%;
+      cursor:pointer;font-size:1.4rem;font-weight:800;
+      display:grid;place-items:center;
+    }
+    .lb-close:hover{background:rgba(255,255,255,.18)}
+
+    /* ----- Videos (fix: support both “video1.mp4” and “video1”) ----- */
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:16px;
+      align-items:start;
+    }
+    .video-card{
+      border-radius:22px;
+      overflow:hidden;
+      background:#0b0b0b;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 18px 45px rgba(0,0,0,.18);
+      position:relative;
+    }
+    .video-card video{
+      width:100%;
+      height:380px;
+      display:block;
+      object-fit:cover;
+      background:#000;
+    }
+    .video-cap{
+      background:#fff;
+      padding:14px 14px 16px;
+    }
+    .video-cap h3{color:var(--primary-dark);margin-bottom:4px}
+    .video-cap p{color:var(--muted);font-size:.92rem}
+
+    /* ----- Contact ----- */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      gap:16px;
+      align-items:start;
+    }
+    .contact p{color:var(--muted);margin-bottom:8px;font-size:.95rem}
+    .contact a{color:var(--accent);font-weight:700;text-decoration:none}
+    .contact a:hover{text-decoration:underline}
+    form .row{display:flex;gap:10px;flex-wrap:wrap}
+    .field{flex:1;min-width:180px;margin-bottom:10px}
+    label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:4px}
+    input,textarea{
+      width:100%;
+      padding:10px 10px;
+      border-radius:12px;
+      border:1px solid #d6dde8;
+      font-family:inherit;
+      font-size:.95rem;
+      outline:none;
+      transition:border .15s ease, box-shadow .15s ease;
+      background:#fff;
+    }
+    input:focus,textarea:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(12,75,51,.15);
+    }
+    textarea{min-height:110px;resize:vertical}
+
+    .map{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.06);
+      margin-top:10px;
+      background:#fff;
+    }
+    .map iframe{width:100%;height:240px;border:0}
+
+    /* ----- Floating buttons ----- */
+    .whatsapp{
+      position:fixed;right:18px;bottom:18px;z-index:1200;
+    }
+    .whatsapp img{
+      width:58px;height:58px;border-radius:50%;
+      box-shadow:0 16px 36px rgba(0,0,0,.30);
+      transition:transform .15s ease;
+    }
+    .whatsapp img:hover{transform:translateY(-2px)}
+
+    .top-btn{
+      position:fixed;left:18px;bottom:18px;z-index:1200;
+      display:none;
+      border:0;
+      background:var(--primary);
+      color:#fff;
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 16px 36px rgba(0,0,0,.25);
+    }
+    .top-btn.show{display:inline-flex;align-items:center;gap:8px}
+
+    /* ----- Footer ----- */
+    footer{
+      background:linear-gradient(135deg, #061c14, #083522);
+      color:#fff;
+      padding:26px 14px 16px;
+      margin-top:18px;
+    }
+    .footer-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:16px;
+      align-items:start;
+    }
+    .footer-inner h4{margin-bottom:8px}
+    footer p, footer li{color:#d9efe6;font-size:.9rem}
+    footer a{color:#ffeedb;font-weight:700;text-decoration:none}
+    footer a:hover{text-decoration:underline}
+    .footer-bottom{
+      max-width:var(--max);
+      margin:14px auto 0;
+      padding-top:10px;
+      border-top:1px solid rgba(255,255,255,.16);
+      display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
+      font-size:.82rem;color:#d9efe6;
+    }
+
+    /* ----- Cookie banner ----- */
+    .cookie{
+      position:fixed;left:0;right:0;bottom:0;
+      background:rgba(0,0,0,.88);
+      color:#fff;
+      padding:10px 12px;
+      z-index:1500;
+      font-size:.82rem;
+    }
+    .cookie-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .cookie button{
+      border:0;border-radius:999px;
+      background:linear-gradient(135deg, var(--accent), #ff9a3d);
+      color:#0b140f;
+      font-weight:900;
+      padding:10px 14px;
+      cursor:pointer;
+    }
+
+    /* ----- Responsive tweaks ----- */
+    @media (max-width: 980px){
+      .hero-inner{grid-template-columns:minmax(0,1fr)}
+      .hero-card{max-width:560px}
+      .grid-2{grid-template-columns:minmax(0,1fr)}
+      .contact-grid{grid-template-columns:minmax(0,1fr)}
+      .video-grid{grid-template-columns:minmax(0,1fr)}
+      .video-card video{height:340px}
+    }
+    @media (max-width: 720px){
+      :root{--header-h:92px}
+      .brand{min-width:210px}
+      nav a{font-size:.68rem;padding:8px 10px;letter-spacing:.10em}
+      .header-actions{display:none} /* keeps header cleaner on small screens */
+      .hero{min-height:74vh}
+      .stats{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(6, 1fr)}
+      .span-6{grid-column:span 6}
+      .span-4{grid-column:span 6}
+      .span-3{grid-column:span 3}
+      .h-360{height:280px}
+      .h-260{height:220px}
+      .h-220{height:200px}
     }
   </style>
 </head>
 
-<body>
-  <a class="skip-link" href="#mainContent">Skip to main content</a>
+<body class="sparkle-bg">
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-  <header role="banner">
-    <div class="hdr">
-      <a class="brand" href="#home" aria-label="Back to homepage">
-        <div class="logo-wrap">
-          <img class="logo" src="logo.png" alt="NewDawn School Logo" loading="eager" />
+  <!-- HEADER -->
+  <header role="banner" aria-label="Site header">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="Go to homepage">
+        <div class="logo-mark">
+          <img src="logo.png" alt="NewDawn School Logo" />
         </div>
-        <div>
-          <div class="t1">NewDawn School</div>
-          <div class="t2">Inspiring Future Leaders • Bondo, Kenya</div>
+        <div class="brand-text">
+          <strong>NewDawn School</strong>
+          <span>Modern • Safe • Future-Ready</span>
         </div>
       </a>
 
-      <div class="hdr-right">
-        <div class="contact-mini" aria-label="Contact">
-          <div>📞 <a href="tel:+254769924670">+254 769 924670</a></div>
-          <div>✉️ <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></div>
+      <div class="nav-wrap" aria-label="Main navigation area">
+        <nav id="mainNav" aria-label="Main navigation (one line scroll)">
+          <a href="#home"><span>Home</span></a>
+          <a href="#about"><span>About</span></a>
+          <a href="#programs"><span>Programs</span></a>
+          <a href="#why"><span>Why NewDawn</span></a>
+          <a href="#admissions"><span>Admissions</span></a>
+          <a href="#gallery"><span>Gallery</span></a>
+          <a href="#videos"><span>Videos</span></a>
+          <a href="#contact"><span>Contact</span></a>
+        </nav>
+
+        <div class="header-actions" aria-label="Accessibility and language tools">
+          <button class="a11y-btn" id="contrastToggle" type="button">High contrast</button>
+          <button class="a11y-btn" id="fontToggle" type="button">A+</button>
+          <div id="google_translate_element" aria-label="Translate this page"></div>
         </div>
-
-        <button class="chip" id="contrastToggle" type="button">High contrast</button>
-        <button class="chip" id="fontToggle" type="button">A+</button>
-        <div id="google_translate_element" aria-label="Translate this page"></div>
       </div>
-    </div>
-
-    <div class="navrow">
-      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-controls="mainNav" aria-expanded="false">☰ Menu</button>
-
-      <nav id="mainNav" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#programs">Programs</a>
-        <a href="#why">Why NewDawn</a>
-        <a href="#admissions">Admissions</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#media">Videos</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <!-- ✅ Always-visible Apply button -->
-      <a class="applyTop" href="#admissions" aria-label="Apply or request information">Apply / Request Info</a>
     </div>
   </header>
 
-  <!-- ✅ Will now sit BELOW header clearly -->
-  <div class="announce" role="status" aria-live="polite">
-    🎓 2026 Admissions Open
-    <a href="#admissions">Apply / Request Info</a>
-    <a href="#gallery">View Gallery</a>
+  <!-- ANNOUNCEMENT -->
+  <div class="announcement" role="status" aria-live="polite">
+    🎓 Admissions open • <a href="#admissions">Apply / Request Info</a> • Call/WhatsApp: <a href="tel:+254769924670">+254 769 924670</a>
   </div>
 
   <main id="mainContent" tabindex="-1">
-    <section class="hero" id="home" aria-label="NewDawn School hero video">
-      <video id="heroVideo" autoplay muted playsinline preload="auto" poster="01.jpg"></video>
+    <!-- HERO (Video Background) -->
+    <section class="hero" id="home" aria-label="Hero section with background video">
+      <div class="hero-media" aria-hidden="true">
+        <!-- Autoplay requires muted in most browsers -->
+        <video autoplay loop muted playsinline preload="metadata" poster="01.jpg">
+          <!-- supports both naming styles -->
+          <source src="video1.mp4" type="video/mp4" />
+          <source src="video1" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="hero-inner">
-        <div class="hero-box">
+        <div class="hero-copy">
           <div class="kicker"><span class="dot"></span> BONDO • SIAYA COUNTY • KENYA</div>
-          <h1 class="h1">A World-Class School Experience — Modern, Safe, and Future-Ready.</h1>
-          <p class="sub">
-            A CBC-aligned private school on a spacious <strong>2-acre campus</strong> along the Bondo–Kisian Highway,
-            offering <strong>Playgroup</strong>, <strong>Pre-Primary</strong>, <strong>Primary</strong> and <strong>Junior School</strong>.
+          <h1>A World-Class School Experience — Modern, Safe, and Future-Ready.</h1>
+          <p>
+            A private, CBC-aligned school founded in <strong>2016</strong> on a spacious <strong>2-acre campus</strong> along the
+            <strong>Bondo–Kisian Highway</strong>, just outside Bondo town — serving a culturally diverse learner community.
           </p>
-          <div class="cta">
-            <a class="btn primary" href="#admissions">Apply / Request Info</a>
-            <a class="btn ghost" href="#gallery">View Gallery</a>
-            <a class="btn ghost" href="#media">Watch Videos</a>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#apply">Apply / Request Info</a>
+            <a class="btn btn-outline" href="#gallery">View Gallery</a>
+            <a class="btn btn-outline" href="#videos">Watch Videos</a>
           </div>
         </div>
+
+        <aside class="hero-card" aria-label="Key highlights">
+          <span class="pill">Quick Facts</span>
+          <h3>NewDawn at a Glance</h3>
+          <div class="stats" role="list">
+            <div class="stat" role="listitem"><b>400+</b><span>Learners enrolled</span></div>
+            <div class="stat" role="listitem"><b>18</b><span>Teachers</span></div>
+            <div class="stat" role="listitem"><b>10</b><span>Non-teaching staff</span></div>
+          </div>
+          <div class="mini-note">
+            <em>Junior School</em> introduced in <strong>2025</strong> (currently <strong>20 learners</strong>) with
+            <em>smart boards</em> in every classroom.
+          </div>
+        </aside>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section class="section alt" id="about">
-      <div class="wrap">
-        <div class="sec-head">
+      <div class="inner">
+        <div class="section-title">
           <h2>About NewDawn School</h2>
-          <p>Holistic, learner-centred education rooted in Kenyan excellence and global readiness.</p>
+          <p>Holistic learning with strong values, strong language foundation, and modern facilities.</p>
         </div>
-        <p style="text-align:center;color:var(--muted);max-width:900px;margin:0 auto">
-          NewDawn School is a private, CBC-aligned school located along the Bondo–Kisian Highway, just outside Bondo town.
-          English is the language of instruction, and our environment supports joyful learning, care and growth.
-        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <span class="pill">Overview</span>
+            <h3>Spacious campus. Warm culture. Serious learning.</h3>
+            <p>
+              NewDawn School is a private institution on a <strong>2-acre campus</strong> along the Bondo–Kisian Highway.
+              We serve the educational needs of Bondo Sub-County and welcome a culturally varied learner body.
+            </p>
+            <ul class="list">
+              <li><strong>English</strong> is the language of instruction for learners and staff.</li>
+              <li>Weekly <strong>storybook sessions</strong> build a strong reading culture.</li>
+              <li><strong>Spelling bees</strong> and <strong>debates</strong> strengthen communication and confidence.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="pill">Enrollment & Structure</span>
+            <h3>Clear pathways from early years to Junior School</h3>
+            <p>
+              We offer Pre-primary (<strong>Playgroup, PP1, PP2</strong>), Primary (<strong>Grades 1–6</strong>),
+              and Junior School (introduced in <strong>2025</strong>).
+            </p>
+            <ul class="list">
+              <li>Over <strong>230</strong> learners in Early Childhood Development classes.</li>
+              <li>More than <strong>200</strong> learners in Grades <strong>1–6</strong>.</li>
+              <li>Junior School is fully digitized with <strong>smart boards</strong>.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- PROGRAMS -->
     <section class="section" id="programs">
-      <div class="wrap">
-        <div class="sec-head">
+      <div class="inner">
+        <div class="section-title">
           <h2>Programs & Enrichment</h2>
-          <p>Strong academics + skills, talent and character development.</p>
+          <p>CBC excellence plus enrichment for a confident, creative and skilled learner.</p>
         </div>
-        <ul style="max-width:920px;margin:0 auto;color:var(--muted);padding-left:18px">
-          <li>Playgroup, Pre-Primary (PP1–PP2), Primary (Grades 1–6) and Junior School.</li>
-          <li>Music program: drums, guitar, strings and keyboard.</li>
-          <li>Weekly storybook sessions to build reading culture.</li>
-          <li>French for Grades 4–6, spelling bees and debates.</li>
-          <li>Digitized learning with smart boards (Junior School).</li>
-        </ul>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="icon">📘</div>
+            <h4>CBC-Aligned Academics</h4>
+            <p>National Competency Based Curriculum (CBC) and fully registered with the Ministry of Education.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">🎵</div>
+            <h4>Music Program</h4>
+            <p>Instruction with instruments including drums, guitar, violins, violas, cello and digital keyboard.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">🇫🇷</div>
+            <h4>French (Grades 4–6)</h4>
+            <p>French language classes offered for Grades 4–6 to expand global communication skills.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">🗣️</div>
+            <h4>Debates & Spelling Bees</h4>
+            <p>Build public speaking, language proficiency and confidence through structured competitions.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">🧑‍🍳</div>
+            <h4>Life Skills (Coming)</h4>
+            <p>Plans underway to introduce more life skills such as culinary arts for practical competence.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">🖥️</div>
+            <h4>Digitized Junior School</h4>
+            <p>Junior School classrooms equipped with smart boards to support modern teaching and learning.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section alt" id="admissions">
-      <div class="wrap">
-        <div class="sec-head">
+    <!-- WHY -->
+    <section class="section alt" id="why">
+      <div class="inner">
+        <div class="section-title">
+          <h2>Why NewDawn</h2>
+          <p>Modern facilities, enrichment, and a supportive environment for every learner.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="icon">🛡️</div>
+            <h4>Safe & Supportive</h4>
+            <p>We are committed to maintaining a safe and supportive environment for learners and staff.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">📚</div>
+            <h4>Reading Culture</h4>
+            <p>Weekly storybook sessions encourage reading beyond the classroom and strengthen literacy.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🏫</div>
+            <h4>Spacious Campus</h4>
+            <p>Over 2 acres of space for academic, recreational and extracurricular activities.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">🌍</div>
+            <h4>Global Skills</h4>
+            <p>English instruction, French exposure and confidence-building platforms like debates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMISSIONS -->
+    <section class="section" id="admissions">
+      <div class="inner">
+        <div class="section-title">
           <h2>Admissions</h2>
-          <p>Call / WhatsApp for guidance and placement.</p>
-        </div>
-        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <a class="btn primary" href="https://wa.me/254769924670" target="_blank" rel="noopener">Chat on WhatsApp</a>
-          <a class="btn ghost" href="mailto:info@newdawnschool.ac.ke">Send Email</a>
-          <a class="btn ghost" href="tel:+254769924670">Call Now</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="media">
-      <div class="wrap">
-        <div class="sec-head">
-          <h2>Video Highlights</h2>
-          <p>Both videos should autoplay smoothly (muted), including the hero background.</p>
+          <p>Simple, warm and guided—from your first call to joining day.</p>
         </div>
 
-        <div class="media-grid">
-          <div class="vcard">
-            <div class="vwrap">
-              <video class="autovid" autoplay muted loop playsinline preload="auto" poster="01.jpg"></video>
-              <div class="vtag">Video 1</div>
-            </div>
-            <div class="vbody">
-              <h3>School Life & Learning</h3>
-              <p>Experience the NewDawn environment — joyful learning, care, and growth.</p>
+        <div class="grid-2">
+          <div class="card">
+            <span class="pill">How to Join</span>
+            <h3>4 easy steps</h3>
+            <ul class="list">
+              <li><strong>Inquiry:</strong> Call/WhatsApp or fill the form to share learner details and class.</li>
+              <li><strong>Visit:</strong> Tour the school and meet the team.</li>
+              <li><strong>Assessment:</strong> Friendly placement check for best fit.</li>
+              <li><strong>Registration:</strong> Complete admission and receive joining instructions.</li>
+            </ul>
+            <div style="margin-top:14px;">
+              <a class="btn btn-primary" href="#apply">Apply / Request Info</a>
             </div>
           </div>
 
-          <div class="vcard">
-            <div class="vwrap">
-              <video class="autovid" autoplay muted loop playsinline preload="auto" poster="02.jpg"></video>
-              <div class="vtag">Video 2</div>
+          <div class="card">
+            <span class="pill">Facilities</span>
+            <h3>Purpose-built learning spaces</h3>
+            <p>
+              Dedicated spaces for Early Childhood Development and Primary education, plus specialized areas for music instruction.
+              Junior School is digitized with smart boards.
+            </p>
+            <ul class="list">
+              <li>Music room with multiple instruments</li>
+              <li>Smart boards in Junior School classrooms</li>
+              <li>Outdoor space for play and activities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY (mosaic layout) -->
+    <section class="section alt" id="gallery">
+      <div class="inner">
+        <div class="section-title">
+          <h2>Gallery</h2>
+          <p>Clean, high-impact arrangement (click any image to view).</p>
+        </div>
+
+        <div class="gallery" aria-label="Photo gallery mosaic">
+          <!-- BIG ROW -->
+          <div class="g-item span-6 h-360"><img class="gallery-img" src="01.jpg" alt="NewDawn School - Gallery 01" loading="lazy"></div>
+          <div class="g-item span-6 h-360"><img class="gallery-img" src="02.jpg" alt="NewDawn School - Gallery 02" loading="lazy"></div>
+
+          <!-- MID ROW -->
+          <div class="g-item span-4 h-260"><img class="gallery-img" src="03.jpg" alt="NewDawn School - Gallery 03" loading="lazy"></div>
+          <div class="g-item span-4 h-260"><img class="gallery-img" src="04.jpg" alt="NewDawn School - Gallery 04" loading="lazy"></div>
+          <div class="g-item span-4 h-260"><img class="gallery-img" src="05.jpg" alt="NewDawn School - Gallery 05" loading="lazy"></div>
+
+          <!-- SMALL ROW -->
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="1.jpg" alt="NewDawn School - Gallery 1" loading="lazy"></div>
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="2.jpg" alt="NewDawn School - Gallery 2" loading="lazy"></div>
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="3.jpg" alt="NewDawn School - Gallery 3" loading="lazy"></div>
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="4.jpg" alt="NewDawn School - Gallery 4" loading="lazy"></div>
+
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="5.jpg" alt="NewDawn School - Gallery 5" loading="lazy"></div>
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="6.jpg" alt="NewDawn School - Gallery 6" loading="lazy"></div>
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="7.jpg" alt="NewDawn School - Gallery 7" loading="lazy"></div>
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="8.jpg" alt="NewDawn School - Gallery 8" loading="lazy"></div>
+
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="9.jpg" alt="NewDawn School - Gallery 9" loading="lazy"></div>
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="0.jpg" alt="NewDawn School - Gallery 0" loading="lazy"></div>
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="06.jpg" alt="NewDawn School - Gallery 06" loading="lazy"></div>
+          <div class="g-item span-3 h-220"><img class="gallery-img" src="07.jpg" alt="NewDawn School - Gallery 07" loading="lazy"></div>
+
+          <div class="g-item span-6 h-260"><img class="gallery-img" src="08.jpg" alt="NewDawn School - Gallery 08" loading="lazy"></div>
+          <div class="g-item span-6 h-260"><img class="gallery-img" src="03.jpg" alt="NewDawn School - Extra highlight" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEOS (autoplay, loop, muted so they actually show; supports both filename styles) -->
+    <section class="section" id="videos">
+      <div class="inner">
+        <div class="section-title">
+          <h2>Videos</h2>
+          <p>Always-on playback (autoplay • loop). If you want sound, tap the speaker icon inside the player.</p>
+        </div>
+
+        <div class="video-grid" aria-label="Video section">
+          <div class="video-card">
+            <video autoplay loop muted playsinline preload="metadata" poster="01.jpg" controls>
+              <source src="video1.mp4" type="video/mp4" />
+              <source src="video1" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-cap">
+              <h3>School Life & Learning</h3>
+              <p>Classroom moments, care, and joyful learning at NewDawn School.</p>
             </div>
-            <div class="vbody">
+          </div>
+
+          <div class="video-card">
+            <video autoplay loop muted playsinline preload="metadata" poster="02.jpg" controls>
+              <source src="video2.mp4" type="video/mp4" />
+              <source src="video2" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div class="video-cap">
               <h3>Events & Activities</h3>
               <p>Clubs, celebrations and co-curricular life that builds confident learners.</p>
             </div>
           </div>
         </div>
 
-        <div id="videoWarn" class="videoWarn">
-          Videos not loading. Best fix: rename files to <b>video1.mp4</b> and <b>video2.mp4</b> (recommended).
+        <div class="card" style="margin-top:16px;">
+          <span class="pill">If video still shows black</span>
+          <p style="color:var(--muted);font-size:.92rem">
+            On GitHub Pages, videos must have a correct filename and extension. This code supports both
+            <strong>video1.mp4 / video2.mp4</strong> and <strong>video1 / video2</strong>.
+            Best practice: rename them to <strong>video1.mp4</strong> and <strong>video2.mp4</strong> (with .mp4) in your repo.
+          </p>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT / APPLY -->
     <section class="section alt" id="contact">
-      <div class="wrap">
-        <div class="sec-head">
-          <h2>Contact</h2>
-          <p>We are happy to help.</p>
+      <div class="inner">
+        <div class="section-title">
+          <h2>Contact & Visit</h2>
+          <p>We are happy to guide you through admissions and answer questions.</p>
         </div>
-        <p style="text-align:center;color:var(--muted)">
-          📍 Bondo–Kisian Highway, Bondo, Siaya County • 📞 <a href="tel:+254769924670">+254 769 924670</a> • ✉️
-          <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a>
-        </p>
+
+        <div class="contact-grid">
+          <div class="card contact">
+            <span class="pill">Contact</span>
+            <p><strong>Location:</strong> Bondo–Kisian Highway, just outside Bondo town, Siaya County, Kenya.</p>
+            <p><strong>Call/WhatsApp:</strong> <a href="tel:+254769924670">+254 769 924670</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></p>
+
+            <div class="map" aria-label="Map to NewDawn School">
+              <iframe
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Map showing NewDawn School location"
+                src="https://www.google.com/maps?q=Bondo%20Kisian%20Highway%20Bondo%20Siaya%20Kenya&output=embed">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="card" id="apply" aria-label="Apply form">
+            <span class="pill">Apply / Request Info</span>
+            <h3 style="margin-bottom:8px;color:var(--primary-dark)">Send us your details</h3>
+            <p style="color:var(--muted);font-size:.92rem;margin-bottom:12px">
+              Share your contact and learner info. (Tip: For now, this form can open WhatsApp with your message.)
+            </p>
+
+            <!-- This form opens WhatsApp with a prefilled message (no backend needed) -->
+            <form id="waForm">
+              <div class="row">
+                <div class="field">
+                  <label for="parentName">Parent/Guardian Name</label>
+                  <input id="parentName" name="parentName" placeholder="Your full name" required />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone/WhatsApp</label>
+                  <input id="phone" name="phone" placeholder="+254..." required />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="field">
+                  <label for="learnerName">Learner's Name</label>
+                  <input id="learnerName" name="learnerName" placeholder="Learner name" />
+                </div>
+                <div class="field">
+                  <label for="level">Class/Level</label>
+                  <input id="level" name="level" placeholder="Playgroup, PP1, Grade 3, Junior School..." />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us how we can help you..."></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Send via WhatsApp</button>
+              <a class="btn btn-outline" href="mailto:info@newdawnschool.ac.ke" style="margin-left:8px">Send Email</a>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close image viewer">×</button>
+    <img id="lbImg" src="" alt="Expanded gallery view" />
+  </div>
+
+  <!-- Floating -->
+  <a class="whatsapp" href="https://wa.me/254769924670" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
+  <button class="top-btn" id="topBtn" type="button" aria-label="Back to top">↑ Top</button>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <h4>NewDawn School</h4>
+        <p>Private CBC-aligned school founded in 2016 on a 2-acre campus along Bondo–Kisian Highway, Bondo (Siaya County, Kenya).</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul style="list-style:none;padding-left:0;line-height:1.9">
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#videos">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Call/WhatsApp: <a href="tel:+254769924670">+254 769 924670</a></p>
+        <p>Email: <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 NewDawn School. All rights reserved.</div>
+      <div style="max-width:560px">
+        We respect the privacy and dignity of learners, staff and parents. Any data shared is handled with confidentiality.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie -->
+  <div class="cookie" id="cookieBanner" aria-label="Cookie and analytics notice">
+    <div class="cookie-inner">
+      <div>We use basic analytics to improve this website. No sensitive learner information is collected.</div>
+      <button id="cookieAccept" type="button">I understand</button>
+    </div>
+  </div>
+
   <!-- Google Translate -->
-  <script>
+  <script type="text/javascript">
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        { pageLanguage: 'en', includedLanguages: 'en,sw,fr,ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
-        'google_translate_element'
-      );
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,sw,fr,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
     }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script>
-    /* ===== BEST PRACTICE VIDEO LOADER (NO HEAD/FETCH) ===== */
+    // Active nav highlight
+    const navLinks = document.querySelectorAll('#mainNav a');
+    const sections = document.querySelectorAll('main section[id]');
 
-    const REPO_NAME = "NewDawn";
-
-    function getAssetBase() {
-      const isGithub = location.hostname.endsWith("github.io");
-      if (!isGithub) return "";
-      const parts = location.pathname.split("/").filter(Boolean);
-      if (parts.length > 0 && parts[0] === REPO_NAME) return `/${REPO_NAME}/`;
-      return "";
-    }
-    const ASSET_BASE = getAssetBase();
-
-    function asset(path) {
-      if (!path) return path;
-      if (/^(https?:|data:|#)/i.test(path)) return path;
-      if (path.startsWith(ASSET_BASE)) return path;
-      return ASSET_BASE + path;
-    }
-
-    const $ = (s, r=document) => r.querySelector(s);
-    const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
-
-    // Mobile nav
-    (function initNav(){
-      const t = $("#navToggle");
-      const n = $("#mainNav");
-      if(!t||!n) return;
-      t.addEventListener("click", ()=>{
-        const open = n.classList.toggle("open");
-        t.setAttribute("aria-expanded", open ? "true" : "false");
+    function setActiveNav() {
+      const pos = window.scrollY + 120;
+      let current = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop;
+        const height = sec.offsetHeight;
+        if (pos >= top && pos < top + height) current = sec.id;
       });
-      $$('a[href^="#"]', n).forEach(a=>{
-        a.addEventListener("click", ()=>{
-          if(window.innerWidth<=820){ n.classList.remove("open"); t.setAttribute("aria-expanded","false"); }
-        });
+      navLinks.forEach(a => {
+        const id = a.getAttribute('href').slice(1);
+        a.classList.toggle('active', id === current);
+      });
+    }
+    window.addEventListener('scroll', setActiveNav);
+    window.addEventListener('load', setActiveNav);
+
+    // Lightbox gallery
+    const imgs = document.querySelectorAll('.gallery-img');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+
+    imgs.forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        lbClose.focus();
+      });
+    });
+
+    function closeLb(){
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lbImg.src = '';
+    }
+    lbClose.addEventListener('click', closeLb);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLb(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+    // Back to top
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', () => {
+      topBtn.classList.toggle('show', window.scrollY > 500);
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Accessibility toggles
+    const contrastToggle = document.getElementById('contrastToggle');
+    const fontToggle = document.getElementById('fontToggle');
+    const bodyEl = document.body;
+
+    if (contrastToggle) contrastToggle.addEventListener('click', () => bodyEl.classList.toggle('high-contrast'));
+    if (fontToggle) fontToggle.addEventListener('click', () => bodyEl.classList.toggle('large-font'));
+
+    // Cookie banner
+    (function () {
+      const banner = document.getElementById('cookieBanner');
+      const accept = document.getElementById('cookieAccept');
+      if (!banner || !accept) return;
+      const KEY = 'ndCookieAccepted';
+      if (localStorage.getItem(KEY) === 'yes') banner.style.display = 'none';
+      accept.addEventListener('click', () => {
+        localStorage.setItem(KEY, 'yes');
+        banner.style.display = 'none';
       });
     })();
 
-    // A11y toggles
-    $("#contrastToggle")?.addEventListener("click", ()=>document.body.classList.toggle("high-contrast"));
-    $("#fontToggle")?.addEventListener("click", ()=>document.body.classList.toggle("large-font"));
+    // Apply form -> WhatsApp (no broken "action" links)
+    const waForm = document.getElementById('waForm');
+    waForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const parentName = document.getElementById('parentName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const learnerName = document.getElementById('learnerName').value.trim();
+      const level = document.getElementById('level').value.trim();
+      const message = document.getElementById('message').value.trim();
 
-    async function trySource(videoEl, src, timeoutMs=1200){
-      return new Promise((resolve)=>{
-        let done=false;
-        const clean=()=>{
-          videoEl.onloadeddata = null;
-          videoEl.onerror = null;
-        };
-        const finish=(ok)=>{
-          if(done) return;
-          done=true;
-          clean();
-          resolve(ok);
-        };
+      const text =
+`Hello NewDawn School,
+My name is ${parentName}.
+Phone: ${phone}
+Learner: ${learnerName || '-'}
+Class/Level: ${level || '-'}
+Message: ${message || '-'}
 
-        videoEl.onloadeddata = () => finish(true);
-        videoEl.onerror = () => finish(false);
+Kindly assist with admissions / information.`;
 
-        videoEl.src = asset(src);
-        videoEl.load();
+      const url = "https://wa.me/254769924670?text=" + encodeURIComponent(text);
+      window.open(url, "_blank", "noopener");
+    });
 
-        // Try play (safe)
-        videoEl.play().catch(()=>{});
-
-        setTimeout(()=>finish(false), timeoutMs);
-      });
-    }
-
-    async function loadVideoWithFallback(videoEl, candidates){
-      for(const c of candidates){
-        const ok = await trySource(videoEl, c);
-        if(ok) return true;
-      }
-      return false;
-    }
-
-    (async function initVideos(){
-      const hero = $("#heroVideo");
-      const vids = $$(".autovid");
-      const warn = $("#videoWarn");
-
-      const v1 = ["video1", "video1.mp4", "video1.webm", "Video 1.mp4", "Video1.mp4"];
-      const v2 = ["video2", "video2.mp4", "video2.webm", "Video 2.mp4", "Video2.mp4"];
-
-      let okAny = true;
-
-      if(hero){
-        hero.muted = true;
-        hero.playsInline = true;
-        hero.autoplay = true;
-        hero.preload = "auto";
-
-        // Hero rotates between 1 and 2 if both load
-        const ok1 = await loadVideoWithFallback(hero, v1);
-        const ok2test = document.createElement("video");
-        ok2test.muted=true; ok2test.playsInline=true;
-
-        const ok2 = await loadVideoWithFallback(ok2test, v2);
-
-        if(ok1 && ok2){
-          const playlist = [hero.src, ok2test.src];
-          let idx = 0;
-          setInterval(()=>{
-            idx = (idx+1) % playlist.length;
-            hero.src = playlist[idx];
-            hero.load();
-            hero.play().catch(()=>{});
-          }, 14000);
+    // Video autoplay robustness (some browsers need play() on user gesture or after load)
+    function tryPlayAllVideos(){
+      document.querySelectorAll('video[autoplay]').forEach(v => {
+        const playPromise = v.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {
+            // Autoplay might be blocked if not muted; ensure muted then retry.
+            v.muted = true;
+            v.play().catch(()=>{});
+          });
         }
-
-        okAny = okAny && ok1;
-      }
-
-      if(vids.length >= 2){
-        const okA = await loadVideoWithFallback(vids[0], v1);
-        const okB = await loadVideoWithFallback(vids[1], v2);
-        okAny = okAny && (okA || okB);
-        if(!(okA && okB) && warn) warn.classList.add("show");
-      }
-    })();
+      });
+    }
+    window.addEventListener('load', tryPlayAllVideos);
   </script>
 </body>
 </html>
