@@ -47,6 +47,30 @@
     "telephone":"+254769924670",
     "email":"info@newdawnschool.sh.ke"
   }
+    (function(){
+  function fixVideo(id){
+    const v = document.getElementById(id);
+    if(!v) return;
+
+    const makeFallback = () => {
+      v.autoplay = false;
+      v.loop = false;
+      v.controls = true;   // user can press play manually
+      v.muted = false;     // allow sound after user interaction
+    };
+
+    v.addEventListener('error', makeFallback);
+
+    // If it stays black / never becomes ready, enable controls after 3s
+    setTimeout(() => {
+      if (v.readyState < 2) makeFallback();
+    }, 3000);
+  }
+
+  fixVideo('mediaVideo1');
+  fixVideo('mediaVideo2');
+})();
+
   </script>
 
   <style>
