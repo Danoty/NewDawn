@@ -2,476 +2,1054 @@
 <html lang="en-KE">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NewDawn School – World-Class Learning in Bondo, Kenya</title>
 
-  <!-- SEO / INSPECTION -->
-  <meta name="description" content="NewDawn School is a private CBC-aligned school founded in 2016 on a 2-acre campus along Bondo–Kisian Highway, Siaya County, Kenya." />
-  <meta name="keywords" content="NewDawn School, Bondo, Siaya, CBC, Private School, Junior School, Holistic Education" />
-  <meta name="author" content="NewDawn School" />
-  <meta name="robots" content="index, follow" />
+  <!-- SEO -->
+  <meta name="description" content="NewDawn School – a CBC-aligned private school in Bondo, Siaya County, Kenya. Founded in 2016 on a spacious 2-acre campus along Bondo-Kisian Highway. Pre-Primary, Primary (Grades 1–6) and Junior School (introduced 2025).">
+  <meta name="keywords" content="NewDawn School, Bondo, Siaya, Kenya, CBC, Playgroup, PP1, PP2, Primary, Junior School, smart boards, French, music, private school">
+  <meta name="author" content="NewDawn School">
   <meta name="theme-color" content="#0c4b33" />
 
-  <!-- GEO (Inspection friendly) -->
-  <meta name="geo.region" content="KE-SI" />
-  <meta name="geo.placename" content="Bondo, Siaya County" />
-  <meta name="geo.position" content="-0.236;34.278" />
-  <meta name="ICBM" content="-0.236,34.278" />
-
   <!-- Open Graph -->
-  <meta property="og:title" content="NewDawn School – Inspiring Future Leaders" />
-  <meta property="og:description" content="Holistic, future-ready CBC learning environment in Bondo, Kenya." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="NewDawn/01.jpg" />
-
-  <!-- Favicons -->
-  <link rel="icon" href="favicon.ico" />
-  <link rel="icon" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:title" content="NewDawn School – Modern, Safe, Future-Ready">
+  <meta property="og:description" content="CBC-aligned private school founded in 2016 on a 2-acre campus in Bondo, Siaya County, Kenya.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://danoty.github.io/NewDawn/">
+  <meta property="og:image" content="01.jpg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Privacy-safe analytics -->
-  <script defer data-domain="newdawnschool.sc.ke" src="https://plausible.io/js/script.js"></script>
+  <!-- School Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"School",
+    "name":"NewDawn School",
+    "url":"https://danoty.github.io/NewDawn/",
+    "logo":"https://danoty.github.io/NewDawn/logo.png",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Bondo–Kisian Highway",
+      "addressLocality":"Bondo",
+      "addressRegion":"Siaya County",
+      "addressCountry":"KE"
+    },
+    "telephone":"+254769924670",
+    "email":"info@newdawnschool.ac.ke"
+  }
+  </script>
 
   <style>
     :root{
       --primary:#0c4b33;
-      --primary-dark:#083522;
+      --primary2:#073a27;
       --accent:#ff7f32;
+      --accent2:#ffb14a;
+      --ink:#0c1220;
+      --muted:#5d6575;
       --bg:#ffffff;
-      --bg-soft:#f4f6fb;
-      --text:#1d1f24;
-      --muted:#5e6673;
-      --radius:18px;
+      --bg2:#f4f7fb;
+      --card:#ffffff;
       --shadow:0 14px 40px rgba(0,0,0,.12);
+      --shadow2:0 10px 26px rgba(0,0,0,.10);
+      --r16:16px;
+      --r22:22px;
       --max:1200px;
-      --header-h:96px;
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{
-      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      scroll-behavior:smooth;
-      overflow-x:hidden;
-    }
+    html,body{font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth;overflow-x:hidden}
+    a{color:inherit}
     img{max-width:100%;display:block}
-    section{scroll-margin-top:140px}
+    section{scroll-margin-top:120px}
+    ::-webkit-scrollbar{width:0;height:0}
 
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
-    .section{padding:64px 0}
-    .section.alt{background:var(--bg-soft)}
+    /* A11Y */
+    .skip{position:absolute;left:10px;top:-50px;background:#000;color:#fff;padding:10px 12px;border-radius:10px;z-index:9999;text-decoration:none}
+    .skip:focus{top:10px}
+    :focus{outline:2px solid #ffbf47;outline-offset:3px}
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    }
+    body.large-font{font-size:18px}
+    body.high-contrast{
+      --primary:#000;--primary2:#000;--accent:#ff0;--accent2:#ff0;--ink:#fff;--muted:#e7e7e7;--bg:#000;--bg2:#000;--card:#000;
+    }
 
-    /* HEADER */
+    /* Glitter background accents */
+    .sparkle{
+      position:absolute;inset:-120px;pointer-events:none;opacity:.55;filter:blur(0px);
+      background:
+        radial-gradient(1200px 500px at 10% 10%, rgba(255,177,74,.22), transparent 60%),
+        radial-gradient(900px 380px at 90% 20%, rgba(255,127,50,.18), transparent 60%),
+        radial-gradient(900px 500px at 30% 90%, rgba(12,75,51,.18), transparent 62%),
+        radial-gradient(700px 420px at 80% 85%, rgba(255,255,255,.08), transparent 60%);
+      animation:sparkMove 9s ease-in-out infinite alternate;
+    }
+    @keyframes sparkMove{
+      from{transform:translateY(0) translateX(0) scale(1)}
+      to{transform:translateY(-12px) translateX(10px) scale(1.03)}
+    }
+
+    /* Header */
     header{
-      position:fixed;top:0;left:0;right:0;
-      height:var(--header-h);
-      background:linear-gradient(90deg,var(--primary),#156b4a);
-      z-index:1000;
-      box-shadow:0 6px 18px rgba(0,0,0,.18);
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:linear-gradient(120deg, rgba(12,75,51,.95), rgba(7,58,39,.92));
+      backdrop-filter:blur(10px);
+      box-shadow:0 8px 18px rgba(0,0,0,.18);
     }
-    .header-inner{
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:8px;
+    .head-inner{max-width:var(--max);margin:0 auto;padding:10px 14px;display:flex;align-items:center;gap:14px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:240px}
+    .logo-wrap{
+      width:54px;height:54px;border-radius:50%;padding:3px;position:relative;
+      background:conic-gradient(from 0deg, rgba(255,255,255,.35), rgba(255,177,74,.9), rgba(255,127,50,.95), rgba(255,255,255,.35));
+      box-shadow:0 0 0 2px rgba(255,255,255,.55), 0 0 22px rgba(255,177,74,.35), 0 0 40px rgba(255,127,50,.28);
+      animation:logoGlow 2.8s ease-in-out infinite;
     }
-    .top-bar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+    @keyframes logoGlow{
+      0%,100%{transform:translateY(0) scale(1)}
+      50%{transform:translateY(-1px) scale(1.03)}
     }
-    .brand{
-      display:flex;align-items:center;gap:12px;
-      color:#fff;text-decoration:none;
-    }
-    .brand img{
-      width:56px;height:56px;border-radius:50%;
-      background:#fff;padding:4px;
-    }
-    .brand-text strong{font-size:1.3rem}
-    .brand-text span{font-size:.8rem;color:#e0f5ec}
+    .logo-wrap img{width:100%;height:100%;border-radius:50%;background:#fff;padding:2px}
+    .brand-txt{display:flex;flex-direction:column;line-height:1.15}
+    .brand-txt b{color:#fff;font-size:1.06rem;letter-spacing:.02em}
+    .brand-txt span{color:#dff7ee;font-size:.74rem}
 
-    .top-contact{
-      font-size:.85rem;color:#ffeedb;
-    }
-    .top-contact a{color:#ffeedb;text-decoration:none}
+    .top-actions{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .mini{color:#eefbf5;font-size:.78rem;opacity:.95;display:flex;gap:10px;align-items:center}
+    .mini a{color:#ffeedb;text-decoration:none}
+    .mini a:hover{text-decoration:underline}
 
-    nav{
-      display:flex;flex-wrap:wrap;gap:10px;
-      justify-content:center;
+    .a11y{display:flex;align-items:center;gap:6px}
+    .chip{
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(0,0,0,.18);
+      color:#fff;padding:6px 10px;border-radius:999px;
+      font-size:.75rem;cursor:pointer;white-space:nowrap
     }
-    nav a{
-      color:#fff;text-decoration:none;
-      font-size:.9rem;font-weight:500;
-      padding:6px 14px;border-radius:999px;
-    }
-    nav a:hover{background:rgba(255,255,255,.15)}
+    .chip:hover{background:rgba(255,255,255,.12)}
+    #google_translate_element{padding:2px 8px;border-radius:999px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.25)}
 
-    /* HERO SLIDER */
-    .slider-container{
-      margin-top:var(--header-h);
-      height:480px;
+    /* Nav – one line */
+    .nav-row{
+      max-width:var(--max);margin:0 auto;padding:0 14px 10px;
+      display:flex;align-items:center;gap:10px
+    }
+    .nav{
+      display:flex;align-items:center;gap:8px;
+      flex:1;min-width:0;
+      overflow-x:auto;white-space:nowrap;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      mask-image:linear-gradient(90deg, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+    }
+    .nav a{
+      text-decoration:none;color:#fff;
+      font-size:.78rem;font-weight:600;letter-spacing:.10em;text-transform:uppercase;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.20);
+      background:linear-gradient(135deg, rgba(255,127,50,.14), rgba(255,255,255,.08));
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      display:inline-flex;align-items:center;gap:8px
+    }
+    .nav a:hover{transform:translateY(-1px);box-shadow:0 10px 18px rgba(0,0,0,.25);border-color:rgba(255,255,255,.55);background:linear-gradient(135deg, rgba(255,127,50,.35), rgba(255,255,255,.10))}
+    .nav a.active{border-color:rgba(255,255,255,.75);background:linear-gradient(135deg, rgba(255,177,74,.48), rgba(255,255,255,.12))}
+    .navToggle{display:none}
+
+    .announcement{
+      margin-top:110px;
+      background:linear-gradient(90deg, rgba(255,251,221,1), rgba(255,243,214,1));
+      border-bottom:1px solid rgba(0,0,0,.06);
+      color:#3a2b00;
+      font-size:.88rem;
+    }
+    .announcement .inner{max-width:var(--max);margin:0 auto;padding:10px 14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .announcement a{color:var(--primary);font-weight:700;text-decoration:underline}
+
+    /* Hero – video background */
+    .hero{
       position:relative;
+      min-height:74vh;
+      display:flex;align-items:center;
+      background:#000;
       overflow:hidden;
+    }
+    .hero .sparkle{opacity:.45}
+    .heroVideo{
+      position:absolute;inset:0;
+      width:100%;height:100%;
+      object-fit:cover;
+      filter:brightness(.62) saturate(1.08) contrast(1.03);
+      transform:scale(1.02);
+    }
+    .heroOverlay{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(800px 400px at 15% 20%, rgba(255,127,50,.25), transparent 60%),
+        linear-gradient(110deg, rgba(0,0,0,.70), rgba(12,75,51,.62));
+    }
+    .heroInner{
+      position:relative;z-index:2;
+      max-width:var(--max);margin:0 auto;
+      padding:140px 14px 70px;
+      color:#fff;
+    }
+    .kicker{
+      display:inline-flex;gap:10px;align-items:center;
+      font-size:.9rem;letter-spacing:.18em;text-transform:uppercase;
+      opacity:.92;margin-bottom:10px
+    }
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(255,127,50,.20)}
+    .hero h1{
+      font-size:clamp(2.1rem, 4.2vw, 3.5rem);
+      line-height:1.05;
+      margin-bottom:12px;
+      text-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .hero p{
+      max-width:780px;
+      font-size:clamp(1.02rem, 1.35vw, 1.12rem);
+      color:rgba(255,255,255,.92);
+      margin-bottom:22px;
+    }
+    .ctaRow{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .btn{
+      border:none;cursor:pointer;text-decoration:none;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;border-radius:999px;font-weight:700;
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      white-space:nowrap
+    }
+    .btnPrimary{
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#151515;
+      box-shadow:0 14px 30px rgba(0,0,0,.25);
+    }
+    .btnPrimary:hover{transform:translateY(-1px);box-shadow:0 18px 36px rgba(0,0,0,.30)}
+    .btnGhost{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.55);
+      color:#fff;
+    }
+    .btnGhost:hover{transform:translateY(-1px);border-color:#fff;background:rgba(255,255,255,.12)}
+    .heroBadge{
+      margin-top:18px;
+      display:flex;flex-wrap:wrap;gap:10px;
+    }
+    .badge{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:.86rem;
+      backdrop-filter:blur(8px);
+    }
+    .badge b{color:#fff}
+    .badge span{color:rgba(255,255,255,.86)}
+
+    /* Sections */
+    .section{padding:62px 14px;background:var(--bg)}
+    .section.alt{background:var(--bg2)}
+    .wrap{max-width:var(--max);margin:0 auto}
+    .title{text-align:center;margin-bottom:28px}
+    .title h2{font-size:clamp(1.45rem,2.2vw,2.05rem);color:var(--primary2);margin-bottom:8px}
+    .title p{color:var(--muted);max-width:860px;margin:0 auto;font-size:1rem}
+
+    /* Stats */
+    .stats{
+      display:grid;grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:14px;margin-top:-38px;position:relative;z-index:3;
+    }
+    .stat{
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(12,75,51,.08);
+      border-radius:var(--r22);
+      padding:16px 14px;
+      box-shadow:var(--shadow2);
+      text-align:center;
+      backdrop-filter:blur(8px);
+    }
+    .stat small{color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem}
+    .stat b{display:block;font-size:1.9rem;color:var(--accent);margin-top:4px}
+    .stat span{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+
+    /* Cards / grids */
+    .grid2{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:start}
+    .card{
+      background:var(--card);
+      border:1px solid rgba(0,0,0,.05);
+      border-radius:var(--r22);
+      box-shadow:var(--shadow2);
+      padding:18px 16px;
+    }
+    .pill{
+      display:inline-block;
+      background:rgba(12,75,51,.08);
+      color:var(--primary2);
+      padding:6px 10px;border-radius:999px;
+      font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase
+    }
+    .card h3{margin:10px 0 8px;color:var(--primary2)}
+    .card p{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:10px}
+    .list{margin-top:10px;padding-left:18px;color:var(--muted);font-size:.93rem;line-height:1.8}
+    .list li{margin:4px 0}
+
+    .miniGrid{
+      display:grid;grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:12px;margin-top:10px
+    }
+    .miniCard{
+      background:#fbfdff;
+      border:1px solid rgba(12,75,51,.10);
+      border-radius:18px;
+      padding:14px 12px;
+    }
+    .miniCard b{display:block;color:var(--primary);margin-bottom:6px}
+    .miniCard p{margin:0;color:var(--muted);font-size:.92rem}
+
+    /* Programs / features */
+    .features{
+      display:grid;grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+      gap:14px
+    }
+    .feature{
+      background:var(--card);border:1px solid rgba(0,0,0,.05);
+      border-radius:var(--r22);box-shadow:var(--shadow2);
+      padding:16px 14px;
+    }
+    .feature .ico{font-size:1.35rem}
+    .feature h3{margin:8px 0 6px;color:var(--primary2)}
+    .feature p{color:var(--muted);font-size:.94rem;line-height:1.7}
+
+    /* Gallery */
+    .gallery{
+      display:grid;grid-template-columns:repeat(auto-fit, minmax(170px,1fr));
+      gap:12px
+    }
+    .gItem{
+      position:relative;overflow:hidden;border-radius:18px;
+      box-shadow:0 10px 28px rgba(0,0,0,.14);
+      border:1px solid rgba(0,0,0,.06);
       background:#000;
     }
-    .slider{
-      display:flex;
-      height:100%;
-      transition:transform .9s ease-in-out;
+    .gItem img{
+      width:100%;height:190px;object-fit:cover;
+      transform:scale(1.02);
+      transition:transform .25s ease, filter .25s ease;
+      filter:saturate(1.05) contrast(1.02);
+      cursor:zoom-in;
     }
-    .slider img{
-      width:100%;
-      height:480px;
-      object-fit:cover;
-      flex-shrink:0;
-      filter:brightness(.7);
+    .gItem:hover img{transform:scale(1.08);filter:saturate(1.15) contrast(1.06)}
+    .shine{
+      position:absolute;inset:0;pointer-events:none;opacity:.0;
+      background:linear-gradient(120deg, transparent 0, rgba(255,255,255,.16) 35%, transparent 70%);
+      transform:translateX(-60%);
+      transition:opacity .2s ease;
     }
-    .hero-overlay{
-      position:absolute;inset:0;
-      background:linear-gradient(
-        120deg,
-        rgba(0,0,0,.65),
-        rgba(0,0,0,.35),
-        rgba(12,75,51,.85)
-      );
+    .gItem:hover .shine{opacity:.8;animation:shine 1.0s ease}
+    @keyframes shine{to{transform:translateX(120%)}}
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed;inset:0;z-index:2000;
+      background:rgba(0,0,0,.86);
+      display:none;align-items:center;justify-content:center;
+      padding:18px;
     }
-    .hero-content{
-      position:absolute;inset:0;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      max-width:var(--max);
-      margin:auto;
-      padding:0 20px;
-      color:#fff;
+    .lightbox.active{display:flex}
+    .lightbox img{max-width:92vw;max-height:88vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+    .lbClose{
+      position:fixed;top:16px;right:16px;
+      border:none;border-radius:999px;
+      width:46px;height:46px;
+      background:rgba(255,255,255,.12);
+      color:#fff;font-size:1.4rem;cursor:pointer;
+      border:1px solid rgba(255,255,255,.28);
     }
-    .hero-kicker{
-      font-size:.8rem;letter-spacing:.18em;
-      text-transform:uppercase;margin-bottom:6px;
+    .lbClose:hover{background:rgba(255,255,255,.18)}
+
+    /* Videos */
+    .videoWall{
+      display:grid;grid-template-columns:1fr 1fr;gap:14px;
+      align-items:stretch;
     }
-    .hero-title{
-      font-size:clamp(2rem,4vw,2.8rem);
-      font-weight:700;
-      max-width:620px;
-      margin-bottom:10px;
+    .vCard{
+      background:var(--card);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:var(--r22);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+      min-height:320px;
     }
-    .hero-subtitle{
-      max-width:540px;
-      font-size:1rem;
-      opacity:.95;
-      margin-bottom:18px;
+    .vCard video{
+      width:100%;height:100%;
+      object-fit:cover;background:#000;
+      display:block;
     }
-    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-    .btn-primary,.btn-outline{
-      padding:10px 20px;
-      border-radius:999px;
-      font-weight:600;
-      text-decoration:none;
-      font-size:.95rem;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+    .vCap{
+      position:absolute;left:14px;bottom:14px;
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(0,0,0,.08);
+      padding:8px 10px;border-radius:999px;
+      font-weight:800;font-size:.78rem;
+      display:inline-flex;gap:8px;align-items:center;
     }
-    .btn-primary{
-      background:var(--accent);
-      color:#000;
+    .vCap i{color:var(--accent)}
+
+    /* Contact */
+    .contactGrid{display:grid;grid-template-columns:1.05fr 1fr;gap:16px;align-items:start}
+    .field{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+    label{font-size:.78rem;color:var(--muted);font-weight:600}
+    input,textarea{
+      border:1px solid #d6dbe6;border-radius:14px;
+      padding:11px 12px;font-family:inherit;font-size:.95rem;
+      transition:box-shadow .15s ease, border-color .15s ease;
+      background:#fff;
     }
-    .btn-outline{
-      border:1px solid #fff;
-      color:#fff;
+    textarea{min-height:110px;resize:vertical}
+    input:focus,textarea:focus{border-color:rgba(12,75,51,.55);box-shadow:0 0 0 4px rgba(12,75,51,.12)}
+    .hint{font-size:.86rem;color:var(--muted)}
+    .map{
+      border-radius:var(--r22);
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:var(--shadow2);
+      height:240px;
+    }
+    .map iframe{width:100%;height:100%;border:0}
+
+    /* Footer */
+    footer{background:linear-gradient(120deg, var(--primary2), #041c12);color:#eafaf3;padding:22px 14px}
+    .foot{
+      max-width:var(--max);margin:0 auto;
+      display:grid;grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:14px;
+    }
+    .foot h4{margin-bottom:8px}
+    .foot p,.foot a{color:rgba(234,250,243,.88);font-size:.9rem;line-height:1.7}
+    .foot a{text-decoration:none}
+    .foot a:hover{text-decoration:underline}
+    .copy{
+      max-width:var(--max);margin:14px auto 0;
+      padding-top:12px;border-top:1px solid rgba(255,255,255,.16);
+      display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;
+      font-size:.82rem;color:rgba(234,250,243,.82);
     }
 
-    /* STATS */
-    .statistics{
-      padding:56px 20px;
-      background:radial-gradient(circle at top left,#e8fff6,#fff);
+    /* Floating buttons */
+    .wa{
+      position:fixed;right:18px;bottom:18px;z-index:1600;
+      width:56px;height:56px;border-radius:50%;
+      overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.35);
     }
-    .stats-grid{
-      max-width:var(--max);
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:18px;
+    .wa img{width:100%;height:100%}
+    .topBtn{
+      position:fixed;left:18px;bottom:18px;z-index:1600;
+      border:none;border-radius:999px;
+      padding:10px 12px;background:var(--primary);color:#fff;
+      box-shadow:0 14px 30px rgba(0,0,0,.25);
+      cursor:pointer;display:none;font-weight:800
     }
-    .stat-card{
-      background:#fff;
-      border-radius:var(--radius);
-      padding:22px 18px;
-      text-align:center;
-      box-shadow:var(--shadow);
+    .topBtn.show{display:inline-flex}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .grid2,.contactGrid{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .videoWall{grid-template-columns:1fr}
+      .brand{min-width:200px}
+      .announcement{margin-top:118px}
     }
-    .stat-number{
-      font-size:2.2rem;
-      font-weight:800;
-      color:var(--accent);
-    }
-    .stat-label{
-      font-size:.85rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--muted);
+    @media (max-width: 520px){
+      .mini{display:none}
+      .stats{grid-template-columns:1fr}
+      .announcement{margin-top:118px}
+      .heroInner{padding:140px 14px 60px}
     }
   </style>
 </head>
 
 <body>
-<!-- ABOUT / PROFILE -->
-<section class="section alt" id="about">
-  <div class="wrap">
-    <div class="section-header">
-      <h2>About NewDawn School</h2>
-      <p>Holistic, learner-centred education rooted in Kenyan excellence.</p>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="head-inner">
+      <a class="brand" href="#home" aria-label="NewDawn School Home">
+        <div class="logo-wrap"><img src="logo.png" alt="NewDawn School Logo" loading="eager"></div>
+        <div class="brand-txt">
+          <b>NewDawn School</b>
+          <span>Modern • Safe • Future-Ready</span>
+        </div>
+      </a>
+
+      <div class="top-actions">
+        <div class="mini" aria-label="Quick contacts">
+          <span>📞 <a href="tel:+254769924670">+254 769 924 670</a></span>
+          <span>✉️ <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></span>
+        </div>
+
+        <div class="a11y" aria-label="Accessibility controls">
+          <button class="chip" id="contrastToggle" type="button">High contrast</button>
+          <button class="chip" id="fontToggle" type="button">A+</button>
+          <div id="google_translate_element" aria-label="Translate"></div>
+        </div>
+      </div>
     </div>
 
-    <div class="two-column">
-      <div class="card">
-        <span class="pill">Who We Are</span>
-        <h3>Do it differently</h3>
-        <p>
-          NewDawn School is a private CBC-aligned institution founded in <strong>2016</strong>,
-          situated on a spacious <strong>2-acre campus</strong> along the
-          <strong>Bondo–Kisian Highway</strong>, Siaya County.
-        </p>
-        <p>
-          We nurture learners academically, socially, emotionally, and morally,
-          providing a safe and supportive environment for growth.
-        </p>
-      </div>
-
-      <div class="card">
-        <span class="pill">School Profile</span>
-        <ul class="list">
-          <li>Over <strong>400 learners</strong></li>
-          <li><strong>18 teachers</strong> & <strong>10 non-teaching staff</strong></li>
-          <li>English as language of instruction</li>
-          <li>Junior School introduced in <strong>2025</strong></li>
-        </ul>
-      </div>
+    <div class="nav-row">
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <a href="#home"><span>Home</span></a>
+        <a href="#about"><span>About</span></a>
+        <a href="#programs"><span>Programs</span></a>
+        <a href="#why"><span>Why NewDawn</span></a>
+        <a href="#admissions"><span>Admissions</span></a>
+        <a href="#gallery"><span>Gallery</span></a>
+        <a href="#videos"><span>Videos</span></a>
+        <a href="#contact"><span>Contact</span></a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- CURRICULUM -->
-<section class="section" id="curriculum">
-  <div class="wrap">
-    <div class="section-header">
-      <h2>Curriculum & Programs</h2>
-      <p>CBC-aligned learning with enrichment and future readiness</p>
-    </div>
-
-    <div class="cbc-grid">
-      <div class="cbc-item">
-        <strong>Early Years (Playgroup, PP1–PP2)</strong>
-        Strong literacy, numeracy, and social foundations.
-      </div>
-      <div class="cbc-item">
-        <strong>Primary (Grades 1–6)</strong>
-        Competency-based learning with structured support.
-      </div>
-      <div class="cbc-item">
-        <strong>Junior School</strong>
-        Digitized classrooms with smart boards.
-      </div>
-      <div class="cbc-item">
-        <strong>Enrichment</strong>
-        Music, debates, spelling bees, French, and life skills.
+  <div class="announcement" role="status" aria-live="polite">
+    <div class="inner">
+      <div>🎓 <b>2026 Admissions Open</b> • Book a tour or request information.</div>
+      <div>
+        <a href="#admissions">Apply / Request Info</a> • <a href="#gallery">View Gallery</a>
       </div>
     </div>
   </div>
-</section>
 
-<!-- RESOURCES -->
-<section class="section alt" id="resources">
-  <div class="wrap">
-    <div class="section-header">
-      <h2>Learning Resources</h2>
-      <p>Facilities and tools that support every learner</p>
+  <!-- HERO -->
+  <section class="hero" id="home" aria-label="Hero">
+    <video class="heroVideo" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="01.jpg">
+      <!-- robust file fallbacks (because your repo filenames changed sometimes) -->
+      <source src="video1.mp4" type="video/mp4">
+      <source src="video1" type="video/mp4">
+      <source src="Video 1.mp4" type="video/mp4">
+    </video>
+
+    <div class="heroOverlay"></div>
+    <div class="sparkle" aria-hidden="true"></div>
+
+    <div class="heroInner">
+      <div class="kicker"><span class="dot"></span> BONDO • SIAYA COUNTY • KENYA</div>
+      <h1>A World-Class School Experience — Modern, Safe, and Future-Ready.</h1>
+      <p>
+        A CBC-aligned private school founded in <b>2016</b> on a spacious <b>2-acre campus</b> along the
+        <b>Bondo–Kisian Highway</b> (just outside Bondo town). We offer <b>Playgroup</b>, <b>PP1–PP2</b>,
+        <b>Primary (Grades 1–6)</b>, and <b>Junior School</b> (introduced in <b>2025</b>).
+      </p>
+
+      <div class="ctaRow">
+        <a class="btn btnPrimary" href="#admissions" aria-label="Apply or request information">
+          🔥 Apply / Request Info
+        </a>
+        <a class="btn btnGhost" href="#gallery" aria-label="View gallery">
+          📸 View Gallery
+        </a>
+        <a class="btn btnGhost" href="#videos" aria-label="Watch videos">
+          🎬 Watch Videos
+        </a>
+      </div>
+
+      <div class="heroBadge" aria-label="Highlights">
+        <div class="badge"><b>Language:</b> <span>English instruction</span></div>
+        <div class="badge"><b>Junior School:</b> <span>Smart boards in every class</span></div>
+        <div class="badge"><b>Enrichment:</b> <span>Music • French • Debates</span></div>
+      </div>
+
+      <!-- FLOATING STATS (your requested values) -->
+      <div class="stats" aria-label="Key statistics">
+        <div class="stat">
+          <small>Current Learner Enrollment</small>
+          <b>390</b>
+          <span>learners enrolled</span>
+        </div>
+        <div class="stat">
+          <small>Graduated</small>
+          <b>40</b>
+          <span>alumni growing</span>
+        </div>
+        <div class="stat">
+          <small>Teachers</small>
+          <b>18</b>
+          <span>teaching staff</span>
+        </div>
+        <div class="stat">
+          <small>Support Staff</small>
+          <b>10</b>
+          <span>non-teaching team</span>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="resource-list">
-      <div class="resource-item">
-        <h3>Digitized Classrooms</h3>
-        Smart boards and modern teaching tools.
-      </div>
-      <div class="resource-item">
-        <h3>Music & Arts</h3>
-        Drums, guitars, strings, and keyboard.
-      </div>
-      <div class="resource-item">
-        <h3>Reading Culture</h3>
-        Weekly storybook sessions and libraries.
-      </div>
-      <div class="resource-item">
-        <h3>Safe Environment</h3>
-        Guided, protected, and learner-friendly spaces.
-      </div>
-    </div>
-  </div>
-</section>
+  <main id="main">
+    <!-- ABOUT -->
+    <section class="section alt" id="about">
+      <div class="wrap">
+        <div class="title">
+          <h2>About NewDawn School</h2>
+          <p>
+            We serve Bondo Sub-County and beyond, welcoming a culturally diverse learner community and
+            supporting holistic growth in a safe, caring environment.
+          </p>
+        </div>
 
-<!-- STAFF -->
-<section class="section" id="staff">
-  <div class="wrap">
-    <div class="section-header">
-      <h2>Leadership & Staff</h2>
-      <p>Dedicated professionals guiding every learner</p>
-    </div>
+        <div class="grid2">
+          <div class="card">
+            <span class="pill">Overview</span>
+            <h3>Do it differently.</h3>
+            <p>
+              NewDawn School is a private institution on a spacious <b>2-acre campus</b> along the
+              <b>Bondo-Kisian Highway</b>, just outside Bondo town. We are <b>fully registered</b> and follow
+              the National <b>Competency Based Curriculum (CBC)</b>.
+            </p>
+            <p>
+              We build confident learners through strong academics, values, character, and modern learning tools.
+              Our environment is designed to be welcoming, safe, and supportive for both learners and staff.
+            </p>
+          </div>
 
-    <div class="staff-grid">
-      <div class="staff-card">
-        <div class="staff-role">School Director</div>
-        <div class="staff-name">Leadership Team</div>
-        <p>Strategic oversight and governance.</p>
-      </div>
-      <div class="staff-card">
-        <div class="staff-role">Head Teacher</div>
-        <div class="staff-name">Academic Leadership</div>
-        <p>Day-to-day academic excellence.</p>
-      </div>
-      <div class="staff-card">
-        <div class="staff-role">Teaching Staff</div>
-        <div class="staff-name">Qualified Educators</div>
-        <p>Committed to learner success.</p>
-      </div>
-      <div class="staff-card">
-        <div class="staff-role">Support Staff</div>
-        <div class="staff-name">Student Care Team</div>
-        <p>Safe, clean, and supportive environment.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- APPLY / CONTACT -->
-<section class="section alt" id="contact">
-  <div class="wrap">
-    <div class="section-header">
-      <h2>Contact & Admissions</h2>
-      <p>We are happy to guide you through the admission process</p>
-    </div>
-
-    <div class="contact-layout">
-      <div class="contact-details">
-        <p><strong>📍 Location:</strong> Bondo–Kisian Highway, Siaya County</p>
-        <p><strong>📞 Call / WhatsApp:</strong> <a href="tel:+254769924670">+254 769 924 670</a></p>
-        <p><strong>✉️ Email:</strong> <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></p>
-      </div>
-
-      <div class="contact-form" id="apply">
-        <h3>Apply / Request Information</h3>
-        <form id="waForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Parent / Guardian Name</label>
-              <input id="parentName" required />
+          <div class="card">
+            <span class="pill">Structure</span>
+            <h3>Programs & School Sections</h3>
+            <div class="miniGrid">
+              <div class="miniCard">
+                <b>Pre-Primary</b>
+                <p>Playgroup, PP1 & PP2 (Early Childhood Development).</p>
+              </div>
+              <div class="miniCard">
+                <b>Primary</b>
+                <p>Grades 1–6 with strong literacy & numeracy foundations.</p>
+              </div>
+              <div class="miniCard">
+                <b>Junior School</b>
+                <p>Introduced in 2025 (digitized classrooms with smart boards).</p>
+              </div>
+              <div class="miniCard">
+                <b>Community</b>
+                <p>Serving Bondo Sub-County with a diverse learner body.</p>
+              </div>
             </div>
-            <div class="form-group">
-              <label>Phone / WhatsApp</label>
-              <input id="phone" required />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section class="section" id="programs">
+      <div class="wrap">
+        <div class="title">
+          <h2>Programs & Enrichment</h2>
+          <p>Beyond CBC: we add rich, practical experiences that grow confidence, creativity, and communication.</p>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="ico">🎵</div>
+            <h3>Music Program</h3>
+            <p>
+              Instruction in <b>drums</b>, <b>guitar</b>, <b>violins</b>, <b>violas</b>, <b>cello</b> and
+              <b>digital keyboard</b>—supporting talent growth and discipline.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="ico">📚</div>
+            <h3>Weekly Storybook Sessions</h3>
+            <p>Weekly reading culture sessions to encourage learning beyond the classroom.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🗣️</div>
+            <h3>Spelling Bees & Debates</h3>
+            <p>Public speaking, vocabulary and confidence-building through competitions and clubs.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🇫🇷</div>
+            <h3>French (Grades 4–6)</h3>
+            <p>Language exposure for global awareness and strong communication skills.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🧠</div>
+            <h3>Digitized Junior School</h3>
+            <p>Junior School classrooms equipped with <b>smart boards</b> to enhance learning.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🍳</div>
+            <h3>Life Skills (Coming)</h3>
+            <p>Plans underway to introduce more life skills, including <b>culinary arts</b>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="section alt" id="why">
+      <div class="wrap">
+        <div class="title">
+          <h2>Why Families Choose NewDawn</h2>
+          <p>Professional standards, caring culture, and strong learner outcomes—built for Kenya and the world.</p>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="ico">🛡️</div>
+            <h3>Safe, Supportive Environment</h3>
+            <p>Clear routines, caring staff and a culture that protects learner dignity and wellbeing.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🌍</div>
+            <h3>Global Readiness</h3>
+            <p>Strong English instruction, communication programs, and exposure to modern learning tools.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🏫</div>
+            <h3>Spacious Campus</h3>
+            <p>Over <b>2 acres</b> of space for academic, recreational and extracurricular activities.</p>
+          </div>
+          <div class="feature">
+            <div class="ico">🤝</div>
+            <h3>Strong Community</h3>
+            <p>A welcoming school serving Bondo Sub-County with diverse cultural and economic backgrounds.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMISSIONS -->
+    <section class="section" id="admissions">
+      <div class="wrap">
+        <div class="title">
+          <h2>Admissions</h2>
+          <p>Simple, fast, and friendly. Use the form below to request a call or a school visit.</p>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <span class="pill">Steps</span>
+            <h3>How to Join</h3>
+            <ul class="list">
+              <li><b>Inquiry:</b> Call/WhatsApp or submit the form.</li>
+              <li><b>Visit:</b> Tour the campus and meet the leadership.</li>
+              <li><b>Placement:</b> Friendly class placement where needed.</li>
+              <li><b>Onboarding:</b> Join, receive uniform list & term details.</li>
+            </ul>
+            <p class="hint" style="margin-top:10px">
+              Tip: On GitHub Pages, forms don’t submit to a server by default—so we send your message via email/WhatsApp.
+            </p>
+          </div>
+
+          <div class="card" id="apply">
+            <span class="pill">Apply / Request Info</span>
+            <h3>Send Us a Message</h3>
+
+            <form id="applyForm" autocomplete="on">
+              <div class="field">
+                <label for="pname">Parent / Guardian Name</label>
+                <input id="pname" required placeholder="Your full name" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone / WhatsApp</label>
+                <input id="phone" required placeholder="+254..." />
+              </div>
+              <div class="field">
+                <label for="lname">Learner Name (optional)</label>
+                <input id="lname" placeholder="Learner name" />
+              </div>
+              <div class="field">
+                <label for="level">Class / Level</label>
+                <input id="level" placeholder="Playgroup, PP1, Grade 3, Junior School..." />
+              </div>
+              <div class="field">
+                <label for="msg">Message</label>
+                <textarea id="msg" placeholder="Tell us what you need..."></textarea>
+              </div>
+
+              <div class="ctaRow">
+                <button class="btn btnPrimary" type="submit">Send via Email</button>
+                <button class="btn btnGhost" type="button" id="sendWhatsApp">Send via WhatsApp</button>
+              </div>
+
+              <p class="hint" style="margin-top:10px">
+                Email: <a href="mailto:info@newdawnschool.ac.ke"><b>info@newdawnschool.ac.ke</b></a> • WhatsApp:
+                <a href="https://wa.me/254769924670" target="_blank" rel="noopener"><b>+254 769 924 670</b></a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section alt" id="gallery">
+      <div class="wrap">
+        <div class="title">
+          <h2>Gallery</h2>
+          <p>Top-tier campus moments—clean, well-arranged, and optimized for all devices.</p>
+        </div>
+
+        <div class="gallery" aria-label="Photo gallery">
+          <!-- 0–9 -->
+          <div class="gItem"><img class="gImg" src="0.jpg" alt="NewDawn moment 0" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="1.jpg" alt="NewDawn moment 1" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="2.jpg" alt="NewDawn moment 2" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="3.jpg" alt="NewDawn moment 3" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="4.jpg" alt="NewDawn moment 4" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="5.jpg" alt="NewDawn moment 5" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="6.jpg" alt="NewDawn moment 6" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="7.jpg" alt="NewDawn moment 7" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="8.jpg" alt="NewDawn moment 8" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="9.jpg" alt="NewDawn moment 9" loading="lazy"><div class="shine"></div></div>
+
+          <!-- 01–08 -->
+          <div class="gItem"><img class="gImg" src="01.jpg" alt="NewDawn extra 01" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="02.jpg" alt="NewDawn extra 02" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="03.jpg" alt="NewDawn extra 03" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="04.jpg" alt="NewDawn extra 04" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="05.jpg" alt="NewDawn extra 05" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="06.jpg" alt="NewDawn extra 06" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="07.jpg" alt="NewDawn extra 07" loading="lazy"><div class="shine"></div></div>
+          <div class="gItem"><img class="gImg" src="08.jpg" alt="NewDawn extra 08" loading="lazy"><div class="shine"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEOS (AUTO PLAY, LOOP, MUTED) -->
+    <section class="section" id="videos">
+      <div class="wrap">
+        <div class="title">
+          <h2>Videos</h2>
+          <p>Both videos auto-play (muted) for reliable playback on all devices and browsers.</p>
+        </div>
+
+        <div class="videoWall">
+          <div class="vCard">
+            <video id="vid1" autoplay muted loop playsinline preload="metadata" poster="02.jpg"></video>
+            <div class="vCap"><i>🔥</i> Video 1 • School Life & Learning</div>
+          </div>
+
+          <div class="vCard">
+            <video id="vid2" autoplay muted loop playsinline preload="metadata" poster="03.jpg"></video>
+            <div class="vCap"><i>✨</i> Video 2 • Events & Activities</div>
+          </div>
+        </div>
+
+        <p class="hint" style="margin-top:12px;text-align:center">
+          If your repo files are named <b>video1</b> / <b>video2</b> (no “.mp4”), this page still works.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section alt" id="contact">
+      <div class="wrap">
+        <div class="title">
+          <h2>Contact & Visit Us</h2>
+          <p>We’re along Bondo–Kisian Highway, just outside Bondo town. Call or WhatsApp any time during school hours.</p>
+        </div>
+
+        <div class="contactGrid">
+          <div class="card">
+            <span class="pill">Contacts</span>
+            <h3>Get in Touch</h3>
+            <p><b>Phone / WhatsApp:</b> <a href="tel:+254769924670">+254 769 924 670</a></p>
+            <p><b>Email:</b> <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></p>
+            <p><b>Location:</b> Bondo–Kisian Highway, Bondo, Siaya County, Kenya</p>
+            <p class="hint">School hours: Mon–Fri • 7:00am–5:00pm (EAT)</p>
+
+            <div class="ctaRow" style="margin-top:12px">
+              <a class="btn btnPrimary" href="https://wa.me/254769924670" target="_blank" rel="noopener">WhatsApp Now</a>
+              <a class="btn btnGhost" href="mailto:info@newdawnschool.ac.ke?subject=NewDawn%20School%20Inquiry">Email Us</a>
             </div>
           </div>
-          <div class="form-group">
-            <label>Learner & Class</label>
-            <input id="level" />
+
+          <div class="map" aria-label="Map">
+            <iframe
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Bondo-Kisian%20Highway%20NewDawn%20School&output=embed"
+              title="Map showing NewDawn School, Bondo">
+            </iframe>
           </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea id="message"></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Send via WhatsApp</button>
-        </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lbClose" id="lbClose" aria-label="Close">&times;</button>
+    <img id="lbImg" alt="Expanded image">
+  </div>
+
+  <!-- Floating -->
+  <a class="wa" href="https://wa.me/254769924670" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+  <button class="topBtn" id="topBtn" aria-label="Back to top">↑ Top</button>
+
+  <footer>
+    <div class="foot">
+      <div>
+        <h4>NewDawn School</h4>
+        <p>
+          CBC-aligned private school founded in 2016 on a 2-acre campus in Bondo, Siaya County.
+          Pre-Primary, Primary (Grades 1–6) and Junior School (introduced 2025).
+        </p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="#admissions">Admissions</a></p>
+        <p><a href="#programs">Programs</a></p>
+        <p><a href="#gallery">Gallery</a></p>
+        <p><a href="#videos">Videos</a></p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>📞 <a href="tel:+254769924670">+254 769 924 670</a></p>
+        <p>✉️ <a href="mailto:info@newdawnschool.ac.ke">info@newdawnschool.ac.ke</a></p>
+        <p>📍 Bondo–Kisian Highway, Bondo, Siaya County</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- GALLERY -->
-<section class="section" id="gallery">
-  <div class="wrap">
-    <div class="section-header">
-      <h2>Gallery</h2>
-      <p>Life and learning at NewDawn School</p>
+    <div class="copy">
+      <div>&copy; 2026 NewDawn School. All rights reserved.</div>
+      <div>Built for speed • mobile friendly • accessible • translation enabled</div>
     </div>
+  </footer>
 
-    <div class="photo-grid">
-      <img class="gallery-img" src="NewDawn/01.jpg" alt="">
-      <img class="gallery-img" src="NewDawn/02.jpg" alt="">
-      <img class="gallery-img" src="NewDawn/03.jpg" alt="">
-      <img class="gallery-img" src="NewDawn/04.jpg" alt="">
-    </div>
-  </div>
-</section>
+  <!-- Translate -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,sw,fr,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="lightbox-close" id="lightbox-close">&times;</span>
-  <img id="lightbox-img" />
-</div>
+  <script>
+    // A11Y toggles
+    const body = document.body;
+    document.getElementById('contrastToggle')?.addEventListener('click', () => body.classList.toggle('high-contrast'));
+    document.getElementById('fontToggle')?.addEventListener('click', () => body.classList.toggle('large-font'));
 
-<!-- FLOATING BUTTONS -->
-<a class="whatsapp" href="https://wa.me/254769924670" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
+    // Active nav highlight
+    const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+    const sections = document.querySelectorAll('main section[id], section.hero[id]');
+    function setActiveNav(){
+      const y = window.scrollY + 160;
+      let current = "home";
+      sections.forEach(sec=>{
+        const top = sec.offsetTop, h = sec.offsetHeight;
+        if(y >= top && y < top + h) current = sec.id;
+      });
+      navLinks.forEach(a=>{
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }
+    window.addEventListener('scroll', setActiveNav);
+    window.addEventListener('load', setActiveNav);
 
-<a href="#apply" class="mobile-apply">Apply / Request Info</a>
+    // Back to top
+    const topBtn = document.getElementById('topBtn');
+    window.addEventListener('scroll', ()=>{
+      if(window.scrollY > 500) topBtn.classList.add('show');
+      else topBtn.classList.remove('show');
+    });
+    topBtn.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
 
-<button class="back-to-top" id="backToTop">↑ Top</button>
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    document.querySelectorAll('.gImg').forEach(img=>{
+      img.addEventListener('click', ()=>{
+        lbImg.src = img.src;
+        lb.classList.add('active');
+        lb.setAttribute('aria-hidden','false');
+        lbClose.focus();
+      });
+    });
+    function closeLB(){
+      lb.classList.remove('active');
+      lb.setAttribute('aria-hidden','true');
+      lbImg.src = '';
+    }
+    lbClose.addEventListener('click', closeLB);
+    lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLB(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    © 2026 NewDawn School • Bondo, Siaya County
-  </div>
-</footer>
+    // Admissions: send email + WhatsApp (works on GitHub Pages)
+    function buildMessage(){
+      const pname = document.getElementById('pname').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      const level = document.getElementById('level').value.trim();
+      const msg = document.getElementById('msg').value.trim();
 
-<!-- SCRIPTS -->
-<script>
-/* HERO SLIDER */
-let idx=0;
-const slider=document.querySelector(".slider");
-const slides=document.querySelectorAll(".slider img");
-setInterval(()=>{
-  idx=(idx+1)%slides.length;
-  slider.style.transform=`translateX(-${idx*100}%)`;
-},4500);
+      return [
+        "NewDawn School Inquiry",
+        "----------------------",
+        `Parent/Guardian: ${pname}`,
+        `Phone/WhatsApp: ${phone}`,
+        `Learner: ${lname || "-"}`,
+        `Class/Level: ${level || "-"}`,
+        "",
+        msg || "(No extra message)"
+      ].join("\n");
+    }
 
-/* LIGHTBOX */
-const imgs=document.querySelectorAll(".gallery-img");
-const lb=document.getElementById("lightbox");
-const lbImg=document.getElementById("lightbox-img");
-const lbClose=document.getElementById("lightbox-close");
-imgs.forEach(i=>i.onclick=()=>{lbImg.src=i.src;lb.classList.add("active")});
-lbClose.onclick=()=>lb.classList.remove("active");
-lb.onclick=e=>{if(e.target===lb)lb.classList.remove("active")};
+    document.getElementById('applyForm')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const subject = encodeURIComponent("NewDawn School Admission Inquiry");
+      const body = encodeURIComponent(buildMessage());
+      window.location.href = `mailto:info@newdawnschool.ac.ke?subject=${subject}&body=${body}`;
+    });
 
-/* BACK TO TOP */
-const bt=document.getElementById("backToTop");
-window.addEventListener("scroll",()=>bt.classList.toggle("show",scrollY>400));
-bt.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+    document.getElementById('sendWhatsApp')?.addEventListener('click', ()=>{
+      const text = encodeURIComponent(buildMessage());
+      window.open(`https://wa.me/254769924670?text=${text}`, "_blank");
+    });
 
-/* APPLY → WHATSAPP */
-document.getElementById("waForm").onsubmit=e=>{
-  e.preventDefault();
-  const msg=`Hello NewDawn School,
-Parent: ${parentName.value}
-Phone: ${phone.value}
-Class: ${level.value}
-Message: ${message.value}`;
-  window.open("https://wa.me/254769924670?text="+encodeURIComponent(msg));
-};
-</script>
+    // VIDEO FIX (your videos sometimes are: video1.mp4 / video2.mp4 OR video1 / video2)
+    function setVideoSources(videoEl, candidates){
+      if(!videoEl) return;
+      videoEl.innerHTML = "";
+      candidates.forEach(src=>{
+        const s = document.createElement('source');
+        s.src = src;
+        s.type = "video/mp4";
+        videoEl.appendChild(s);
+      });
+      // Ensure autoplay works everywhere
+      videoEl.muted = true;
+      videoEl.playsInline = true;
+      videoEl.autoplay = true;
+      videoEl.loop = true;
 
+      const tryPlay = async ()=>{
+        try { await videoEl.play(); } catch(e){ /* autoplay may be blocked until user interaction */ }
+      };
+      videoEl.addEventListener('canplay', tryPlay, { once:true });
+      setTimeout(tryPlay, 800);
+    }
+
+    // Hero background uses video1
+    const heroVideo = document.getElementById('heroVideo');
+    // Keep the <source> in HTML, but still enforce play
+    setTimeout(()=>{ try{ heroVideo.play(); }catch(e){} }, 700);
+
+    // Video wall: set robust sources
+    setVideoSources(document.getElementById('vid1'), ["video1.mp4","video1","Video 1.mp4","Video1.mp4"]);
+    setVideoSources(document.getElementById('vid2'), ["video2.mp4","video2","Video 2.mp4","Video2.mp4"]);
+  </script>
 </body>
 </html>
