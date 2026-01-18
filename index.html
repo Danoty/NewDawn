@@ -11,25 +11,17 @@
   <meta name="keywords" content="NewDawn School, Bondo, Siaya County, Kenya, CBC, Playgroup, PP1, PP2, Primary, Junior School, private school, smart boards, music, French" />
   <meta name="author" content="NewDawn School" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (use absolute URLs for better sharing) -->
   <meta property="og:title" content="NewDawn School – Modern, Safe, Future-Ready" />
-  <meta property="og:description" content="CBC-aligned private school founded in 2016 on a 2-acre campus along Bondo–Kisian Highway (Playgroup, PP1–PP2, Primary 1–6, Junior School introduced 2025)." />
+  <meta property="og:description" content="CBC-aligned private school in Bondo (Playgroup, PP1–PP2, Grades 1–6, Junior School introduced 2025)." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://danoty.github.io/NewDawn/" />
-  <!-- Use ABSOLUTE URL for reliable sharing -->
-  <meta property="og:image" content="https://danoty.github.io/NewDawn/01.jpg" />
-
-  <!-- Preload hero poster for faster first paint -->
-  <link rel="preload" as="image" href="01.jpg" />
-
-  <!-- Favicons (add these files later) -->
-  <link rel="icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta property="og:url" content="https://newdawnschool.sc.ke/" />
+  <meta property="og:image" content="https://newdawnschool.sc.ke/01.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Schema -->
   <script type="application/ld+json">
@@ -37,8 +29,8 @@
     "@context":"https://schema.org",
     "@type":"School",
     "name":"NewDawn School",
-    "url":"https://danoty.github.io/NewDawn/",
-    "logo":"https://danoty.github.io/NewDawn/logo.png",
+    "url":"https://newdawnschool.sc.ke/",
+    "logo":"https://newdawnschool.sc.ke/logo.png",
     "address":{
       "@type":"PostalAddress",
       "streetAddress":"Bondo–Kisian Highway (just outside Bondo town)",
@@ -53,31 +45,25 @@
 
   <style>
     :root{
-      /* Brand palette (more balanced + premium) */
       --primary:#0c4b33;
       --primary-dark:#083522;
-      --primary-2:#145c41;
+
+      /* Balanced accent palette (more premium) */
       --accent:#ff7f32;
       --accent-2:#ffd452;
-      --ink:#0b1220;
 
       --bg:#ffffff;
-      --bg-soft:#f4f7fb;
-      --bg-soft-2:#eef7f2;
+      --bg-soft:#f4f6fb;
       --text:#1f2937;
       --muted:#6b7280;
 
       --radius:18px;
-      --radius-2:22px;
       --shadow:0 14px 40px rgba(0,0,0,.12);
-      --shadow-2:0 18px 48px rgba(0,0,0,.16);
+      --shadow-soft:0 10px 26px rgba(0,0,0,.10);
       --max:1200px;
 
-      /* header sizing */
+      /* This will be auto-synced by JS (mobile header fix) */
       --headerH:92px;
-
-      /* focus ring */
-      --ring:0 0 0 3px rgba(255,127,50,.22);
     }
 
     *{margin:0;padding:0;box-sizing:border-box}
@@ -90,10 +76,11 @@
     }
 
     body.large-font{font-size:18px}
+
     body.high-contrast{
-      --primary:#000;--primary-dark:#000;--primary-2:#000;
-      --accent:#ff0;--accent-2:#ffea00;
-      --bg:#000;--bg-soft:#000;--bg-soft-2:#000;
+      --primary:#000;--primary-dark:#000;
+      --accent:#ff0;--accent-2:#fff200;
+      --bg:#000;--bg-soft:#000;
       --text:#fff;--muted:#e5e7eb;
       background:#000;color:#fff
     }
@@ -101,15 +88,13 @@
     a{color:inherit}
     section{scroll-margin-top:calc(var(--headerH) + 22px)}
 
-    :focus-visible{outline:none;box-shadow:var(--ring);border-radius:12px}
-
     @media (prefers-reduced-motion:reduce){
       *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
     }
 
     /* Skip link */
     .skip-link{
-      position:absolute;left:10px;top:-60px;z-index:9999;
+      position:absolute;left:10px;top:-50px;z-index:9999;
       background:#000;color:#fff;padding:10px 12px;border-radius:10px;
       text-decoration:none;font-size:.85rem
     }
@@ -123,7 +108,6 @@
       border-bottom:1px solid rgba(255,255,255,.12);
       box-shadow:0 10px 28px rgba(0,0,0,.18);
     }
-
     .hdr{
       max-width:var(--max);
       margin:0 auto;
@@ -133,12 +117,11 @@
       align-items:center;
       gap:14px;
     }
-
     .brand{
-      display:flex;align-items:center;gap:12px;min-width:260px;
-      text-decoration:none;color:#fff
+      display:flex;align-items:center;gap:12px;
+      text-decoration:none;color:#fff;
+      min-width:260px;
     }
-
     .logo-mark{
       width:56px;height:56px;border-radius:50%;
       padding:4px;
@@ -149,6 +132,7 @@
         0 0 46px rgba(255,127,50,.55);
       animation: logoPulse 2.8s ease-in-out infinite;
       position:relative;
+      flex:0 0 auto;
     }
     .logo-mark:after{
       content:"";
@@ -158,34 +142,31 @@
       animation:sparkle 5.5s linear infinite;
       pointer-events:none;
     }
-    @keyframes logoPulse{
-      0%,100%{transform:translateY(0) scale(1)}
-      50%{transform:translateY(-1px) scale(1.035)}
-    }
+    @keyframes logoPulse{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-1px) scale(1.035)}}
     @keyframes sparkle{to{transform:rotate(360deg)}}
-
     .logo-mark img{
       width:100%;height:100%;border-radius:50%;
       background:#fff;padding:2px;position:relative;z-index:1
     }
-
-    .brand-text{display:flex;flex-direction:column;line-height:1.1}
-    .brand-text strong{font-size:1.05rem;letter-spacing:.02em}
+    .brand-text{display:flex;flex-direction:column;line-height:1.1;min-width:0}
+    .brand-text strong{font-size:1.05rem;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .brand-text span{font-size:.75rem;color:#dff7ee;opacity:.95}
+
     .hdr-right{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:250px}
     .top-contact{font-size:.78rem;color:#f0fff8;text-align:right}
     .top-contact a{color:#ffeedd;text-decoration:none}
     .top-contact a:hover{text-decoration:underline}
 
     .a11y{
-      display:flex;align-items:center;gap:6px;font-size:.72rem;color:#fff
+      display:flex;align-items:center;gap:8px;font-size:.72rem;color:#fff;
+      justify-content:flex-end;
     }
     .a11y-btn{
       border-radius:999px;
       border:1px solid rgba(255,255,255,.55);
       background:rgba(0,0,0,.18);
       color:#fff;
-      padding:4px 8px;
+      padding:6px 10px; /* slightly bigger tap target */
       cursor:pointer;
       font-size:.72rem;
       transition:transform .15s ease, background .15s ease;
@@ -197,10 +178,10 @@
       border-radius:999px;
       padding:2px 8px;
       overflow:hidden;
-      max-height:32px;
+      max-height:34px;
     }
 
-    /* Nav row */
+    /* One-line Desktop Menu */
     .navrow{
       max-width:var(--max);
       margin:0 auto;
@@ -213,8 +194,8 @@
       display:none;
       background:rgba(0,0,0,.18);
       border:1px solid rgba(255,255,255,.45);
-      color:#fff;border-radius:12px;
-      padding:8px 10px;
+      color:#fff;border-radius:10px;
+      padding:10px 12px; /* better tap target */
       cursor:pointer;
       font-size:.9rem;
       align-items:center;gap:8px;
@@ -237,9 +218,9 @@
       padding-bottom:2px;
     }
     nav::-webkit-scrollbar{display:none}
+
     nav a{
-      color:#fff;
-      text-decoration:none;
+      color:#fff;text-decoration:none;
       font-weight:600;
       font-size:.76rem;
       letter-spacing:.08em;
@@ -254,12 +235,6 @@
       overflow:hidden;
       transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
     }
-    nav a:before{
-      content:"";
-      position:absolute;inset:0;
-      background:radial-gradient(circle at 0 0, rgba(255,255,255,.55), transparent 55%);
-      opacity:0;transition:opacity .25s ease
-    }
     nav a:after{
       content:"";
       position:absolute;left:10px;right:10px;bottom:4px;height:2px;border-radius:999px;
@@ -268,13 +243,7 @@
       transition:transform .25s ease;
       opacity:.95
     }
-    nav a:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 22px rgba(0,0,0,.32);
-      border-color:rgba(255,255,255,.65);
-      background:linear-gradient(135deg, rgba(255,152,0,.45), rgba(255,255,255,.14));
-    }
-    nav a:hover:before{opacity:.5}
+    nav a:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.32);border-color:rgba(255,255,255,.65)}
     nav a:hover:after{transform:scaleX(1)}
     nav a.active{border-color:rgba(255,255,255,.9)}
     nav a.active:after{transform:scaleX(1)}
@@ -282,16 +251,15 @@
     /* Announcement */
     .announcement{
       margin-top:var(--headerH);
-      background:linear-gradient(90deg, #fffbdd, #fff3c6);
+      background:#fffbdd;
       color:#4a3b00;
       border-bottom:1px solid rgba(0,0,0,.08);
       padding:10px 14px;
       text-align:center;
-      font-size:.88rem;
+      font-size:.9rem;
     }
     .announcement a{color:var(--primary);font-weight:800;text-decoration:underline}
-
-    /* Hero */
+    /* Hero with Video Background */
     .hero{
       position:relative;
       height:min(78vh, 640px);
@@ -311,11 +279,6 @@
         radial-gradient(circle at 15% 20%, rgba(255,127,50,.25), transparent 55%),
         linear-gradient(120deg, rgba(0,0,0,.70), rgba(0,0,0,.38) 35%, rgba(12,75,51,.88));
     }
-    .hero .grain{
-      position:absolute;inset:0;pointer-events:none;opacity:.14;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-      mix-blend-mode:overlay;
-    }
     .hero-inner{
       position:relative;
       max-width:var(--max);
@@ -327,10 +290,13 @@
     }
     .hero-copy{
       color:#fff;
-      max-width:740px;
+      max-width:720px;
       animation: heroIn 1.1s ease both;
     }
-    @keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes heroIn{
+      from{opacity:0;transform:translateY(18px)}
+      to{opacity:1;transform:translateY(0)}
+    }
     .kicker{
       text-transform:uppercase;
       letter-spacing:.2em;
@@ -349,14 +315,14 @@
     .hero p{
       font-size:1.05rem;
       color:#eefcf6;
-      max-width:660px;
+      max-width:640px;
       opacity:.96;
     }
-    .ctas{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
 
+    .ctas{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 18px;
+      padding:13px 18px;
       border-radius:999px;
       text-decoration:none;
       font-weight:700;
@@ -370,29 +336,27 @@
       color:#111;
       box-shadow:0 12px 26px rgba(0,0,0,.32);
     }
-    .btn.primary:hover{filter:saturate(1.05);transform:translateY(-1px)}
+    .btn.primary:hover{transform:translateY(-1px);box-shadow:0 18px 34px rgba(0,0,0,.38)}
     .btn.ghost{
       background:rgba(255,255,255,.12);
       color:#fff;
-      border:1px solid rgba(255,255,255,.5);
+      border:1px solid rgba(255,255,255,.55);
     }
     .btn.ghost:hover{background:rgba(255,255,255,.18);transform:translateY(-1px)}
-
     .hero-badge{
-      position:absolute;
-      right:16px;bottom:16px;
+      position:absolute;right:16px;bottom:16px;
       background:rgba(255,255,255,.92);
       color:var(--primary-dark);
       padding:10px 14px;
-      border-radius:16px;
-      box-shadow:var(--shadow-2);
+      border-radius:14px;
+      box-shadow:var(--shadow);
       font-size:.86rem;
     }
     .hero-badge strong{display:block;font-size:1.05rem}
 
     /* Sections */
     .section{padding:56px 14px}
-    .section.alt{background:linear-gradient(180deg, var(--bg-soft), var(--bg-soft-2))}
+    .section.alt{background:var(--bg-soft)}
     .inner{max-width:var(--max);margin:0 auto}
     .sec-head{text-align:center;margin-bottom:28px}
     .sec-head h2{font-size:2rem;color:var(--primary-dark);margin-bottom:8px}
@@ -402,18 +366,18 @@
     [data-animate]{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
     [data-animate].in-view{opacity:1;transform:none}
 
-    /* Grid & Cards */
+    /* Cards / Grid */
     .grid{display:grid;grid-template-columns:repeat(12, minmax(0,1fr));gap:16px}
     .card{
       background:#fff;
-      border-radius:var(--radius-2);
-      box-shadow:var(--shadow);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
       border:1px solid rgba(0,0,0,.04);
       padding:18px 16px;
     }
     .pill{
       display:inline-block;
-      padding:5px 10px;
+      padding:6px 11px;
       border-radius:999px;
       background:rgba(12,75,51,.07);
       color:var(--primary-dark);
@@ -421,6 +385,7 @@
       letter-spacing:.12em;
       text-transform:uppercase;
       margin-bottom:8px;
+      font-weight:700;
     }
 
     /* Stats */
@@ -447,20 +412,11 @@
     .stat .num{font-size:1.65rem;font-weight:900;color:var(--accent);margin:6px 0 2px}
     .stat .note{font-size:.78rem;color:var(--muted)}
 
-    /* Two-column helpers */
-    .two{
-      display:grid;
-      grid-template-columns:minmax(0, 1.2fr) minmax(0, 1fr);
-      gap:18px;
-      align-items:start;
-    }
+    /* Two-column */
+    .two{display:grid;grid-template-columns:minmax(0, 1.2fr) minmax(0, 1fr);gap:18px;align-items:start}
 
     /* Feature cards */
-    .why{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:16px;
-    }
+    .why{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:16px}
     .why .item{
       background:#fff;
       border-radius:18px;
@@ -468,30 +424,20 @@
       box-shadow:0 12px 28px rgba(0,0,0,.10);
       padding:16px 14px;
       color:var(--muted);
-      transition:transform .18s ease, box-shadow .18s ease;
     }
-    .why .item:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,0,0,.14)}
     .why .item h3{color:var(--primary-dark);margin:6px 0 6px;font-size:1.05rem}
     .icon{font-size:1.4rem}
+
     /* Gallery */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(12, minmax(0,1fr));
-      gap:12px;
-    }
+    .gallery{display:grid;grid-template-columns:repeat(12, minmax(0,1fr));gap:12px}
     .gitem{
-      position:relative;
-      border-radius:18px;
-      overflow:hidden;
+      position:relative;border-radius:18px;overflow:hidden;
       box-shadow:0 16px 34px rgba(0,0,0,.14);
       border:1px solid rgba(0,0,0,.06);
-      background:#000;
-      transform:translateZ(0);
+      background:#000;transform:translateZ(0);
     }
     .gitem img{
-      width:100%;height:100%;
-      object-fit:cover;
-      display:block;
+      width:100%;height:100%;object-fit:cover;display:block;
       transform:scale(1.02);
       transition:transform .35s ease, filter .35s ease;
       cursor:zoom-in;
@@ -508,11 +454,7 @@
     .gcap .shine{
       width:10px;height:10px;border-radius:999px;background:var(--accent);
       box-shadow:0 0 0 6px rgba(255,127,50,.22);
-      animation:twinkle 2.3s ease-in-out infinite;
     }
-    @keyframes twinkle{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
-
-    /* Masonry-like sizes */
     .span-6{grid-column:span 6}
     .span-4{grid-column:span 4}
     .span-3{grid-column:span 3}
@@ -521,20 +463,15 @@
     .h-320{height:320px}
     .h-360{height:360px}
 
-    /* Lightbox (improved accessibility hooks) */
+    /* Lightbox */
     .lightbox{
       position:fixed;inset:0;
       background:rgba(0,0,0,.86);
       display:none;align-items:center;justify-content:center;
-      z-index:2000;
-      padding:18px;
+      z-index:2000;padding:18px;
     }
     .lightbox.active{display:flex}
-    .lightbox img{
-      max-width:94vw;max-height:90vh;
-      border-radius:14px;
-      box-shadow:0 24px 60px rgba(0,0,0,.55);
-    }
+    .lightbox img{max-width:94vw;max-height:90vh;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.55)}
     .lb-close{
       position:fixed;top:18px;right:18px;
       border:none;background:rgba(255,255,255,.12);
@@ -546,27 +483,13 @@
     .lb-close:hover{background:rgba(255,255,255,.18)}
 
     /* Media videos */
-    .media-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
-      gap:16px;
-    }
+    .media-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));gap:16px}
     .vcard{
-      background:#fff;
-      border-radius:18px;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(0,0,0,.04);
-      overflow:hidden;
-      transition:transform .18s ease, box-shadow .18s ease;
+      background:#fff;border-radius:18px;box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.04);overflow:hidden;
     }
-    .vcard:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,0,0,.14)}
     .vwrap{position:relative;background:#000;aspect-ratio:16/9}
-    .vwrap video{
-      width:100%;height:100%;
-      object-fit:cover;
-      display:block;
-      filter:saturate(1.1) contrast(1.05);
-    }
+    .vwrap video{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.1) contrast(1.05)}
     .vtag{
       position:absolute;left:12px;bottom:12px;
       background:rgba(255,255,255,.92);
@@ -578,64 +501,37 @@
     .vbody{padding:14px 14px 16px;color:var(--muted);font-size:.92rem}
     .vbody h3{color:var(--primary-dark);margin-bottom:4px}
 
-    /* NEW: PDF section */
+    /* PDF section */
     .pdfbox{
-      background:#fff;
-      border-radius:var(--radius-2);
+      background:#fff;border-radius:18px;
+      border:1px solid rgba(0,0,0,.06);
       box-shadow:var(--shadow);
-      border:1px solid rgba(0,0,0,.05);
       overflow:hidden;
     }
     .pdfbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
       padding:14px 14px;
-      background:linear-gradient(90deg, rgba(12,75,51,.08), rgba(255,127,50,.08));
+      display:flex;gap:12px;flex-wrap:wrap;
+      align-items:center;justify-content:space-between;
       border-bottom:1px solid rgba(0,0,0,.06);
-      flex-wrap:wrap;
-    }
-    .pdfbar .left{
-      display:flex;align-items:center;gap:10px;flex-wrap:wrap
+      background:linear-gradient(180deg, rgba(12,75,51,.06), rgba(255,255,255,.85));
     }
     .badge{
       display:inline-flex;align-items:center;gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      background:rgba(12,75,51,.10);
+      padding:8px 12px;border-radius:999px;
+      background:rgba(12,75,51,.08);
       color:var(--primary-dark);
-      font-weight:800;
-      font-size:.85rem;
+      font-weight:800;font-size:.9rem;
     }
     .pdf-actions{display:flex;gap:10px;flex-wrap:wrap}
-    .pdf-actions a{
-      text-decoration:none;
-    }
-    .pdf-frame{
-      width:100%;
-      height:min(78vh, 760px);
-      border:0;
-      background:#fff;
-    }
-    .pdfnote{
-      padding:12px 14px 16px;
-      color:var(--muted);
-      font-size:.92rem;
-    }
+    .pdf-frame{width:100%;height:70vh;border:0;background:#fff}
+    .pdfnote{padding:12px 14px;color:var(--muted);font-size:.9rem}
 
     /* Contact */
-    .contact{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-      gap:18px;
-      align-items:start;
-    }
+    .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
     .contact p{color:var(--muted);margin-bottom:8px;font-size:.95rem}
     .contact strong{color:var(--primary-dark)}
-    .contact a{color:var(--accent);text-decoration:none;font-weight:700}
+    .contact a{color:#cc5d1f;text-decoration:none;font-weight:700}
     .contact a:hover{text-decoration:underline}
-
     form .row{display:flex;gap:10px;flex-wrap:wrap}
     .field{flex:1;min-width:160px;margin-bottom:10px}
     label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:4px}
@@ -653,11 +549,8 @@
     input:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(12,75,51,.14)}
     textarea{min-height:110px;resize:vertical}
 
-    .map{
-      border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.05);
-      background:#fff;margin-top:10px
-    }
-    .map iframe{width:100%;height:220px;border:0}
+    .map{border-radius:18px;overflow:hidden;border:1px solid rgba(0,0,0,.05);background:#fff;margin-top:10px}
+    .map iframe{width:100%;height:240px;border:0}
 
     /* WhatsApp & Top */
     .whatsapp{position:fixed;right:18px;bottom:18px;z-index:1100}
@@ -728,24 +621,41 @@
       padding:10px 14px;
       cursor:pointer;
     }
-    /* Mobile */
+
+    /* ✅ MOBILE OVERLAP FIX (your screenshot issue) */
     @media (max-width: 980px){
-      :root{--headerH:110px}
-      .hdr{height:var(--headerH);align-items:flex-start}
-      .hdr-right{min-width:0}
+      .hdr{
+        height:auto;               /* let it expand */
+        flex-wrap:wrap;            /* prevents overlap */
+        row-gap:10px;
+        padding:10px 14px 10px;
+        align-items:center;
+      }
+      .brand{min-width:0;flex:1 1 auto}
+      .hdr-right{
+        width:100%;
+        min-width:0;
+        align-items:flex-start;
+      }
+      .a11y{
+        width:100%;
+        justify-content:flex-start;
+        flex-wrap:wrap;
+        gap:8px;
+      }
       .top-contact{display:none}
       .nav-toggle{display:inline-flex}
       nav{display:none;width:100%;padding:10px 0 0}
       nav.open{display:flex;flex-direction:column;align-items:stretch}
       nav a{width:100%;font-size:.84rem}
       .navrow{flex-direction:column;align-items:stretch}
-      .two, .contact{grid-template-columns:1fr}
+      .two,.contact{grid-template-columns:1fr}
       .stats-row{grid-template-columns:repeat(2, minmax(0,1fr))}
       .hero-badge{display:none}
       .pdf-frame{height:72vh}
     }
+
     @media (max-width: 520px){
-      .brand{min-width:0}
       .brand-text strong{font-size:.98rem}
       .hero{height:560px}
       .stats-row{grid-template-columns:1fr}
@@ -757,7 +667,6 @@
     }
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#mainContent">Skip to main content</a>
 
@@ -780,15 +689,18 @@
         </div>
 
         <div class="a11y" aria-label="Accessibility and language options">
-          <button class="a11y-btn" id="contrastToggle" type="button" aria-pressed="false">High contrast</button>
-          <button class="a11y-btn" id="fontToggle" type="button" aria-pressed="false">A+</button>
+          <button class="a11y-btn" id="contrastToggle" type="button">High contrast</button>
+          <button class="a11y-btn" id="fontToggle" type="button">A+</button>
           <div id="google_translate_element" aria-label="Translate this page"></div>
         </div>
       </div>
     </div>
 
     <div class="navrow">
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-controls="mainNav" aria-expanded="false">
+      <button class="nav-toggle" id="navToggle"
+        aria-label="Toggle navigation"
+        aria-controls="mainNav"
+        aria-expanded="false">
         <span class="hamburger" aria-hidden="true"></span> Menu
       </button>
 
@@ -801,7 +713,6 @@
         <a href="#admissions"><span>Admissions</span></a>
         <a href="#gallery"><span>Gallery</span></a>
         <a href="#media"><span>Media</span></a>
-        <!-- NEW -->
         <a href="#profile"><span>School Profile (PDF)</span></a>
         <a href="#contact"><span>Contact</span></a>
         <a href="#faq"><span>FAQ</span></a>
@@ -815,70 +726,68 @@
   </div>
 
   <main id="mainContent" tabindex="-1">
-    <!-- HERO (safer source switching later in JS) -->
+
+    <!-- HERO -->
     <section class="hero" id="home" aria-label="NewDawn School hero section">
       <video id="heroVideo" autoplay muted playsinline preload="metadata" poster="01.jpg">
         <source id="heroSource" src="video1.mp4" type="video/mp4" />
       </video>
       <div class="overlay" aria-hidden="true"></div>
-      <div class="grain" aria-hidden="true"></div>
 
       <div class="hero-inner">
         <div class="hero-copy">
-          <div class="kicker"><span class="dot" aria-hidden="true"></span> Bondo • Siaya County • Kenya</div>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> BONDO • SIAYA COUNTY • KENYA</div>
           <h1>A World-Class School Experience — Modern, Safe, and Future-Ready.</h1>
           <p>
-            A CBC-aligned private school founded in <strong>2016</strong> on a spacious <strong>2-acre</strong> campus along
-            the <strong>Bondo–Kisian Highway</strong>, offering <strong>Playgroup, PP1–PP2, Primary (Grades 1–6)</strong>,
-            and <strong>Junior School</strong> (introduced in <strong>2025</strong>).
+            A private, CBC-aligned school founded in <strong>2016</strong> on a spacious <strong>2-acre</strong> campus along
+            the <strong>Bondo–Kisian Highway</strong>, serving a culturally diverse learner community.
           </p>
 
           <div class="ctas">
             <a class="btn primary" href="#admissions">Apply / Request Info</a>
             <a class="btn ghost" href="#gallery">View Gallery</a>
-            <a class="btn ghost" href="#profile">Download School Profile (PDF)</a>
+            <a class="btn ghost" href="#media">Watch Videos</a>
           </div>
         </div>
       </div>
 
       <div class="hero-badge" aria-label="Quick stats">
-        <strong>400+ Learners</strong>
+        <strong>390 Learners</strong>
         CBC • Playgroup • PP1–PP2 • Grades 1–6 • Junior School
       </div>
     </section>
-
     <!-- STATS -->
     <section class="stats" aria-label="School statistics">
       <div class="stats-row" data-animate>
         <div class="stat">
-          <div class="label">Enrollment</div>
-          <div class="num">400+</div>
-          <div class="note">Learners currently enrolled.</div>
+          <div class="label">Current Enrollment</div>
+          <div class="num">390</div>
+          <div class="note">Active learners</div>
         </div>
         <div class="stat">
-          <div class="label">Junior School</div>
-          <div class="num">20</div>
-          <div class="note">Learners (introduced 2025).</div>
+          <div class="label">Graduated</div>
+          <div class="num">40</div>
+          <div class="note">Alumni learners</div>
         </div>
         <div class="stat">
           <div class="label">Founded</div>
           <div class="num">2016</div>
-          <div class="note">Serving Bondo Sub-County.</div>
+          <div class="note">Years of excellence</div>
         </div>
         <div class="stat">
-          <div class="label">Campus</div>
+          <div class="label">Campus Size</div>
           <div class="num">2</div>
-          <div class="note">Acres of learning space.</div>
+          <div class="note">Acres of space</div>
         </div>
         <div class="stat">
           <div class="label">Teachers</div>
           <div class="num">18</div>
-          <div class="note">Dedicated educators.</div>
+          <div class="note">Qualified educators</div>
         </div>
         <div class="stat">
           <div class="label">Support Staff</div>
           <div class="num">10</div>
-          <div class="note">Non-teaching personnel.</div>
+          <div class="note">Non-teaching team</div>
         </div>
       </div>
     </section>
@@ -888,36 +797,40 @@
       <div class="inner">
         <div class="sec-head" data-animate>
           <h2>About NewDawn School</h2>
-          <p>We do not copy what others do — we do it differently, with excellence.</p>
+          <p>We nurture confident learners through quality education and strong values.</p>
         </div>
 
         <div class="two">
           <div class="card" data-animate>
-            <span class="pill">Overview</span>
-            <h3 style="color:var(--primary-dark);margin-bottom:8px;">A strong foundation for every learner</h3>
+            <span class="pill">Who We Are</span>
+            <h3 style="color:var(--primary-dark);margin-bottom:8px;">
+              A strong foundation for every learner
+            </h3>
             <p style="color:var(--muted);font-size:.95rem;">
-              NewDawn School is a private institution situated on a spacious 2-acre campus along the Bondo–Kisian Highway,
-              just outside Bondo town. We serve a culturally diverse learner community from across Bondo Sub-County.
+              NewDawn School is a private institution located along the Bondo–Kisian Highway,
+              just outside Bondo town. We serve learners from Bondo Sub-County and surrounding areas.
             </p>
             <p style="color:var(--muted);font-size:.95rem;margin-top:10px;">
-              Our structure includes <strong>Pre-primary</strong> (Playgroup, PP1 & PP2), <strong>Primary</strong> (Grades 1–6),
-              and a <strong>Junior School</strong> introduced in 2025.
+              Our academic structure includes <strong>Pre-Primary</strong> (Playgroup, PP1 & PP2),
+              <strong>Primary</strong> (Grades 1–6), and a growing <strong>Junior School</strong>.
             </p>
           </div>
 
           <div class="card" data-animate>
-            <span class="pill">Learning & Culture</span>
-            <h3 style="color:var(--primary-dark);margin-bottom:8px;">CBC + Enrichment that builds confident learners</h3>
+            <span class="pill">Learning Culture</span>
+            <h3 style="color:var(--primary-dark);margin-bottom:8px;">
+              CBC enriched with creativity and discipline
+            </h3>
             <p style="color:var(--muted);font-size:.95rem;">
-              Our academic program is based on Kenya’s <strong>Competency Based Curriculum (CBC)</strong>.
-              <strong>English</strong> is the language of instruction for learners and staff.
+              We fully implement Kenya’s <strong>Competency Based Curriculum (CBC)</strong>
+              and are registered with the Ministry of Education. English is the language of instruction.
             </p>
-            <ul style="margin-top:10px;padding-left:18px;color:var(--muted);font-size:.92rem;line-height:1.55;">
-              <li><strong>Music program</strong> with instruments: drums, guitar, violins, violas, cello & digital keyboard.</li>
-              <li><strong>Weekly storybook sessions</strong> to foster a strong reading culture.</li>
-              <li><strong>French classes</strong> for Grades 4–6.</li>
-              <li><strong>Spelling bees & debates</strong> to sharpen language and public speaking.</li>
-              <li>Planned expansion into <strong>life skills</strong> (e.g., culinary arts).</li>
+            <ul style="margin-top:10px;padding-left:18px;color:var(--muted);font-size:.92rem;line-height:1.6;">
+              <li>Music program with real instruments (strings, drums & keyboard)</li>
+              <li>Weekly storybook sessions to build reading culture</li>
+              <li>French lessons for Grades 4–6</li>
+              <li>Debates and spelling bees for communication skills</li>
+              <li>Planned life-skills programs (e.g. culinary arts)</li>
             </ul>
           </div>
         </div>
@@ -929,24 +842,33 @@
       <div class="inner">
         <div class="sec-head" data-animate>
           <h2>Programs We Offer</h2>
-          <p>Clear pathways from early years to primary and junior school.</p>
+          <p>Clear academic pathways from early years to junior school.</p>
         </div>
 
         <div class="why" data-animate>
           <div class="item">
-            <div class="icon" aria-hidden="true">🧸</div>
+            <div class="icon">🧸</div>
             <h3>Pre-Primary</h3>
-            <p>Playgroup, PP1 & PP2 — joyful learning, routines, language, early numeracy and creativity.</p>
+            <p>
+              Playgroup, PP1 & PP2 — nurturing early literacy, numeracy,
+              creativity and social skills.
+            </p>
           </div>
           <div class="item">
-            <div class="icon" aria-hidden="true">📚</div>
+            <div class="icon">📘</div>
             <h3>Primary (Grades 1–6)</h3>
-            <p>CBC-aligned instruction, strong literacy & numeracy, projects, clubs and mentorship.</p>
+            <p>
+              Strong CBC implementation, projects, clubs,
+              mentorship and continuous assessment.
+            </p>
           </div>
           <div class="item">
-            <div class="icon" aria-hidden="true">🧠</div>
+            <div class="icon">🎵</div>
             <h3>Enrichment</h3>
-            <p>Music, reading culture, French (Grades 4–6), spelling bees, debates and life skills growth.</p>
+            <p>
+              Music, reading culture, French language,
+              debates and co-curricular activities.
+            </p>
           </div>
         </div>
       </div>
@@ -957,28 +879,32 @@
       <div class="inner">
         <div class="sec-head" data-animate>
           <h2>Junior School (Introduced 2025)</h2>
-          <p>Digitized classrooms and a modern learning experience.</p>
+          <p>Modern learning powered by technology and care.</p>
         </div>
 
         <div class="two">
           <div class="card" data-animate>
             <span class="pill">Digitized Learning</span>
-            <h3 style="color:var(--primary-dark);margin-bottom:8px;">Smart boards in every classroom</h3>
+            <h3 style="color:var(--primary-dark);margin-bottom:8px;">
+              Smart boards in every classroom
+            </h3>
             <p style="color:var(--muted);font-size:.95rem;">
-              Our Junior School is fully digitized, with each classroom equipped with smart boards.
-              Learners benefit from engaging visuals, interactive instruction and structured digital learning.
+              Our Junior School classrooms are fully digitized with smart boards,
+              enabling interactive lessons and engaging learning experiences.
             </p>
             <p style="color:var(--muted);font-size:.95rem;margin-top:10px;">
-              Currently, Junior School has <strong>20 learners</strong> as we scale intentionally while maintaining quality.
+              Currently enrolling <strong>20 learners</strong> as we grow with quality in focus.
             </p>
           </div>
 
           <div class="card" data-animate>
             <span class="pill">Safe & Supportive</span>
-            <h3 style="color:var(--primary-dark);margin-bottom:8px;">A campus designed for growth</h3>
+            <h3 style="color:var(--primary-dark);margin-bottom:8px;">
+              A campus designed for growth
+            </h3>
             <p style="color:var(--muted);font-size:.95rem;">
-              With over 2 acres, learners enjoy ample space for academics, recreation and co-curricular activities.
-              We are committed to a safe, supportive environment for learners and staff.
+              With over two acres of land, learners enjoy ample space for academics,
+              play and co-curricular development in a safe environment.
             </p>
             <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
               <a class="btn primary" href="#contact">Visit the Campus</a>
@@ -988,7 +914,6 @@
         </div>
       </div>
     </section>
-
     <!-- WHY -->
     <section class="section" id="why">
       <div class="inner">
@@ -999,92 +924,97 @@
 
         <div class="why" data-animate>
           <div class="item">
-            <div class="icon" aria-hidden="true">🛡️</div>
+            <div class="icon">🛡️</div>
             <h3>Safe & Supportive</h3>
-            <p>Strong routines, learner care, and a campus environment built for confidence and wellbeing.</p>
+            <p>Strong routines, learner care and wellbeing — a campus built for confidence.</p>
           </div>
           <div class="item">
-            <div class="icon" aria-hidden="true">🎶</div>
+            <div class="icon">🎶</div>
             <h3>Arts & Music Excellence</h3>
-            <p>Music instruction with real instruments plus events that build courage, expression and teamwork.</p>
+            <p>Music instruction with real instruments plus activities that build courage and teamwork.</p>
           </div>
           <div class="item">
-            <div class="icon" aria-hidden="true">🗣️</div>
+            <div class="icon">🗣️</div>
             <h3>Language Growth</h3>
-            <p>Debates, spelling bees, storybook culture and French classes strengthen communication.</p>
+            <p>Debates, spelling bees, storybook culture and French lessons sharpen communication.</p>
           </div>
           <div class="item">
-            <div class="icon" aria-hidden="true">💡</div>
+            <div class="icon">💡</div>
             <h3>Modern Learning</h3>
-            <p>Digitized Junior School classrooms with smart boards for engaging, high-impact learning.</p>
+            <p>Digitized Junior School classrooms powered by smart boards and structured support.</p>
           </div>
         </div>
       </div>
     </section>
+
     <!-- GALLERY -->
     <section class="section alt" id="gallery">
       <div class="inner">
         <div class="sec-head" data-animate>
           <h2>Gallery</h2>
-          <p>Top-tier moments from learning, play, school life and campus activities.</p>
+          <p>Moments from learning, play, school life and campus activities.</p>
         </div>
 
         <div class="gallery" data-animate aria-label="Photo gallery">
+          <!-- Premium hero tiles -->
           <div class="gitem span-8 h-360">
-            <img class="gallery-img" src="01.jpg" alt="Campus highlight 01" loading="lazy">
+            <img class="gallery-img" src="01.jpg" alt="Campus highlight" loading="lazy" />
             <div class="gcap"><span class="shine"></span>Campus highlight</div>
           </div>
+
           <div class="gitem span-4 h-360">
-            <img class="gallery-img" src="02.jpg" alt="Campus highlight 02" loading="lazy">
+            <img class="gallery-img" src="02.jpg" alt="Learning space" loading="lazy" />
             <div class="gcap"><span class="shine"></span>Learning space</div>
           </div>
 
           <div class="gitem span-6 h-320">
-            <img class="gallery-img" src="03.jpg" alt="Campus highlight 03" loading="lazy">
+            <img class="gallery-img" src="03.jpg" alt="Classroom moments" loading="lazy" />
             <div class="gcap"><span class="shine"></span>Classroom moments</div>
           </div>
+
           <div class="gitem span-3 h-320">
-            <img class="gallery-img" src="04.jpg" alt="Campus highlight 04" loading="lazy">
+            <img class="gallery-img" src="04.jpg" alt="Outdoor play" loading="lazy" />
             <div class="gcap"><span class="shine"></span>Outdoor play</div>
           </div>
+
           <div class="gitem span-3 h-320">
-            <img class="gallery-img" src="05.jpg" alt="Campus highlight 05" loading="lazy">
+            <img class="gallery-img" src="05.jpg" alt="School life" loading="lazy" />
             <div class="gcap"><span class="shine"></span>School life</div>
           </div>
 
-          <!-- Numbered images -->
-          <div class="gitem span-3 h-260"><img class="gallery-img" src="1.jpg" alt="NewDawn moment 1" loading="lazy"></div>
-          <div class="gitem span-3 h-260"><img class="gallery-img" src="2.jpg" alt="NewDawn moment 2" loading="lazy"></div>
-          <div class="gitem span-3 h-260"><img class="gallery-img" src="3.jpg" alt="NewDawn moment 3" loading="lazy"></div>
-          <div class="gitem span-3 h-260"><img class="gallery-img" src="4.jpg" alt="NewDawn moment 4" loading="lazy"></div>
+          <!-- Your numbered images -->
+          <div class="gitem span-3 h-260"><img class="gallery-img" src="1.jpg" alt="NewDawn moment 1" loading="lazy" /></div>
+          <div class="gitem span-3 h-260"><img class="gallery-img" src="2.jpg" alt="NewDawn moment 2" loading="lazy" /></div>
+          <div class="gitem span-3 h-260"><img class="gallery-img" src="3.jpg" alt="NewDawn moment 3" loading="lazy" /></div>
+          <div class="gitem span-3 h-260"><img class="gallery-img" src="4.jpg" alt="NewDawn moment 4" loading="lazy" /></div>
 
-          <div class="gitem span-3 h-260"><img class="gallery-img" src="5.jpg" alt="NewDawn moment 5" loading="lazy"></div>
-          <div class="gitem span-3 h-260"><img class="gallery-img" src="6.jpg" alt="NewDawn moment 6" loading="lazy"></div>
-          <div class="gitem span-3 h-260"><img class="gallery-img" src="7.jpg" alt="NewDawn moment 7" loading="lazy"></div>
-          <div class="gitem span-3 h-260"><img class="gallery-img" src="8.jpg" alt="NewDawn moment 8" loading="lazy"></div>
+          <div class="gitem span-3 h-260"><img class="gallery-img" src="5.jpg" alt="NewDawn moment 5" loading="lazy" /></div>
+          <div class="gitem span-3 h-260"><img class="gallery-img" src="6.jpg" alt="NewDawn moment 6" loading="lazy" /></div>
+          <div class="gitem span-3 h-260"><img class="gallery-img" src="7.jpg" alt="NewDawn moment 7" loading="lazy" /></div>
+          <div class="gitem span-3 h-260"><img class="gallery-img" src="8.jpg" alt="NewDawn moment 8" loading="lazy" /></div>
 
-          <div class="gitem span-4 h-260"><img class="gallery-img" src="9.jpg" alt="NewDawn moment 9" loading="lazy"></div>
-          <div class="gitem span-4 h-260"><img class="gallery-img" src="0.jpg" alt="NewDawn moment 0" loading="lazy"></div>
-          <div class="gitem span-4 h-260"><img class="gallery-img" src="06.jpg" alt="Campus highlight 06" loading="lazy"></div>
+          <div class="gitem span-4 h-260"><img class="gallery-img" src="9.jpg" alt="NewDawn moment 9" loading="lazy" /></div>
+          <div class="gitem span-4 h-260"><img class="gallery-img" src="0.jpg" alt="NewDawn moment 0" loading="lazy" /></div>
+          <div class="gitem span-4 h-260"><img class="gallery-img" src="06.jpg" alt="Campus highlight 06" loading="lazy" /></div>
 
           <div class="gitem span-6 h-320">
-            <img class="gallery-img" src="07.jpg" alt="Campus highlight 07" loading="lazy">
+            <img class="gallery-img" src="07.jpg" alt="Community and culture" loading="lazy" />
             <div class="gcap"><span class="shine"></span>Community & culture</div>
           </div>
+
           <div class="gitem span-6 h-320">
-            <img class="gallery-img" src="08.jpg" alt="Campus highlight 08" loading="lazy">
+            <img class="gallery-img" src="08.jpg" alt="Celebrations" loading="lazy" />
             <div class="gcap"><span class="shine"></span>Celebrations</div>
           </div>
         </div>
       </div>
     </section>
-
     <!-- MEDIA -->
     <section class="section" id="media">
       <div class="inner">
         <div class="sec-head" data-animate>
           <h2>Video Highlights</h2>
-          <p>Videos play automatically (muted) for a smooth, premium experience.</p>
+          <p>Short moments that show school life, learning, and co-curricular activities.</p>
         </div>
 
         <div class="media-grid" data-animate>
@@ -1112,46 +1042,6 @@
               <h3>Events & Activities</h3>
               <p>Clubs, celebrations and co-curricular life that builds confident learners.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEW: SCHOOL PROFILE (PDF) -->
-    <section class="section alt" id="profile">
-      <div class="inner">
-        <div class="sec-head" data-animate>
-          <h2>School Profile (PDF)</h2>
-          <p>View the official profile in-browser or download it to your phone/computer.</p>
-        </div>
-
-        <div class="pdfbox" data-animate>
-          <div class="pdfbar">
-            <div class="left">
-              <span class="badge">📄 NewDawn School Profile 2026</span>
-              <span style="color:var(--muted);font-size:.9rem;">(Opens inside this page)</span>
-            </div>
-
-            <div class="pdf-actions">
-              <!-- IMPORTANT: Put the PDF file in same folder as index.html with this exact name -->
-              <a class="btn primary" href="NewDawn%20School%20Profile%202026.pdf" download>
-                Download PDF
-              </a>
-              <a class="btn ghost" href="NewDawn%20School%20Profile%202026.pdf" target="_blank" rel="noopener">
-                Open in new tab
-              </a>
-            </div>
-          </div>
-
-          <iframe
-            class="pdf-frame"
-            title="NewDawn School Profile PDF"
-            loading="lazy"
-            src="NewDawn%20School%20Profile%202026.pdf"
-          ></iframe>
-
-          <div class="pdfnote">
-            If the PDF doesn’t preview on some phones, tap <strong>Download PDF</strong> or <strong>Open in new tab</strong>.
           </div>
         </div>
       </div>
@@ -1185,17 +1075,52 @@
             <span class="pill">Our Promise</span>
             <h3 style="color:var(--primary-dark);margin-bottom:8px;">Quality + warmth + results</h3>
             <p style="color:var(--muted);font-size:.95rem;">
-              We maintain a supportive environment for both learners and staff, with strong routines, quality instruction,
-              and enriching programs (music, reading culture, French, debates & spelling bees).
+              We offer a supportive environment for learners and staff, with strong routines,
+              quality instruction, and enriching programs — music, reading culture, French,
+              debates and spelling bees.
             </p>
             <p style="color:var(--muted);font-size:.95rem;margin-top:10px;">
-              Want more details? Visit the school office or reach out via WhatsApp for a guided discussion.
+              Want more details? Visit our campus office or reach out via WhatsApp for guidance.
             </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PDF PROFILE -->
+    <section class="section" id="profile">
+      <div class="inner">
+        <div class="sec-head" data-animate>
+          <h2>School Profile (PDF)</h2>
+          <p>View the official NewDawn School profile and download it for easy sharing.</p>
+        </div>
+
+        <div class="pdfbox" data-animate>
+          <div class="pdfbar">
+            <div class="badge">📄 NewDawn School Profile 2026</div>
+            <div class="pdf-actions">
+              <a class="btn primary" href="NewDawn%20School%20Profile%202026.pdf" download>
+                Download PDF
+              </a>
+              <a class="btn ghost" href="NewDawn%20School%20Profile%202026.pdf" target="_blank" rel="noopener">
+                Open in New Tab
+              </a>
+            </div>
+          </div>
+
+          <!-- Embedded PDF -->
+          <iframe
+            class="pdf-frame"
+            title="NewDawn School Profile 2026 PDF"
+            src="NewDawn%20School%20Profile%202026.pdf">
+          </iframe>
+
+          <div class="pdfnote">
+            If the PDF preview does not show on your phone, tap <strong>Open in New Tab</strong> or <strong>Download PDF</strong>.
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- FAQ -->
     <section class="section" id="faq">
       <div class="inner">
@@ -1208,7 +1133,7 @@
           <div class="card" style="grid-column:span 6">
             <h3 style="color:var(--primary-dark);margin-bottom:8px;">Which curriculum do you follow?</h3>
             <p style="color:var(--muted);font-size:.95rem;">
-              We follow Kenya’s CBC. English is the language of instruction.
+              We follow Kenya’s CBC and are registered with the Ministry of Education. English is the language of instruction.
             </p>
           </div>
           <div class="card" style="grid-column:span 6">
@@ -1220,6 +1145,7 @@
         </div>
       </div>
     </section>
+
     <!-- CONTACT -->
     <section class="section alt" id="contact">
       <div class="inner">
@@ -1237,20 +1163,17 @@
             <p><strong>🌐 Website:</strong> <a href="https://danoty.github.io/NewDawn/" target="_blank" rel="noopener">danoty.github.io/NewDawn</a></p>
 
             <div class="map" aria-label="Map to NewDawn School">
-              <!-- TODO: Replace pb= with the real embed link from Google Maps -->
               <iframe
-                title="NewDawn School Map"
+                title="New Dawn School Bondo Map"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb="
-              ></iframe>
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31918.49666091006!2d34.2720157!3d-0.10131514999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d55b4ae46c996b%3A0xf7876a8110a77164!2sNew%20Dawn%20School%20Bondo!5e0!3m2!1sen!2ske!4v1768769415754!5m2!1sen!2ske">
+              </iframe>
             </div>
           </div>
 
           <div class="card" data-animate>
             <span class="pill">Apply / Request Info</span>
-
-            <!-- NOTE: This form will open WhatsApp with a prefilled message (JS in Part 8) -->
             <form id="inquiryForm" action="#" method="post" aria-label="Inquiry form">
               <div class="row">
                 <div class="field">
@@ -1279,20 +1202,21 @@
                 <textarea id="msg" name="msg" placeholder="Tell us how we can help..."></textarea>
               </div>
 
-              <button class="btn primary" type="submit">Send via WhatsApp</button>
+              <button class="btn primary" type="submit">Submit via WhatsApp</button>
             </form>
 
             <p style="margin-top:10px;color:var(--muted);font-size:.85rem;">
-              Tip: For fastest response, send the learner’s level + preferred joining date.
+              Tip: For fastest response, submit and your message will open directly in WhatsApp.
             </p>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+  <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lb-close" id="lbClose" aria-label="Close image viewer">✕</button>
     <img id="lbImg" src="" alt="Expanded view" />
   </div>
@@ -1317,8 +1241,7 @@
         <p style="line-height:1.8;font-size:.9rem;">
           <a href="#admissions">Admissions</a><br/>
           <a href="#gallery">Gallery</a><br/>
-          <a href="#media">Media</a><br/>
-          <a href="#profile">School Profile PDF</a><br/>
+          <a href="#profile">School Profile (PDF)</a><br/>
           <a href="#contact">Contact</a>
         </p>
       </div>
@@ -1334,18 +1257,17 @@
     <div class="fbottom">
       <div>&copy; 2026 NewDawn School. All rights reserved.</div>
       <div style="max-width:520px;">
-        We use cookies only for basic site preferences (like this notice). No sensitive learner information is collected.
+        We respect the privacy and dignity of our learners, staff and parents. Information shared is handled with confidentiality.
       </div>
     </div>
   </footer>
 
   <div class="cookie" id="cookieBanner" aria-label="Cookie notice">
     <div class="ci">
-      <div>We use cookies only for basic site preferences (like hiding this notice).</div>
+      <div>We use basic analytics to improve this website. No sensitive learner information is collected.</div>
       <button id="cookieAccept" type="button">I understand</button>
     </div>
   </div>
-
   <!-- Google Translate -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
@@ -1357,16 +1279,31 @@
     }
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   <script>
+    /* ✅ Keep CSS --headerH synced to actual header height (fixes mobile overlap + anchor offsets) */
+    (function(){
+      const header = document.querySelector('header');
+      function syncHeaderH(){
+        if (!header) return;
+        const h = Math.ceil(header.getBoundingClientRect().height);
+        document.documentElement.style.setProperty('--headerH', `${h}px`);
+      }
+      window.addEventListener('load', syncHeaderH);
+      window.addEventListener('resize', syncHeaderH);
+      setTimeout(syncHeaderH, 50);
+      setTimeout(syncHeaderH, 600); // helps after translate / fonts
+    })();
+
     // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const mainNav = document.getElementById('mainNav');
-
     navToggle?.addEventListener('click', () => {
       const isOpen = mainNav.classList.toggle('open');
       navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
+    // Close nav on link click (mobile)
     mainNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       if (window.innerWidth <= 980) {
         mainNav.classList.remove('open');
@@ -1377,12 +1314,11 @@
     // Active nav highlight
     const sections = document.querySelectorAll('main section[id]');
     const navLinks = mainNav?.querySelectorAll('a[href^="#"]') || [];
-
     function setActiveNav(){
       const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--headerH')) || 92;
-      const y = window.scrollY + headerH + 40;
-      let current = '';
+      const y = window.scrollY + headerH + 60;
 
+      let current = '';
       sections.forEach(sec => {
         const top = sec.offsetTop;
         const h = sec.offsetHeight;
@@ -1390,8 +1326,7 @@
       });
 
       navLinks.forEach(link => {
-        const id = (link.getAttribute('href') || '').slice(1);
-        link.classList.toggle('active', id === current);
+        link.classList.toggle('active', link.getAttribute('href').slice(1) === current);
       });
     }
     window.addEventListener('scroll', setActiveNav, { passive:true });
@@ -1417,56 +1352,34 @@
     }, { passive:true });
     topBtn?.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-    // Lightbox gallery (with focus restore)
+    // Lightbox gallery
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lbImg');
     const lbClose = document.getElementById('lbClose');
-    let lastFocusedEl = null;
-
     document.querySelectorAll('.gallery-img').forEach(img => {
-      img.setAttribute('tabindex', '0'); // keyboard support
-      img.addEventListener('click', () => openLB(img));
-      img.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openLB(img);
-        }
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lb.classList.add('active');
+        lb.setAttribute('aria-hidden', 'false');
+        lbClose?.focus();
       });
     });
-
-    function openLB(img){
-      lastFocusedEl = document.activeElement;
-      lbImg.src = img.src;
-      lb.classList.add('active');
-      lb.setAttribute('aria-hidden', 'false');
-      lbClose?.focus();
-    }
-
     function closeLB(){
       lb.classList.remove('active');
       lb.setAttribute('aria-hidden', 'true');
       lbImg.src = '';
-      if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') lastFocusedEl.focus();
     }
-
     lbClose?.addEventListener('click', closeLB);
     lb?.addEventListener('click', (e) => { if (e.target === lb) closeLB(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLB(); });
 
-    // Accessibility toggles (with aria-pressed)
+    // Accessibility toggles
     const contrastToggle = document.getElementById('contrastToggle');
     const fontToggle = document.getElementById('fontToggle');
+    contrastToggle?.addEventListener('click', () => document.body.classList.toggle('high-contrast'));
+    fontToggle?.addEventListener('click', () => document.body.classList.toggle('large-font'));
 
-    contrastToggle?.addEventListener('click', () => {
-      const on = document.body.classList.toggle('high-contrast');
-      contrastToggle.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-    fontToggle?.addEventListener('click', () => {
-      const on = document.body.classList.toggle('large-font');
-      fontToggle.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-
-    // Cookie banner (preferences only)
+    // Cookie banner
     (function(){
       const banner = document.getElementById('cookieBanner');
       const btn = document.getElementById('cookieAccept');
@@ -1478,34 +1391,37 @@
       });
     })();
 
-    // Inquiry form -> opens WhatsApp with a prefilled message (works on GitHub Pages)
+    // ✅ Inquiry form submits to WhatsApp (no broken form action)
     (function(){
       const form = document.getElementById('inquiryForm');
       if (!form) return;
 
-      form.addEventListener('submit', (e)=>{
+      form.addEventListener('submit', (e) => {
         e.preventDefault();
-
         const pname = document.getElementById('pname')?.value?.trim() || '';
         const phone = document.getElementById('phone')?.value?.trim() || '';
         const lname = document.getElementById('lname')?.value?.trim() || '';
         const level = document.getElementById('level')?.value?.trim() || '';
         const msg = document.getElementById('msg')?.value?.trim() || '';
 
-        const text =
-`Hello NewDawn School,
-Parent/Guardian: ${pname}
-Phone: ${phone}
-Learner: ${lname}
-Level: ${level}
-Message: ${msg}`.trim();
+        const lines = [
+          "Hello NewDawn School,",
+          "",
+          `Parent/Guardian: ${pname}`,
+          `Phone: ${phone}`,
+          lname ? `Learner: ${lname}` : "",
+          level ? `Level: ${level}` : "",
+          msg ? `Message: ${msg}` : "",
+          "",
+          "Thank you."
+        ].filter(Boolean);
 
-        const url = `https://wa.me/254769924670?text=${encodeURIComponent(text)}`;
-        window.open(url, '_blank', 'noopener');
+        const text = encodeURIComponent(lines.join("\n"));
+        window.open(`https://wa.me/254769924670?text=${text}`, "_blank");
       });
     })();
 
-    // HERO VIDEO: safer swap without innerHTML
+    // ✅ HERO VIDEO: alternate video1.mp4 and video2.mp4 smoothly (no innerHTML swap)
     (function(){
       const heroVideo = document.getElementById('heroVideo');
       const heroSource = document.getElementById('heroSource');
@@ -1513,27 +1429,25 @@ Message: ${msg}`.trim();
 
       const playlist = ['video1.mp4', 'video2.mp4'];
       let idx = 0;
-      let swapping = false;
 
-      async function swap(){
-        if (swapping) return;
-        swapping = true;
-
-        idx = (idx + 1) % playlist.length;
+      function swapTo(nextSrc){
+        idx = playlist.indexOf(nextSrc);
         heroVideo.pause();
-        heroSource.src = playlist[idx];
+        heroSource.src = nextSrc;
         heroVideo.load();
-
-        try { await heroVideo.play(); } catch(e) {}
-        swapping = false;
+        const p = heroVideo.play();
+        if (p && typeof p.catch === 'function') p.catch(()=>{});
       }
 
-      // Attempt initial play
+      // attempt play
       const p = heroVideo.play();
       if (p && typeof p.catch === 'function') p.catch(()=>{});
 
-      // Rotate every 22 seconds (smooth, no flicker)
-      setInterval(swap, 22000);
+      // rotate every 22 seconds
+      setInterval(() => {
+        const next = playlist[(idx + 1) % playlist.length];
+        swapTo(next);
+      }, 22000);
     })();
   </script>
 </body>
