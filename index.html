@@ -70,6 +70,28 @@
   fixVideo('mediaVideo1');
   fixVideo('mediaVideo2');
 })();
+    // Highlight Junior School card on scroll (subtle emphasis)
+(function(){
+  const card = document.getElementById('juniorCard');
+  if(!card) return;
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        card.style.boxShadow = "0 18px 40px rgba(255,127,50,.25)";
+        card.style.transform = "translateY(-2px)";
+        setTimeout(() => {
+          card.style.boxShadow = "";
+          card.style.transform = "";
+        }, 1800);
+        io.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+
+  io.observe(card);
+})();
+
 
   </script>
 
