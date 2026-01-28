@@ -823,52 +823,67 @@ body{ top:0 !important; }
   text-transform:uppercase;
   background:rgba(255,127,50,.12);
   color:var(--accent-dark);
-}
-/* ===== Floating kurasa Engage Button ===== */
-.kurasa-btn{
+/* ===== Kurasa Premium Floating Button ===== */
+.kurasa-float{
   position:fixed;
   right:18px;
-  bottom:92px; /* sits nicely above WhatsApp */
+  bottom:98px; /* sits above WhatsApp */
   z-index:1200;
+
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  padding:14px 18px;
+  border-radius:999px;
+  text-decoration:none;
 
   background:linear-gradient(135deg, var(--accent), var(--accent-2));
   color:#111;
-  font-weight:900;
-  text-decoration:none;
+  font-weight:800;
 
-  padding:14px 18px;
-  border-radius:18px;
-  box-shadow:0 18px 34px rgba(0,0,0,.38);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.30),
+    inset 0 0 0 1px rgba(255,255,255,.55);
 
-  text-align:center;
-  line-height:1.2;
-  font-size:.9rem;
-
-  transition:transform .15s ease, box-shadow .15s ease;
+  transition:transform .18s ease, box-shadow .18s ease;
 }
 
-.kurasa-btn span{
-  display:block;
-  font-size:.72rem;
+.kurasa-float:hover{
+  transform:translateY(-3px);
+  box-shadow:0 22px 44px rgba(0,0,0,.38);
+}
+
+.kurasa-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  font-size:1.25rem;
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+}
+
+.kurasa-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.05;
+}
+
+.kurasa-text small{
+  font-size:.68rem;
+  opacity:.85;
   font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
 }
 
-.kurasa-btn:hover{
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:0 24px 44px rgba(0,0,0,.45);
-}
-
-/* Mobile tweak */
 @media (max-width:520px){
-  .kurasa-btn{
-    right:14px;
-    bottom:86px;
+  .kurasa-float{
     padding:12px 14px;
-    font-size:.82rem;
+    gap:10px;
   }
 }
+
 
 
   </style>
@@ -1457,6 +1472,20 @@ body{ top:0 !important; }
   </div>
 
   <!-- Floating Buttons -->
+  <!-- Kurasa Floating Button -->
+<a href="https://app.kurasa.co/auth/log-in"
+   class="kurasa-float"
+   target="_blank"
+   rel="noopener"
+   aria-label="Kurasa – Smart Parent Portal for Student Success">
+
+  <span class="kurasa-icon">🎓</span>
+  <span class="kurasa-text">
+    <strong>Kurasa</strong>
+    <small>Parent Portal</small>
+  </span>
+</a>
+
   <a class="whatsapp" href="https://wa.me/254769924670" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
   </a>
