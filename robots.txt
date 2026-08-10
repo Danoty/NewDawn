@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://newdawnschool.sc.ke/sitemap.xml

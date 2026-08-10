@@ -1,0 +1,16 @@
+{
+  "name": "NewDawn School",
+  "short_name": "NewDawn",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fffdf8",
+  "theme_color": "#123c31",
+  "icons": [
+    {
+      "src": "assets/images/logo-transparent.png",
+      "sizes": "1218x528",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
