@@ -4,7 +4,7 @@ A modern, responsive multi-page website for NewDawn School in Bondo, Kenya.
 
 The site includes dedicated About, Academics, School Life, Admissions, Contact and Privacy pages, plus a custom 404 page, responsive WebP imagery, security-header guidance and a complete XML sitemap.
 
-The global gold banner links teachers and parents to the Kurasa portal. Its URL is managed centrally in `site-config.js`. The included service worker provides a resilient offline fallback after the first successful visit when the site is served over HTTPS.
+The global gold banner links teachers and parents to the Kurasa portal. Its URL is managed centrally in `site-config.js`. The included service worker provides smart offline caching and a dedicated offline screen after the first successful HTTPS visit. Supporting devices also offer native page sharing and app installation; modern browsers can prefetch likely internal destinations while data-saving connections are respected.
 
 ## Preview locally
 

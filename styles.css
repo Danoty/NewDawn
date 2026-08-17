@@ -91,3 +91,24 @@
 @media(max-width:1000px){.portal-banner{height:58px;gap:12px}.portal-banner-kicker{display:none}.nav-menu{inset:133px 0 auto}.inner-page .breadcrumb{top:160px}.inner-page .inner-hero{padding-top:205px}}
 @media(max-width:560px){.portal-banner{height:64px;justify-content:space-between;padding-inline:14px;text-align:left}.portal-banner strong{max-width:230px;font-size:.9rem;line-height:1.18}.portal-banner-action{padding:7px 10px;font-size:.7rem}.nav-menu{inset:139px 0 auto}}
 @media(prefers-reduced-motion:reduce){.portal-banner{animation:none}}
+
+/* Progressive enhancement and WCAG 2.2 interaction refinements. */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:180ms ease both fade-out}
+::view-transition-new(root){animation:260ms ease both fade-in}
+@keyframes fade-out{to{opacity:0}}
+@keyframes fade-in{from{opacity:0}}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.nav-menu>a{min-height:44px;display:inline-flex;align-items:center}
+button,.button,.portal-banner,.whatsapp-float{touch-action:manipulation}
+@media(prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+
+/* Modern progressive enhancements: faster off-screen rendering and app utilities. */
+main>section:not(.hero):not(.inner-hero){content-visibility:auto;contain-intrinsic-size:auto 800px}
+.utility-dock{position:fixed;z-index:79;right:22px;bottom:84px;display:flex;flex-direction:column;gap:8px}
+.utility-action{min-width:48px;min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;padding:9px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(11,41,34,.94);color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.2);backdrop-filter:blur(12px);font:700 .75rem 'Manrope',system-ui;cursor:pointer}
+.utility-action:hover{background:var(--green-2);transform:translateY(-2px)}
+.utility-action[hidden]{display:none}
+.utility-action span{font-size:1.1rem;color:var(--gold-2)}
+@media(max-width:680px){.utility-dock{right:22px;bottom:78px}.utility-action{width:48px;padding:0}.utility-action b{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}}
+@media(prefers-reduced-transparency:reduce){.utility-action{background:#0b2922;backdrop-filter:none}}

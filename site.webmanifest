@@ -1,10 +1,20 @@
 {
   "name": "NewDawn School",
   "short_name": "NewDawn",
+  "id": "/",
+  "description": "NewDawn School in Bondo, Kenya — academics, school life, admissions and family access.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#fffdf8",
   "theme_color": "#123c31",
+  "categories": ["education"],
+  "shortcuts": [
+    {"name": "Admissions", "short_name": "Admissions", "url": "/admissions.html"},
+    {"name": "Parent Portal", "short_name": "Kurasa", "url": "https://app.kurasa.co/auth/log-in"},
+    {"name": "Contact", "short_name": "Contact", "url": "/contact.html"}
+  ],
   "icons": [
     {
       "src": "assets/images/logo-transparent.png",

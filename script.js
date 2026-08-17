@@ -98,7 +98,83 @@
   document.querySelector('[data-year]').textContent = new Date().getFullYear();
 
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
-    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js?v=20260817-3').catch(() => {}));
+  }
+
+  // Progressive app actions: native sharing and installation where supported.
+  const utilityDock = document.createElement('div');
+  utilityDock.className = 'utility-dock';
+  utilityDock.setAttribute('aria-label', 'Page tools');
+  const shareButton = document.createElement('button');
+  shareButton.type = 'button';
+  shareButton.className = 'utility-action';
+  shareButton.innerHTML = '<span aria-hidden="true">↗</span><b>Share</b>';
+  shareButton.setAttribute('aria-label', 'Share this page');
+  shareButton.addEventListener('click', async () => {
+    const shareData = { title: document.title, text: 'Explore NewDawn School', url: location.href };
+    try {
+      if (navigator.share) await navigator.share(shareData);
+      else {
+        await navigator.clipboard.writeText(location.href);
+        shareButton.querySelector('b').textContent = 'Copied';
+        setTimeout(() => { shareButton.querySelector('b').textContent = 'Share'; }, 1800);
+      }
+    } catch (error) {
+      if (error.name !== 'AbortError') location.href = `mailto:?subject=${encodeURIComponent(document.title)}&body=${encodeURIComponent(location.href)}`;
+    }
+  });
+  utilityDock.append(shareButton);
+
+  let installPrompt;
+  const installButton = document.createElement('button');
+  installButton.type = 'button';
+  installButton.className = 'utility-action utility-install';
+  installButton.hidden = true;
+  installButton.innerHTML = '<span aria-hidden="true">↓</span><b>Install</b>';
+  installButton.setAttribute('aria-label', 'Install NewDawn School app');
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    installPrompt = event;
+    installButton.hidden = false;
+  });
+  installButton.addEventListener('click', async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    await installPrompt.userChoice;
+    installPrompt = null;
+    installButton.hidden = true;
+  });
+  window.addEventListener('appinstalled', () => { installButton.hidden = true; });
+  utilityDock.append(installButton);
+  document.body.append(utilityDock);
+
+  // Prefetch likely same-origin destinations without spending data on constrained connections.
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const canPrefetch = !connection?.saveData && !['slow-2g', '2g'].includes(connection?.effectiveType);
+  const internalPages = [...document.querySelectorAll('a[href]')]
+    .map((link) => new URL(link.href, location.href))
+    .filter((url) => url.origin === location.origin && /\.html$|\/$/.test(url.pathname))
+    .map((url) => url.href)
+    .filter((url, index, urls) => url !== location.href && urls.indexOf(url) === index);
+  if (canPrefetch && internalPages.length) {
+    if (HTMLScriptElement.supports?.('speculationrules')) {
+      const rules = document.createElement('script');
+      rules.type = 'speculationrules';
+      rules.textContent = JSON.stringify({ prefetch: [{ source: 'list', urls: internalPages, eagerness: 'moderate' }] });
+      document.body.append(rules);
+    } else {
+      const prefetched = new Set();
+      document.addEventListener('pointerover', (event) => {
+        const link = event.target.closest('a[href]');
+        if (!link) return;
+        const url = new URL(link.href, location.href);
+        if (url.origin !== location.origin || prefetched.has(url.href)) return;
+        prefetched.add(url.href);
+        const hint = document.createElement('link');
+        hint.rel = 'prefetch'; hint.href = url.href;
+        document.head.append(hint);
+      }, { passive: true });
+    }
   }
 
   const dialog = document.querySelector('[data-dialog]');
