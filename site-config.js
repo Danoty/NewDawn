@@ -13,6 +13,7 @@ window.NEWDawn_CONFIG = Object.freeze({
     // TODO: Confirm whether the email domain is .sh.ke or .sc.ke.
     email: "info@newdawnschool.sh.ke",
     website: "https://newdawnschool.sc.ke/",
+    parentPortalUrl: "https://app.kurasa.co/auth/log-in",
     address: "Bondo-Kisian Highway, Bondo, Siaya County, Kenya",
     mapQuery: "New Dawn School Bondo Kenya",
     officeHours: ""

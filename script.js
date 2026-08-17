@@ -3,6 +3,11 @@
   const school = config.school || {};
 
   const applySiteConfig = () => {
+    if (school.parentPortalUrl) {
+      document.querySelectorAll('[data-portal-link]').forEach((link) => {
+        link.href = school.parentPortalUrl;
+      });
+    }
     if (school.phoneInternational) {
       document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
         link.href = `tel:${school.phoneInternational}`;
@@ -91,6 +96,10 @@
   }
 
   document.querySelector('[data-year]').textContent = new Date().getFullYear();
+
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  }
 
   const dialog = document.querySelector('[data-dialog]');
   const dialogContent = document.querySelector('[data-dialog-content]');

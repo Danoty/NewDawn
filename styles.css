@@ -64,3 +64,30 @@
 .policy-note{padding:25px 28px;border-left:4px solid var(--gold);background:var(--cream);color:var(--muted)}
 @media(max-width:900px){.inner-page .notice-bar{display:none}.inner-hero{padding-top:145px}.breadcrumb{top:115px}.fact-band{grid-template-columns:1fr 1fr}.fact-band div:nth-child(2){border-right:0}.detail-cards{grid-template-columns:1fr 1fr}.editorial-grid{grid-template-columns:1fr;gap:40px}.editorial-grid.reverse .editorial-media{order:0}.editorial-media{min-height:420px}.timeline{grid-template-columns:1fr;gap:15px}.timeline:before{left:9px;right:auto;top:0;bottom:0;width:1px;height:auto}.timeline article{padding:0 0 20px 45px}.timeline article:before{top:5px}.page-cta-inner{align-items:flex-start;flex-direction:column}}
 @media(max-width:620px){.inner-hero{min-height:600px}.inner-hero h1{font-size:clamp(3rem,16vw,4.5rem)}.fact-band,.detail-cards{grid-template-columns:1fr}.fact-band div{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}.programme-table,.programme-table tbody,.programme-table tr,.programme-table td{display:block}.programme-table thead{display:none}.programme-table tr{padding:12px 0;border-bottom:1px solid var(--line)}.programme-table td{border:0;padding:8px 18px}.programme-table td:before{content:attr(data-label);display:block;color:var(--green-2);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}.contact-map{padding:15px}}
+
+/* Prominent, keyboard-accessible Kurasa parent portal entry point. */
+.nav-menu{gap:25px}
+.portal-link{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border:1px solid currentColor;border-radius:999px;font-size:.82rem;font-weight:700;white-space:nowrap}
+.portal-link span{transition:transform .25s var(--ease)}
+.portal-link:hover span{transform:translate(2px,-2px)}
+.portal-link:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.footer-portal p{margin:0 0 10px;color:#a9c0b7;font-size:.86rem}
+.footer-portal a{display:inline-flex;gap:8px;color:var(--gold-2);font-weight:700}
+.footer-portal a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.footer-top{grid-template-columns:1.25fr .58fr .65fr .8fr 1fr;gap:4%}
+@media(max-width:1000px){.footer-top{grid-template-columns:1.2fr .8fr .8fr}.footer-portal{grid-column:auto}.footer-cta{grid-column:1/4}}
+@media(max-width:680px){.portal-link{justify-content:center;margin-top:8px}.footer-top{grid-template-columns:1fr 1fr}.footer-portal{grid-column:auto}.footer-cta{grid-column:1/3}}
+
+/* High-visibility portal banner below the complete navigation. */
+.portal-banner{height:62px;display:flex;align-items:center;justify-content:center;gap:24px;padding:8px 20px;background:linear-gradient(100deg,#f5ad25 0%,#ffd36f 45%,#f5ad25 100%);background-size:200% 100%;color:#0b3027;border-top:1px solid rgba(255,255,255,.3);box-shadow:0 8px 28px rgba(7,31,25,.2);text-align:center;animation:portalGlow 7s ease-in-out infinite}
+.portal-banner-kicker{padding:5px 9px;border:1px solid rgba(11,48,39,.35);border-radius:999px;font-size:.65rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.portal-banner strong{font:800 clamp(1rem,2vw,1.3rem) 'Manrope',system-ui,sans-serif;letter-spacing:-.02em}
+.portal-banner-action{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;background:var(--green);color:white;font-size:.78rem;font-weight:800}
+.portal-banner-action i{font-style:normal;transition:transform .25s var(--ease)}
+.portal-banner:hover .portal-banner-action i{transform:translate(3px,-3px)}
+.portal-banner:focus-visible{position:relative;z-index:2;outline:4px solid white;outline-offset:-6px}
+@keyframes portalGlow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.inner-page .breadcrumb{top:217px}.inner-page .inner-hero{padding-top:252px}
+@media(max-width:1000px){.portal-banner{height:58px;gap:12px}.portal-banner-kicker{display:none}.nav-menu{inset:133px 0 auto}.inner-page .breadcrumb{top:160px}.inner-page .inner-hero{padding-top:205px}}
+@media(max-width:560px){.portal-banner{height:64px;justify-content:space-between;padding-inline:14px;text-align:left}.portal-banner strong{max-width:230px;font-size:.9rem;line-height:1.18}.portal-banner-action{padding:7px 10px;font-size:.7rem}.nav-menu{inset:139px 0 auto}}
+@media(prefers-reduced-motion:reduce){.portal-banner{animation:none}}

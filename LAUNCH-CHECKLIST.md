@@ -8,6 +8,7 @@
 - [ ] Confirm that the school has permission to publish every identifiable learner in photographs and videos.
 - [ ] Have the school approve the privacy policy and enquiry wording.
 - [ ] Confirm current admissions availability, requirements, fees and deadlines before publishing them.
+- [ ] Confirm that the Kurasa Teachers & Parents Portal login opens correctly for both user groups.
 
 ## Domain and email configuration
 
