@@ -3,6 +3,7 @@
   const school = config.school || {};
 
   const applySiteConfig = () => {
+    if (school.webmailUrl) document.querySelectorAll('[data-webmail-link]').forEach(link => { link.href = school.webmailUrl; });
     if (school.parentPortalUrl) {
       document.querySelectorAll('[data-portal-link]').forEach((link) => {
         link.href = school.parentPortalUrl;
@@ -16,7 +17,8 @@
     }
     if (school.email) {
       document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
-        link.href = `mailto:${school.email}`;
+        const query = link.getAttribute('href')?.split('?')[1];
+        link.href = `mailto:${school.email}${query ? '?' + query : ''}`;
         if (link.textContent.includes('@')) link.textContent = school.email;
       });
     }
@@ -32,6 +34,28 @@
   };
   applySiteConfig();
 
+  const heroImage = document.querySelector('.hero-media img');
+  const heroNext = document.querySelector('[data-hero-next]');
+  const heroPhotos = [ ['05', 'Learning together'], ['06', 'Our school community'], ['03', 'Finding a rhythm'], ['02', 'Ideas come to life'] ];
+  let photoIndex = 0;
+  heroNext?.addEventListener('click', () => {
+    if (!heroImage) return;
+    const nextIndex = (photoIndex + 1) % heroPhotos.length;
+    const [file, caption] = heroPhotos[nextIndex];
+    heroNext.disabled = true;
+    const nextImage = new Image();
+    nextImage.onload = () => {
+      photoIndex = nextIndex;
+      heroImage.removeAttribute('srcset');
+      heroImage.src = nextImage.src;
+      document.querySelector('[data-hero-caption]').textContent = caption;
+      document.querySelector('[data-photo-status]').textContent = 'Photo ' + (photoIndex + 1) + ' of ' + heroPhotos.length + ': ' + caption;
+      heroNext.disabled = false;
+    };
+    nextImage.onerror = () => { heroNext.disabled = false; document.querySelector('[data-photo-status]').textContent = 'Photo could not load. Please try again.'; };
+    nextImage.src = 'assets/images/' + file + '.webp';
+  });
+
   const header = document.querySelector('[data-header]');
   const menu = document.querySelector('[data-menu]');
   const menuToggle = document.querySelector('[data-menu-toggle]');
@@ -41,19 +65,24 @@
   setHeader();
   window.addEventListener('scroll', setHeader, { passive: true });
 
+  const mobileNav = window.matchMedia('(max-width: 1000px)');
   const setMenu = (open) => {
+    if (menu) menu.inert = mobileNav.matches && !open;
     menu?.classList.toggle('open', open);
     menuToggle?.classList.toggle('active', open);
     menuToggle?.setAttribute('aria-expanded', String(open));
     menuToggle?.querySelector('.sr-only')?.replaceChildren(document.createTextNode(open ? 'Close menu' : 'Open menu'));
   };
+  setMenu(false);
+  mobileNav.addEventListener('change', () => setMenu(false));
   menuToggle?.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
   menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') setMenu(false);
+    if (event.key === 'Escape' && menu?.classList.contains('open')) { setMenu(false); menuToggle?.focus(); }
   });
 
   const reveals = document.querySelectorAll('.reveal');
+  // Content stays visible if enhancement fails or JavaScript is disabled.
   if (reduceMotion || !('IntersectionObserver' in window)) {
     reveals.forEach((item) => item.classList.add('visible'));
   } else {
@@ -64,7 +93,7 @@
         observer.unobserve(entry.target);
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -35px' });
-    reveals.forEach((item) => revealObserver.observe(item));
+    reveals.forEach((item) => { item.classList.add('will-reveal'); revealObserver.observe(item); });
   }
 
   const countElements = document.querySelectorAll('[data-count]');
@@ -95,10 +124,10 @@
     countElements.forEach((item) => countObserver.observe(item));
   }
 
-  document.querySelector('[data-year]').textContent = new Date().getFullYear();
+  document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
-    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js?v=20260817-3').catch(() => {}));
+    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js?v=20260914-1').catch(() => {}));
   }
 
   // Progressive app actions: native sharing and installation where supported.
@@ -146,7 +175,8 @@
   });
   window.addEventListener('appinstalled', () => { installButton.hidden = true; });
   utilityDock.append(installButton);
-  document.body.append(utilityDock);
+  const footer = document.querySelector('.footer-bottom');
+  footer?.append(utilityDock);
 
   // Prefetch likely same-origin destinations without spending data on constrained connections.
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
@@ -184,6 +214,7 @@
     dialogContent?.replaceChildren();
   };
   document.querySelector('[data-dialog-close]')?.addEventListener('click', closeDialog);
+  dialog?.addEventListener('close', () => { dialogContent?.querySelector('video')?.pause(); dialogContent?.replaceChildren(); });
   dialog?.addEventListener('click', (event) => {
     if (event.target === dialog) closeDialog();
   });
@@ -261,6 +292,6 @@
       '',
       'Please contact me about the next steps.'
     ].filter(Boolean).join('\n');
-    window.open(`https://wa.me/254769924670?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+    window.location.assign(`https://wa.me/${school.whatsappNumber || '254769924670'}?text=${encodeURIComponent(message)}`);
   });
 })();

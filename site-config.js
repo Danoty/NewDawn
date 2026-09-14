@@ -10,9 +10,9 @@ window.NEWDawn_CONFIG = Object.freeze({
     phoneDisplay: "+254 769 924 670",
     phoneInternational: "+254769924670",
     whatsappNumber: "254769924670",
-    // TODO: Confirm whether the email domain is .sh.ke or .sc.ke.
-    email: "info@newdawnschool.sh.ke",
+    email: "info@newdawnschool.sc.ke",
     website: "https://newdawnschool.sc.ke/",
+    webmailUrl: "https://workplace.truehost.cloud/appsuite/",
     parentPortalUrl: "https://app.kurasa.co/auth/log-in",
     address: "Bondo-Kisian Highway, Bondo, Siaya County, Kenya",
     mapQuery: "New Dawn School Bondo Kenya",

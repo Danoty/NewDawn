@@ -1,9 +1,9 @@
-const CACHE = 'newdawn-v5-20260817';
+const CACHE = 'newdawn-v6-20260914';
 const CORE = [
   './', './index.html', './about.html', './academics.html',
   './school-life.html', './admissions.html', './contact.html',
-  './privacy.html', './404.html', './offline.html', './styles.css?v=20260817-3', './site-config.js?v=20260817-3',
-  './script.js?v=20260817-3', './site.webmanifest', './assets/images/logo-transparent.png'
+  './privacy.html', './404.html', './offline.html', './styles.css?v=20260914-1', './site-config.js?v=20260914-1',
+  './refresh.css?v=20260914-1', './script.js?v=20260914-1', './site.webmanifest', './assets/images/logo-transparent.png'
 ];
 
 self.addEventListener('install', event => {
