@@ -48,6 +48,7 @@
       photoIndex = nextIndex;
       heroImage.removeAttribute('srcset');
       heroImage.src = nextImage.src;
+      heroImage.alt = caption + " at NewDawn School";
       document.querySelector('[data-hero-caption]').textContent = caption;
       document.querySelector('[data-photo-status]').textContent = 'Photo ' + (photoIndex + 1) + ' of ' + heroPhotos.length + ': ' + caption;
       heroNext.disabled = false;
